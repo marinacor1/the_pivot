@@ -1,0 +1,7 @@
+<% coder.each do |coder| %>
+  <div class="col s3">
+    <p><%= coder.name %></p>
+    <img src="<%= coder.image_url %>" width="100%">
+    <%= render partial: attributes, locals: { coder: coder } %>
+  </div>
+<% end %>
