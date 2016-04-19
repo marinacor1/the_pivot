@@ -3,12 +3,32 @@
 <head>
   <title>Haggle</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container row valign-wrapper">
+    <div class="col s3">
+      <h1>Haggle</h1>
+    </div>
+    <div class="col s9 right-align">
+      <%= link_to "All Items", items_path, class: "valign"%>
+      <%= link_to "Cart", carts_path, class: "valign" %>
+    </div>
+  </div>
+  <nav class="blue darken-4">
+    <div class="container">
+      <div class="center-align">
+        <% @categories.each do |category| %>
+          <%= link_to category.name, category_path(category.id) %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>
