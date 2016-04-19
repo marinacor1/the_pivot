@@ -1,0 +1,7 @@
+<h2><%= @category.name %></h2>
+<% @category.items.each do |item| %>
+  <div class="index-items">
+    <%= item.name %>
+    <img src="<%= item.image_url %>">
+  </div>
+<% end %>
