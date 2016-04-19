@@ -1,0 +1,12 @@
+<h2>Your Cart</h2>
+<% @items.each do |item| %>
+  <div class="index-items">
+    <p><%= item.name %></p>
+    <img src="<%= item.image_url %>">
+    <p><%= item.description %></p>
+  </div>
+<% end %>
+
+<p>
+  total deals: <%= @cart.total %>
+</p>
