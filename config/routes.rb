@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :items, only: [:index]
+  root "coders#index"
+
+  resources :coders, only: [:index]
 
   resources :categories, only: [:show]
 
-  resources :carts, only: [:create, :index]
+  resources :teams, only: [:create, :index]
 end
