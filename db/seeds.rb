@@ -6,3 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Category.create!(name: "Django")
+Category.create!(name: "Big Data")
+Category.create!(name: "Ruby")
+Category.create!(name: "Javascript")
+Category.create!(name: "Elixir")
+Category.create!(name: "Go")
