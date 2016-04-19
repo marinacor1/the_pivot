@@ -1,8 +1,9 @@
 FactoryGirl.define do
 
-  factory :item do |n|
+  factory :coder do |n|
     sequence(:name) {|n| "name #{n}" }
-    sequence(:description) {|n| "description #{n}"}
+    sequence(:experience) {|n| "experience #{n}"}
+    sequence(:cost) {|n| "cost #{n}"}
     sequence(:image_url) {|n| "image_#{n}.png"}
   end
 

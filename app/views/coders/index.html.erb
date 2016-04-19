@@ -1,0 +1,15 @@
+<h2>All Coders</h2>
+
+<% @coders.each_with_index do |coder, index| %>
+  <% if index%4 == 0 %>
+    <div class="row">
+  <% end %>
+    <div class="col s3">
+      <p class="center-align"><%= coder.name %></p>
+      <span class="center-align"><%= button_to "Add Genius", teams_path(coder_id: coder.id)%></span>
+      <img src="<%= coder.image_url %>" width="100%">
+    </div>
+  <% if index%4 == 1 || index == ( @coders.count - 1 )%>
+    </div>
+  <% end %>
+<% end %>

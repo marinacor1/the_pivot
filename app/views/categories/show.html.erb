@@ -1,14 +1,14 @@
 <h2><%= @category.name %></h2>
-<% @category.items.each_with_index do |item, index| %>
+<% @category.coders.each_with_index do |coder, index| %>
   <% if index%4 == 0 %>
     <div class="row">
   <% end %>
     <div class="col s3">
-      <p class="center-align"><%= item.name %></p>
-      <span class="center-align"><%= button_to "I'm interested", carts_path(item_id: item.id)%></span>
-      <img src="<%= item.image_url %>" width="100%">
+      <p class="center-align"><%= coder.name %></p>
+      <span class="center-align"><%= button_to "I'm interested", teams_path(coder_id: coder.id)%></span>
+      <img src="<%= coder.image_url %>" width="100%">
     </div>
-  <% if index%4 == 1 || index == ( @category.items.count - 1 )%>
+  <% if index%4 == 1 || index == ( @category.coders.count - 1 )%>
     </div>
   <% end %>
 <% end %>
