@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "coders#index"
+ root "homes#show"
+  resources :home, only: [:show]
 
   resources :coders, only: [:index]
 
