@@ -1,10 +1,16 @@
 <h2>Your Cart</h2>
-<% @items.each do |item| %>
-  <div class="index-items">
+<% @items.each_with_index do |item, index| %>
+  <% if index%4 == 0 %>
+    <div class="row">
+  <% end %>
+  <div class="col s3">
     <p><%= item.name %></p>
-    <img src="<%= item.image_url %>">
+    <img src="<%= item.image_url %>" width="100%">
     <p><%= item.description %></p>
   </div>
+  <% if index%4 == 1 || index == ( @items.count - 1 )%>
+    </div>
+  <% end %>
 <% end %>
 
 <p>
