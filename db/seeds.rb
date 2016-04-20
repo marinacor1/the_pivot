@@ -6,9 +6,182 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Category.create!(name: "Django")
+
 Category.create!(name: "Big Data")
-Category.create!(name: "Ruby")
-Category.create!(name: "Javascript")
-Category.create!(name: "Elixir")
-Category.create!(name: "Go")
+Category.create!(name: "Data Science ")
+Category.create!(name: "FrontEnd Specialist")
+Category.create!(name: "BackEnd Specialist")
+Category.create!(name: "Database Systems")
+Category.create!(name: "Mobile")
+
+30.times do
+  Coder.create!(name: Faker::Name.name,
+                experience: 10.times.map { Faker::Company.catch_phrase },
+                cost: Faker::Commerce.price,
+                image_url: "http://api.randomuser.me/portraits/thumb/#{['men', 'women'].sample}/#{rand(96)}.jpg",
+                category: Category.all.order("Random()").first)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
