@@ -9,4 +9,11 @@ module ApplicationHelper
     end
   end
 
+  def team_page_login
+    if current_user
+      "Create Team"
+    else
+      "#{link_to('Login', login_path)} or #{link_to('Create Account', new_user_path)} to create your dream team".html_safe
+    end
+  end
 end

@@ -17,6 +17,5 @@ class Team
     end
     @contents = new_contents
   end
-
 end
 

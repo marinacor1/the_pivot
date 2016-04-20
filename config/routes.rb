@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- root "homes#show"
+  root "homes#show"
   resources :homes, only: [:show]
 
   resources :coders, only: [:index, :show]
