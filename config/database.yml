@@ -8,17 +8,17 @@ default: &default
 
 development:
   <<: *default
-  database: haggle_development
+  database: coder_development
 
 
 
 test:
   <<: *default
-  database: haggle_test
+  database: coder_test
 
 production:
   <<: *default
-  database: haggle_production
+  database: coder_production
   username: 
-  password: <%= ENV['HAGGLE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['CODER_DATABASE_PASSWORD'] %>
  

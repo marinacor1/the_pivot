@@ -12,4 +12,11 @@ class TeamsController < ApplicationController
     redirect_to coders_path
   end
 
+  def destroy
+    @team.remove_coder(params[:id])
+    session[:team] = @team.contents
+    flash[:notice] =  "Successfully removed #{Coder.find(params[:id]).name} from your team."
+    redirect_to teams_path
+  end
+
 end
