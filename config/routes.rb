@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  root "homes#show"
-  resources :home, only: [:show]
+  resources :homes, only: [:show]
 
   resources :coders, only: [:index]
 

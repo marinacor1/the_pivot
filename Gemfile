@@ -41,6 +41,7 @@ group :development, :test do
   gem 'pry'
   gem 'faker'
   gem 'factory_girl_rails', '~>4.0'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
 end
 
 group :development do
