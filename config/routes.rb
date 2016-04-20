@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root "homes#show"
-  resources :home, only: [:show]
+ root "homes#show"
+  resources :homes, only: [:show]
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:show]
 
-  resources :teams, only: [:create, :index]
+  resources :teams, only: [:create, :index, :destroy]
 end

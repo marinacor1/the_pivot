@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'User can check categories' do
-  xscenario "when they visit coders page" do
+feature 'User can view coders' do
+  scenario "when they visit category page" do
     created_coders = create_list(:coder, 4)
     created_categories = create_list(:category, 2)
 
@@ -11,6 +11,7 @@ feature 'User can check categories' do
     created_coders[3].update(category_id: created_categories[1].id)
 
     visit category_path(created_categories[0])
+
 
     expect(page).to have_content(created_coders[0].name)
     expect(page).to have_content(created_coders[1].name)

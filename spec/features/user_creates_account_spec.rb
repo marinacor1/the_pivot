@@ -5,7 +5,6 @@ require 'rails_helper'
       visit root_path
 
       expect(page).to have_link("Login")
-
       click_link_or_button "Login"
       expect(current_path).to eq(login_path)
 
@@ -25,7 +24,8 @@ require 'rails_helper'
       click_on "Create Account"
 
       expect(current_path).to eq(root_path)
-      # expect(page).to have_content("You are logged in")
+
+      expect(page).to have_content("You've successfully logged in")
       expect(page).to have_link("Logout")
     end
 
@@ -40,7 +40,7 @@ require 'rails_helper'
       fill_in "Password confirmation", with: "password"
 
       click_on "Create Account"
-      # expect(page).to have_content("login unsuccesful")
+      expect(page).to have_content("login unsuccesful")
       expect(page).to have_content("Sign in below")
       expect(current_path).to eq(users_path)
     end

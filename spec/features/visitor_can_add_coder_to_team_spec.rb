@@ -14,6 +14,6 @@ feature "Visitor can add coder to cart" do
     expect(page).to have_content(coder.name)
     expect(page).to have_css("img[src=\"#{coder.image_url}\"]")
     expect(page).to have_content(coder.experience)
-    expect(page).to have_content("team size: 1")
+    expect(page).to have_content("Your Team (1)")
   end
 end
