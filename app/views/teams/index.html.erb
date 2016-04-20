@@ -1,16 +1,9 @@
 <h2>Your Team</h2>
-<% @coders.each_with_index do |coder, index| %>
-  <% if index%4 == 0 %>
-    <div class="row">
-  <% end %>
-  <div class="col s3">
-    <p><%= coder.name %></p>
-    <img src="<%= coder.image_url %>" width="100%">
-    <p><%= coder.experience %></p>
-    <p><%= coder.cost %></p>
+
+<% @coders.each_slice(4) do |coder| %>
+  <div class="row">
+    <% attributes = "attributes" %>
+    <%= render partial: "shared/list", locals: { coder: coder, attributes: attributes } %>
   </div>
-  <% if index%4 == 1 || index == ( @coders.count - 1 )%>
-    </div>
-  <% end %>
 <% end %>
 
