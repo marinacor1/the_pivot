@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'User can check categories' do
-  scenario "when they visit coders page" do
+  xscenario "when they visit coders page" do
     created_coders = create_list(:coder, 4)
     created_categories = create_list(:category, 2)
 
