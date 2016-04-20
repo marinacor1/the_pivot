@@ -15,11 +15,12 @@ feature 'User can remove an coder from their team'  do
 
     visit teams_path
 
-    first('input[type="submit"]').click
+    find("a[href='#{team_path(coder1.id)}']").click
 
-    expect(current_path).to eq. teams_path
-    expect(page).to have_content("Successfullly removed #{coder1.name} from your team.")
-    expect(page).to have_content("Team Size: 1")
+    expect(current_path).to eq(teams_path)
+    save_and_open_page
+    expect(page).to have_content("Successfully removed #{coder1.name} from your team.")
+    expect(page).to have_content("Your Team (1)")
     expect(page).to have_content("Add #{coder1.name} back to your team")
   end
 end

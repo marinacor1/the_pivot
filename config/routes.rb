@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:show]
 
-  resources :teams, only: [:create, :index]
+  resources :teams, only: [:create, :index, :destroy]
 end

@@ -16,7 +16,7 @@
           <%= link_to "All Coders", coders_path %>
         </li>
         <li>
-          <%= link_to "Your Team (#{@coders.count})", teams_path %>
+          <%= link_to "Your Team (#{@team.contents.keys.count})", teams_path %>
         </li>
       </ul>
     </div>
