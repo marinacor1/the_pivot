@@ -16,10 +16,7 @@ class TeamsController < ApplicationController
     @team.remove_coder(params[:id])
     session[:team] = @team.contents
     flash[:notice] =  "Successfully removed #{Coder.find(params[:id]).name} from your team."
-    flash[:notice] = "<%= button_to 'Add #{Coder.find(params[:id]).name} back to your team?', teams_path(params[:id]) %>"
     redirect_to teams_path
-    #@coder = Coder.find(params[:coder_id])
-    #@coder.destroy
   end
 
 end
