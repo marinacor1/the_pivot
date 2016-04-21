@@ -20,18 +20,18 @@ describe Team do
 
   end
 
-  it "can remove a coder" do
+it "can remove a coder" do
     coder1, coder2  = create_list(:coder, 2)
 
     team = Team.new({})
 
-    team.add_coder(coder1)
-    team.add_coder(coder2)
+    team.add_coder(coder1.id)
+    team.add_coder(coder2.id)
 
     expect(team.contents.count).to eq(2)
 
     team.remove_coder(coder2.id)
 
-    #expect(team.contents.count).to eq(1)
+    expect(team.contents.count).to eq(1)
   end
 end

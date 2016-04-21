@@ -13,7 +13,7 @@ class Team
   def remove_coder(coder_id)
     new_contents = {}
     contents.each do |coder, count|
-      new_contents[coder] = 1 unless coder == coder_id
+      new_contents[coder] = 1 unless coder == coder_id.to_s
     end
     @contents = new_contents
   end
