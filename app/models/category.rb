@@ -1,16 +1,16 @@
 class Category < ActiveRecord::Base
- # before_validation :assign_slug
+  before_validation :assign_slug
 
   validates :name, presence: true, uniqueness: true
- # validates :slug, uniqueness: true
+  validates :slug, uniqueness: true
 
   has_many :coders
 
- # def to_param
- #   slug
- # end
+  def to_param
+    slug
+  end
 
- # def assign_slug
- #   self.slug ||= name.parameterize if name
- # end
+  def assign_slug
+    self.slug ||= name.parameterize if name
+  end
 end

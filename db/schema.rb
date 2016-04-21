@@ -33,6 +33,12 @@ ActiveRecord::Schema.define(version: 20160421135432) do
 
   add_index "coders", ["category_id"], name: "index_coders_on_category_id", using: :btree
 
+  create_table "contracts", force: :cascade do |t|
+    t.text     "teammates_ids"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "username"
