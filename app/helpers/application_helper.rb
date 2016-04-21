@@ -11,7 +11,9 @@ module ApplicationHelper
 
   def team_page_login
     if current_user
-      "Create Team"
+
+      # session[:teammates_ids]
+      link_to 'Create Team', contracts_path, method: :post
     else
       "#{link_to('Login', login_path)} or #{link_to('Create Account', new_user_path)} to create your dream team".html_safe
     end
