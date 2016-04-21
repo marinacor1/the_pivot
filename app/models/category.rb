@@ -2,7 +2,7 @@ class Category < ActiveRecord::Base
   before_validation :assign_slug
 
   validates :name, presence: true, uniqueness: true
-  validates :slug, uniqueness: true
+  validates :slug, presence: true, uniqueness: true
 
   has_many :coders
 
