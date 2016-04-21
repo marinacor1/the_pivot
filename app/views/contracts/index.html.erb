@@ -1,0 +1,6 @@
+<h2>Contract History</h2>
+
+<% @contracts.each do |contract| %>
+  <%= link_to contract.id, contract_path(contract.id) %>
+  <%= contract.created_at %>
+<% end %>
