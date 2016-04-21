@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   resources :users, only: [:new, :create]
+  get "/dashboard", to: "users#show", as: :dashboard
 
   resources :contracts, only: [:create, :show]
 
@@ -17,5 +18,4 @@ Rails.application.routes.draw do
   resources :teams, only: [:create, :index, :destroy]
 
   get "/:slug", to: "categories#show", as: :category
-  # resources :categories, only: [:show]
 end

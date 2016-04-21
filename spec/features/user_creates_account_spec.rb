@@ -1,5 +1,4 @@
 require 'rails_helper'
-
   feature "user can visit login page" do
     scenario "and use create account link" do
       visit root_path
@@ -23,10 +22,14 @@ require 'rails_helper'
 
       click_on "Create Account"
 
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(dashboard_path)
 
-      expect(page).to have_content("You've successfully logged in")
+      expect(page).to have_content("Logged in as Name")
+      expect(page).to_not have_content("Login")
       expect(page).to have_link("Logout")
+      expect(page).to have_content("UserName")
+      expect(page).to have_content("fake@fake.com")
+      expect(page).to have_content("Organization")
     end
 
     scenario "fails if required fields not entered" do
