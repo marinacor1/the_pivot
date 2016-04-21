@@ -1,0 +1,239 @@
+$link_blue: #4F7CAC;
+$nav_background: #2D2D2A;
+$secondary_nav: #EF5350;
+$success: #17AF3D;
+$secondary_dark: #CC4846;
+
+body {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, p, a {
+  font-family: "Helvetica", sans-serif;
+}
+
+h2 {
+  margin-left: 20px;
+}
+
+nav {
+  padding-top: 0px;
+  background-color: $nav_background;
+  overflow: auto;
+
+  .links {
+    margin-top: 30px;
+    margin-right: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $link_blue;
+    padding-right: 10px;
+  }
+}
+
+h1 {
+  display: inline;
+  margin-left: 20px;
+  float: left;
+
+  a {
+    color: $link_blue;
+    text-decoration: none;
+    display: inline-block;
+  }
+}
+
+
+.right {
+  float: right;
+}
+
+.nav-secondary {
+  background-color: $secondary_nav;
+  text-align: center;
+  padding: 10px 0;
+  clear: left;
+
+  a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+
+  }
+
+  a:hover {
+    background-color: $nav_background;
+    color: $link_blue;
+  }
+}
+
+.jumbotron {
+  text-align: center;
+  background-image: image-url("coders.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 800px;
+  background-size: cover;
+  overflow: hidden;
+
+  h2 {
+    font-size: 4em;
+    margin: 25% 0 20px 0;
+    color: white;
+    text-align: center;
+  }
+
+  .button {
+    text-decoration: none;
+    color: white;
+    background-color: $link_blue;
+    padding: 10px;
+    border-radius: 2px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.row {
+  margin-top: 30px;
+
+  .one-third {
+    width: 33%;
+    display: block-inline;
+    float: left;
+  }
+
+  .one-quarter {
+    width: 25%;
+    display: block-inline;
+    float: left;
+
+    .percent-90 {
+      display: block;
+      margin: auto;
+      width: 90%;
+    }
+  }
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.coder-show {
+  margin: 30px auto;
+  text-align: center;
+  max-width: 600px;
+
+  h2 {
+    margin: 0;
+  }
+
+  .coder-details {
+    max-width: 200px;
+    display: inline;
+    float: right;
+  }
+}
+
+.coder-highlights {
+  width: 380px;
+  display: inline;
+  float: left;
+
+  img {
+    width: 100%;
+  }
+}
+
+.create-team {
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.add-button {
+  border: none;
+  width: 100%;
+  background-color: $link_blue;
+  color: white;
+  padding: 8px 0;
+}
+
+.user-form {
+  width: 60%;
+  margin: 0 auto;
+
+  h2 {
+    margin-left: 0;
+  }
+
+  label {
+    font-family: "Helvetica", sans-serif;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    font-size: 1.5em;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+}
+
+.remove-link {
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  background-color: $secondary_nav;
+  color: white;
+  padding: 8px 0;
+}
+
+.flash-message {
+  background-color: $success;
+  color: white;
+  text-align: center;
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+}
+
+.flash-error {
+  background-color: $secondary_dark;
+  color: white;
+  text-align: center;
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+}
+
+.flash-notice {
+  background-color: $secondary_dark;
+  color: white;
+  text-align: center;
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+
+  a {
+    color: white;
+  }
+}
+
+.flash-action {
+  background-color: $secondary_dark;
+  color: white;
+  text-align: center;
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+}

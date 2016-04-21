@@ -1,3 +1,14 @@
-<h2><%= @coder.name %></h2>
-
-<span class="center-align"><%= button_to "Add Genius", teams_path(coder_id: @coder.id)%></span>
+<div class="coder-show">
+  <div class="coder-highlights">
+    <h2><%= @coder.name %></h2>
+    <img src="<%= @coder.image_url %>">
+  </div>
+  <div class="coder-details">
+    <% if @coder.category %>
+      <h3><%= @coder.category.name %></h3>
+    <% end %>
+    <p><%= @coder.experience %></p>
+    <p>$<%= @coder.cost %></p>
+    <span><%= button_to "Add Genius", teams_path(coder_id: @coder.id), class: "add-button"%></span>
+  </div>
+</div>
