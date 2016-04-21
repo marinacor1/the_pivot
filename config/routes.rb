@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   resources :contracts, only: [:create, :show]
+
   get "/history", to: "contracts#index"
 
-  resources :categories, only: [:show]
-
   resources :teams, only: [:create, :index, :destroy]
+
+  get "/:slug", to: "categories#show", as: :category
+  # resources :categories, only: [:show]
 end
