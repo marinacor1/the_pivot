@@ -25,5 +25,4 @@ class Team
     end
     sprintf("%.2f", total)
   end
-
 end

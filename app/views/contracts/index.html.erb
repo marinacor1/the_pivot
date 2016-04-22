@@ -1,6 +1,7 @@
 <h2>Contract History</h2>
 
-<% @contracts.each do |contract| %>
-  <%= link_to contract.id, contract_path(contract.id) %>
+<% @contracts.each_with_index do |contract, index| %>
+  <%= "Order #{index + 1}" %>
   <%= contract.created_at %>
+  <%= link_to "View", contract_path(contract.id), class: "button" %>
 <% end %>
