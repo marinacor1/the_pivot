@@ -17,5 +17,13 @@ class Team
     end
     @contents = new_contents
   end
-end
 
+  def total_cost
+    total = contents.reduce(0) do |sum, coder_id|
+      sum += Coder.find(coder_id[0]).cost.to_f
+      sum
+    end
+    sprintf("%.2f", total)
+  end
+
+end

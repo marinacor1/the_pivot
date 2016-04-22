@@ -2,6 +2,7 @@
   <h1><a href="/">Super Coders</a></h1>
   <div class="right links">
     <%= link_to "All Coders", coders_path %>
+    <%= history_create_account %>
     <%= login_logout %>
     <%= link_to "Your Team (#{@team.contents.keys.count})", teams_path %>
   </div>
