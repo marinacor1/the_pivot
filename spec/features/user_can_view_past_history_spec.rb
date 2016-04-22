@@ -22,6 +22,27 @@ feature "User visits history" do
     visit teams_path
 
     click_link "Create Team"
+    sleep(1)
+    contract1 = Contract.first
+
+    expect(page).to have_content(contract1.id)
+    expect(page).to have_content(contract1.created_at)
+
+    click_link "Logout"
+
+    visit login_path
+
+    fill_in "Username", with: "hedy"
+    fill_in "Password", with: "password1"
+    click_button "Login"
+
+    visit coders_path
+
+    click_button "Add Genius"
+
+    visit teams_path
+
+    click_link "Create Team"
 
     contract1 = Contract.first
 

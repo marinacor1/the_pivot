@@ -9,7 +9,9 @@ require 'rails_helper'
 
       expect(page).to have_link("Create Account")
 
-      click_link_or_button "Create Account"
+      within(".user-form") do
+        click_link "Create Account"
+      end
 
       expect(current_path).to eq(new_user_path)
 
@@ -20,7 +22,9 @@ require 'rails_helper'
       fill_in "Password", with: "password"
       fill_in "Password confirmation", with: "password"
 
-      click_on "Create Account"
+      within(".user-form") do
+        click_button "Create Account"
+      end
 
       expect(current_path).to eq(dashboard_path)
 
@@ -42,7 +46,11 @@ require 'rails_helper'
       fill_in "Password", with: "password"
       fill_in "Password confirmation", with: "password"
 
-      click_on "Create Account"
+
+      within(".user-form") do
+        click_button "Create Account"
+      end
+
       expect(page).to have_content("login unsuccesful")
       expect(page).to have_content("Sign in below")
       expect(current_path).to eq(users_path)
