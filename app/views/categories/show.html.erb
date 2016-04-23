@@ -1,6 +1,6 @@
 <h2><%= @category.name %></h2>
 
-<% @category.coders.each_slice(4) do |coder| %>
+<% @category.active_coders.each_slice(4) do |coder| %>
   <div class="row">
     <% attributes = "attributes" %>
     <%= render partial: "shared/list", locals: { coder: coder, attributes: attributes } %>
