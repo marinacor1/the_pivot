@@ -14,10 +14,10 @@ describe TeamsController do
       expect(response).to render_template :index
     end
 
-#   it "redirects to coders page upon save" do
-#     post :create #, coder: @coder["id"]
-#
-#      expect(response).to redirect_to coders_url
-#    end
- end
+    #   it "redirects to coders page upon save" do
+    #        post :create, coder: @coder.id
+    #
+    #      expect(response).to redirect_to coders_url
+    #    end
+  end
 end
