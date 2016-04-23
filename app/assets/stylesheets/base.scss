@@ -131,7 +131,7 @@ h1 {
 .user-show {
   margin: 30px auto;
   text-align: center;
-  max-width: 600px;  
+  max-width: 600px;
 }
 
 .coder-show {
@@ -173,7 +173,7 @@ h1 {
   padding: 8px 0;
 }
 
-.user-form {
+.user-form, .center-60 {
   width: 60%;
   margin: 0 auto;
 
@@ -192,6 +192,10 @@ h1 {
     margin: 8px 0;
     box-sizing: border-box;
   }
+}
+
+.table-decimal {
+  text-align: right;
 }
 
 .remove-link {
