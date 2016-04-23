@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      flash[:message] = "You have successfuly logged in!"
+      flash[:message] = "You have successfully logged in!"
       redirect_to root_path
     else
       flash[:error] = "login unsuccessful"
@@ -21,5 +21,3 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 end
-
-

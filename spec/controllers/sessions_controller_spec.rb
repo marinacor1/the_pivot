@@ -19,8 +19,8 @@ describe SessionsController do
       post :create, session: { username: @user.username,
                                password: @user.password }
 
-      expect(response).to redirect_to root_path
-#      expect(flash[:message]).to eq.("You have successfully logged in!")
+      expect(response).to redirect_to(root_path)
+      expect(flash[:message]).to eq("You have successfully logged in!")
     end
 
     it "destroys a users sessio" do
