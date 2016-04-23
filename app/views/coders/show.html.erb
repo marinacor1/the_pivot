@@ -9,6 +9,10 @@
     <% end %>
     <p><%= @coder.experience %></p>
     <p>$<%= @coder.cost %></p>
-    <span><%= button_to "Add Genius", teams_path(coder_id: @coder.id), class: "add-button"%></span>
+    <% if @coder.active? %>
+      <span><%= button_to "Add Genius", teams_path(coder_id: @coder.id), class: "add-button"%></span>
+    <% else %>
+      <span>Coder in NSA Custody or Russian Gulag</span>
+    <% end %>
   </div>
 </div>
