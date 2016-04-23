@@ -13,4 +13,8 @@ class Category < ActiveRecord::Base
   def assign_slug
     self.slug ||= name.parameterize if name
   end
+
+  def active_coders
+    coders.where(active: true)
+  end
 end
