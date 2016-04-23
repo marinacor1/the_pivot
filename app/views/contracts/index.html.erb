@@ -1,7 +1,17 @@
+<div class="center-60">
 <h2>Contract History</h2>
-
-<% @contracts.each_with_index do |contract, index| %>
-  <%= "Order #{index + 1}" %>
-  <%= contract.created_at %>
-  <%= link_to "View", contract_path(contract.id), class: "button" %>
-<% end %>
+  <table>
+    <tr>
+      <th><p>Order Number</p></th>
+      <th><p>Created At</p></th>
+      <th><p>View</p></th>
+    </tr>
+    <% @contracts.each_with_index do |contract, index| %>
+      <tr>
+        <td><p><%= "Order #{index + 1}" %></p></td>
+        <td><p><%= contract.created_at %></p></td>
+        <td><%= link_to "View", contract_path(contract.id), class: "button" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
