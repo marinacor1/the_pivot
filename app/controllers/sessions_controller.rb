@@ -8,8 +8,11 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
+
       flash[:message] = "You have successfully logged in!"
-      if session[:team]
+      if current_admin?
+        redirect_to admin_dashboard_path
+      elsif session[:team]
         redirect_to teams_path
       else
         redirect_to root_path
