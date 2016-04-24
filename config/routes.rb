@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "/dashboard", to: "users#show", as: :dashboard
+    resources :users, only: [:edit, :update]
   end
 
   get "/login", to: "sessions#new"
