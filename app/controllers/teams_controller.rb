@@ -19,5 +19,4 @@ class TeamsController < ApplicationController
     flash[:message] =  "Successfully removed #{ActionController::Base.helpers.link_to coder.name, coder_path(coder.id)} from your team.".html_safe
     redirect_to teams_path
   end
-
 end

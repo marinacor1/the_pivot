@@ -30,5 +30,6 @@ describe UsersController do
       expect(flash[:message]).to eql("Logged in as #{user_attributes[:name]}")
     end
   end
-
 end
+
+
