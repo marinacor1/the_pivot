@@ -22,7 +22,7 @@ feature "When a visitor with a team logs in" do
 
     expect(current_path).to eq('/history')
     expect(page).to have_content("Team successfully created.")
-    expect(page).to have_content("Order 1")
+    expect(page).to have_content("Contract ID: #{contract1.id}")
     expect(page).to have_content(contract1.created_at)
   end
 end

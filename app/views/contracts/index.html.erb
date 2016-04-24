@@ -6,9 +6,9 @@
       <th><p>Created At</p></th>
       <th><p>View</p></th>
     </tr>
-    <% @contracts.each_with_index do |contract, index| %>
+    <% @contracts.each do |contract| %>
       <tr>
-        <td><p><%= "Order #{index + 1}" %></p></td>
+        <td><p><%= "Contract ID: #{contract.id}" %></p></td>
         <td><p><%= contract.created_at %></p></td>
         <td><%= link_to "View", contract_path(contract.id), class: "button" %></td>
       </tr>
