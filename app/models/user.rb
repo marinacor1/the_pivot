@@ -17,4 +17,11 @@ class User < ActiveRecord::Base
 
   validates :password_confirmation, presence: true,
                                     allow_blank: true
+
+  enum role: %w(default admin)
+
+  def admin?
+    self.role == "admin"
+  end
+
 end
