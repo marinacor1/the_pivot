@@ -25,7 +25,7 @@ feature "User visits history" do
     sleep(1)
     contract1 = Contract.first
 
-    expect(page).to have_content("Order 1")
+    expect(page).to have_content("Contract ID: #{contract1.id}")
     expect(page).to have_content(contract1.created_at)
 
     click_link "Logout"
@@ -50,7 +50,7 @@ feature "User visits history" do
 
     expect(page).to_not have_content(contract1.created_at)
 
-    expect(page).to have_content("Order 1")
+    expect(page).to have_content("Contract ID: #{contract2.id}")
     expect(page).to have_content(contract2.created_at)
   end
 end

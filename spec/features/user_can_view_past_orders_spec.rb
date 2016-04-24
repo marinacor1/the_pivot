@@ -23,7 +23,7 @@ feature "User can see individual contract details" do
 
     visit history_path
 
-    expect(page).to have_content("Order 1")
+    expect(page).to have_content("Contract ID: #{@contract.id}")
     click_link "View"
 
     expect(page).to have_link(@coder1.name)
