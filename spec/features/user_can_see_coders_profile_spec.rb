@@ -10,5 +10,4 @@ feature "User can see individual coder page" do
 
     expect(page).to have_button('Add Genius')
   end
-
 end
