@@ -2,7 +2,7 @@
   <h2>Sign in below</h2>
   <%= form_for(@user) do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, autofocus: true %>
     <%= f.label :username %>
     <%= f.text_field :username %>
     <%= f.label :email %>
