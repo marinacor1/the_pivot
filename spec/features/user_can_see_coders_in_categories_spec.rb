@@ -2,23 +2,29 @@ require 'rails_helper'
 
 feature 'User can view coders' do
   scenario "when they visit category page" do
-    created_coders = create_list(:coder, 4)
-    created_categories = create_list(:category, 2)
+    coder1,coder2,coder3,coder4 = create_list(:coder, 4)
+    category1,category2 = create_list(:category, 2)
 
-    created_coders[0].update(category_id: created_categories[0].id)
-    created_coders[1].update(category_id: created_categories[0].id)
-    created_coders[2].update(category_id: created_categories[1].id)
-    created_coders[3].update(category_id: created_categories[1].id)
+    coder1.update(category_id: category1.id)
+    coder2.update(category_id: category1.id)
+    coder3.update(category_id: category2.id)
+    coder4.update(category_id: category2.id)
 
-    visit category_path(created_categories[0])
+    visit category_path(category1)
 
+    expect(page).to have_content(coder1.name)
+    expect(page).to have_content(coder2.name)
 
-    expect(page).to have_content(created_coders[0].name)
-    expect(page).to have_content(created_coders[1].name)
+    visit category_path(category2)
 
-    visit category_path(created_categories[1])
+    expect(page).to have_content(coder3.name)
+    expect(page).to have_content(coder4.name)
+  end
 
-    expect(page).to have_content(created_coders[2].name)
-    expect(page).to have_content(created_coders[3].name)
+  scenario "when they visit empty category" do
+    category = create(:category)
+
+    visit category_path(category)
+    expect(page).to have_content(category.name)
   end
 end
