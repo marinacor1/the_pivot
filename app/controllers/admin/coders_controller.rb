@@ -18,7 +18,13 @@ class Admin::CodersController < Admin::BaseController
   end
 
   private
+
   def coder_params
-    params.require(:coder).permit(:name, :experience, :category_id, :image_url, :cost)
+    params.require(:coder).permit(:name,
+                                  :experience,
+                                  :category_id,
+                                  :image_url,
+                                  :cost,
+                                  :active)
   end
 end
