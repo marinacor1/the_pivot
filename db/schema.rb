@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427171846) do
+ActiveRecord::Schema.define(version: 20160427174625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 20160427171846) do
 
   add_index "contracts", ["user_id"], name: "index_contracts_on_user_id", using: :btree
 
+  create_table "teammates", force: :cascade do |t|
+    t.integer "coder_id"
+    t.integer "contract_id"
+    t.string  "cost"
+  end
+
+  add_index "teammates", ["coder_id"], name: "index_teammates_on_coder_id", using: :btree
+  add_index "teammates", ["contract_id"], name: "index_teammates_on_contract_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "username"
@@ -56,4 +65,6 @@ ActiveRecord::Schema.define(version: 20160427171846) do
 
   add_foreign_key "coders", "categories"
   add_foreign_key "contracts", "users"
+  add_foreign_key "teammates", "coders"
+  add_foreign_key "teammates", "contracts"
 end

@@ -1,9 +1,12 @@
 class Contract < ActiveRecord::Base
-  serialize :teammates_ids
   belongs_to :user
+  has_many :teammates
+  has_many :coders, through: :teammates
 
-  def coders
-    Coder.find(teammates_ids)
+  def set_teammates(coders)
+    coders.each do |coder|
+      teammates << Teammate.create(coder_id: coder.id, cost: coder.cost)
+    end
   end
 
   def total_cost

@@ -6,7 +6,10 @@ feature "When an admin visits an individual order" do
     user.update(role: 1)
     coder1, coder2 = create_list(:coder, 2)
     coders_ids = [coder1.id, coder2.id]
-    contract = Contract.create(coders: coders_ids, user_id: user.id)
+
+    contract = Contract.create(user_id: user.id)
+    contract.teammates.create(coder_id: coder1.id, cost: coder1.cost)
+    contract.teammates.create(coder_id: coder2.id, cost: coder2.cost)
     formatted_date_created = contract.created_at.strftime("%B %d, %Y - %H:%M")
 
     visit login_path

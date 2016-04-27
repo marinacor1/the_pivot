@@ -55,7 +55,7 @@ feature "User can see individual contract details" do
 
     visit history_path
     click_link "View"
-
+  
     expect(page).to have_content("Cancelled")
     expect(page).to have_content("Cancelled at:")
     expect(page).to have_content(formatted_date_updated)
