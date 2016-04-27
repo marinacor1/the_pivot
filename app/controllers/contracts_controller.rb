@@ -5,6 +5,7 @@ class ContractsController < ApplicationController
     contract.set_teammates(coders)
     SmsSender.new(@team.total_cost).send_sms
     session[:team].clear
+    flash[:message] = "Team successfully created."
     redirect_to history_path
   end
 
@@ -18,7 +19,6 @@ class ContractsController < ApplicationController
 
   def index
     if current_user
-      flash[:message] = "Team successfully created."
       @contracts = current_user.contracts.ordered
     else
       render :file => "#{Rails.root}/public/404.html",  :status => 404
