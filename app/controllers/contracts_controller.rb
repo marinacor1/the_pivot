@@ -19,7 +19,7 @@ class ContractsController < ApplicationController
   def index
     if current_user
       flash[:message] = "Team successfully created."
-      @contracts = current_user.contracts.all.reverse
+      @contracts = current_user.contracts.ordered
     else
       render :file => "#{Rails.root}/public/404.html",  :status => 404
     end
