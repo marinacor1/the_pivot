@@ -2,17 +2,17 @@ module ApplicationHelper
 
   def login_logout
     if current_user
-      link_to "Logout", logout_path, method: :delete
+      link_to "Logout", logout_path, method: :delete, class: "link"
     else
-      link_to "Login", login_path
+      link_to "Login", login_path, class: "link"
     end
   end
 
   def history_create_account
     if current_user
-      link_to "History", history_path
+      link_to "History", history_path, class: "link"
     else
-      link_to "Create Account", new_user_path
+      link_to "Create Account", new_user_path, class: "link"
     end
   end
 

@@ -1,15 +1,15 @@
 <nav id="primary">
-  <h1><a href="/">Super Coders</a></h1>
+  <h1><a href="/" class="link">Super Coders</a></h1>
   <div class="right links">
-    <%= link_to "All Coders", coders_path %>
+    <%= link_to "All Coders", coders_path, class: "link" %>
     <%= history_create_account %>
     <%= login_logout %>
-    <%= link_to "Your Team (#{@team.contents.keys.count})", teams_path %>
+    <%= link_to "Your Team (#{@team.contents.keys.count})", teams_path, class: "link" %>
   </div>
 </nav>
 
 <div class="nav-secondary">
   <% @nav_categories.each do |category| %>
-    <%= link_to category.name, category_path(category), class: "nav-category-links" %>
+    <%= link_to category.name, category_path(category), class: "nav-category-links link" %>
   <% end %>
 </div>

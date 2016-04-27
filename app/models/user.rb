@@ -19,8 +19,4 @@ class User < ActiveRecord::Base
                                     allow_blank: true
 
   enum role: %w(default admin)
-
-  def admin?
-    self.role == "admin"
-  end
 end
