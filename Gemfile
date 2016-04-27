@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
  gem 'unicorn'
  gem 'rails_12factor', group: :production
  gem 'faker'
+ gem 'twilio-ruby'
+ gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

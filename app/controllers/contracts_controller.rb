@@ -3,6 +3,7 @@ class ContractsController < ApplicationController
     coders = Coder.find(session[:team].keys)
     contract = current_user.contracts.create
     contract.set_teammates(coders)
+    SmsSender.new(@team.total_cost).send_sms
     session[:team].clear
     redirect_to history_path
   end
