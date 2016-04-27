@@ -1,0 +1,16 @@
+<div class="user-form">
+  <h2>Update Genius Profile</h2>
+  <%= form_for([:admin, @coder]) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+    <%= f.label :experience %>
+    <%= f.text_field :experience %>
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url %>
+    <%= f.label :cost %>
+    <%= f.password_field :cost %>
+    <%= f.submit "Update", class: "add-button" %>
+  <% end %>
+</div>

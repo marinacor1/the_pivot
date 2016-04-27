@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get "/dashboard", to: "users#show", as: :dashboard
     resources :users, only: [:edit, :update]
     resources :contracts, only: [:show]
+    resources :coders, only: [:index, :edit, :update]
   end
 
   get "/:slug", to: "categories#show", as: :category
