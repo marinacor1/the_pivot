@@ -5,4 +5,7 @@ class Coder < ActiveRecord::Base
   validates :cost, presence: :true
 
   belongs_to :category
+  has_many :teammates
+  has_many :contracts, through: :teammates
+
 end

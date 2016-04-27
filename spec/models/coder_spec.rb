@@ -11,5 +11,8 @@ RSpec.describe Coder, type: :model do
   context "belongs_to" do
     it { is_expected.to  belong_to(:category) }
   end
-end
 
+  context "has_many" do
+    it {is_expected.to have_many(:contracts).with_foreign_key(:coder_id)}
+  end
+end

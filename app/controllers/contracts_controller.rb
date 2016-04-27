@@ -1,6 +1,8 @@
 class ContractsController < ApplicationController
   def create
-    current_user.contracts.create(teammates_ids: session[:team].keys)
+    coders = Coder.find(session[:team].keys)
+    contract = current_user.contracts.create
+    contract.set_teammates(coders)
     session[:team].clear
     redirect_to history_path
   end
