@@ -3,6 +3,8 @@ class Contract < ActiveRecord::Base
   has_many :teammates
   has_many :coders, through: :teammates
 
+  scope :ordered, -> { all.order(id: :desc) }
+
   def set_teammates(coders)
     coders.each do |coder|
       teammates << Teammate.create(coder_id: coder.id, cost: coder.cost)
