@@ -17,7 +17,9 @@ module ApplicationHelper
   end
 
   def team_page_login
-    if current_user
+    if @team.contents == {}
+      "Please add coders to check out."
+    elsif current_user
       link_to 'Create Team', contracts_path, method: :post
     else
       "#{link_to('Login', login_path)} or #{link_to('Create Account', new_user_path)} to create your dream team".html_safe
