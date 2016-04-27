@@ -9,5 +9,4 @@ describe Contract do
     it { is_expected.to have_many(:teammates) }
     it { is_expected.to have_many(:coders) }
   end
-
 end

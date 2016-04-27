@@ -38,5 +38,4 @@ feature 'User can remove an coder from their team'  do
     expect(page).to have_link(coder.name)
     expect(page).to have_content(coder.experience)
   end
-
 end

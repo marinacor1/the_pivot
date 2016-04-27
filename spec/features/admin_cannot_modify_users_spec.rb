@@ -38,4 +38,3 @@ feature "When an admin logs in" do
     expect(page).to have_content("Admin Dashboard")
   end
 end
-

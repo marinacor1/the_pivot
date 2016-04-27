@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe CategoriesController do
-
   before do
    @category = Category.create(name: "mobile")
   end

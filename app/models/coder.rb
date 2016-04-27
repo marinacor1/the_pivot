@@ -7,5 +7,4 @@ class Coder < ActiveRecord::Base
   belongs_to :category
   has_many :teammates
   has_many :contracts, through: :teammates
-
 end

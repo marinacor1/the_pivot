@@ -19,5 +19,4 @@ RSpec.describe Category, type: :model do
 
     expect(category.slug).to eq("big-data")
   end
-
 end
