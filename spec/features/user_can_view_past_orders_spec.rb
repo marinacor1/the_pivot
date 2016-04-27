@@ -3,10 +3,9 @@ require 'rails_helper'
 feature "User can see individual contract details" do
   before(:each) do
     @coder1, @coder2 = create_list(:coder, 2)
-    User.create(name: "thom", username: "Thomp",
-                password: "password", email: "email@email.com")
+    user = create(:user)
     visit login_path
-    fill_in "Username", with: "Thomp"
+    fill_in "Username", with: user.username
     fill_in "Password", with: "password"
     click_button "Login"
     visit coders_path

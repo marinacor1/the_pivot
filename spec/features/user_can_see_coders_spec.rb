@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "User can see coders" do
-  scenario "when they visit coders page" do
+  scenario "when they visit all coders page" do
     coder = create(:coder)
 
     visit coders_path
