@@ -1,0 +1,8 @@
+<h2>All Coders</h2>
+
+<% @coders.each_slice(4) do |coder| %>
+  <div class="row">
+    <% attributes = "attributes" %>
+    <%= render partial: "shared/list", locals: { coder: coder, attributes: attributes} %>
+  </div>
+<% end %>
