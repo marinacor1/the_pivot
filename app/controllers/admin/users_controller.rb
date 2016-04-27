@@ -3,12 +3,10 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = current_user
-    if @user.update(user_params)
+    if current_user.update(user_params)
       flash[:message] = "Profile successfully updated."
       redirect_to admin_dashboard_path
     else

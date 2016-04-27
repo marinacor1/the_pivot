@@ -7,7 +7,7 @@ class ContractsController < ApplicationController
 
   def show
     if current_user
-      @contract = Contract.find(params[:id])
+      @contract = current_user.contracts.find(params[:id])
     else
       render :file => "#{Rails.root}/public/404.html",  :status => 404
     end
