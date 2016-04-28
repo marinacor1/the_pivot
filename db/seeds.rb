@@ -7,17 +7,24 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Category.create!(name: "Big Data")
+Category.create!(name: "UI/UX")
 Category.create!(name: "Data Science ")
-Category.create!(name: "FrontEnd Specialist")
-Category.create!(name: "BackEnd Specialist")
-Category.create!(name: "Database Systems")
-Category.create!(name: "Mobile")
+Category.create!(name: "Full Stack Engineering")
+Category.create!(name: "Mobile Specialist")
+Category.create!(name: "DevOps")
+Category.create!(name: "Machine Learning")
 
-30.times do
-  Coder.create!(name: Faker::Name.name,
-                experience: 10.times.map { Faker::Company.catch_phrase },
-                cost: Faker::Commerce.price,
+experience_array = ["Began career as a theoretical physicist at MIT, but after creating a widely-used system for data analysis, realized that building apps for humans was more rewarding that academic research.", "Spent the last five years designing developing and marketing products for companies ranging from game studios to startups to Fortune 100 companies.", "Expertise in building educational frameworks for the past five years", "Worked in the London-based Google DeepMind team developing the most advanced AI to date, using the highly complex Monaco Algorithm.", "Consummate learner of all things.", "Active in data science and open source communities.", "Coauthored the original portfolio management and testing packages for R: 'portfolio' (the first R package to include a treemap function) and 'backtest'.", "Prior to becoming a Super Coder, worked at Microsoft and CapitalOne as an architect to their big data systems.", "Passionate about multivariable calculus and linear algebra, and interned as a particle physicist at the CERN before life as a Super Coder.", "Past work building the neural network that learns how to play video games in a fashion similar to that of human, as well as a neural network that may be able to access an external memory like a conventional Turing machine.", "Worked at University College London's Gatsby Computational Neuroscience Unit, building machines with neural network that access external memory like a conventional Turing machine, resulting in a computer that mimics the short-term of a human brain.", "Wants to wonk to 'solve intelligence,' by trying to achieve the best techniques from machine learning and systems neuroscience to build powerful general-purpose learning algorithms.", "A child chess prodigy who won the Pentamind championship at the Mind Sports Olympiad five times, and now works to solve intelligene." ]
+
+cost_array = ["120,000", "125,000", "127,500", "130,000", "132,500", "135,000", "137,000", "139,000", "140,000", "145,000", "100,000", "125,000", "200,000", "225,000", "500,000"]
+
+50.times do
+  Coder.create!(name: Faker::Name.name[0][0] + " "  + Faker::Name.name.split[1],
+                experience: experience_array.sample(2).join(" "),
+                cost: cost_array.sample,
                 image_url: "http://api.randomuser.me/portraits/thumb/#{['men', 'women'].sample}/#{rand(96)}.jpg",
                 category: Category.all.order("Random()").first)
 end
+
+
+
