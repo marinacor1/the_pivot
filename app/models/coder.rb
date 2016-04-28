@@ -15,4 +15,8 @@ class Coder < ActiveRecord::Base
   def self.active?
     where(active: true)
   end
+
+  def contract_cost(contract)
+    format("%.2f", teammates.find_by(contract_id: contract.id).cost)
+  end
 end
