@@ -12,7 +12,7 @@
           <p><%= link_to coder.name, coder_path(coder.id) %></p>
         </td>
         <td class="table-decimal">
-          <p>$<%= coder.cost %></p>
+          <p>$<%= coder.formatted_cost %></p>
         </td>
       </tr>
     <% end %>
