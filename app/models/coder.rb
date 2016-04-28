@@ -7,4 +7,12 @@ class Coder < ActiveRecord::Base
   belongs_to :category
   has_many :teammates
   has_many :contracts, through: :teammates
+
+  def formatted_cost
+    sprintf("%.2f", cost)
+  end
+
+  def self.active?
+    where(active: true)
+  end
 end

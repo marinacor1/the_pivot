@@ -1,6 +1,6 @@
 class CodersController < ApplicationController
   def index
-    @coders = Coder.where(active: true)
+    @coders = Coder.active?
   end
 
   def show
