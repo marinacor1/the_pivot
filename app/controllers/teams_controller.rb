@@ -7,6 +7,7 @@ class TeamsController < ApplicationController
 
   def create
     coder = Coder.find(params[:coder_id])
+    flash[:notice] = "Coder has already been added" if @team.contents.keys.include?(coder.id.to_s)
     @team.add_coder(coder.id)
     session[:team] = @team.contents
     redirect_to coders_path
