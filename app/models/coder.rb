@@ -9,7 +9,7 @@ class Coder < ActiveRecord::Base
   has_many :contracts, through: :teammates
 
   def formatted_cost
-    sprintf("%.2f", cost)
+    format("%.2f", cost)
   end
 
   def self.active?
