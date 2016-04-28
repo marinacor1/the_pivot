@@ -12,7 +12,7 @@ class Contract < ActiveRecord::Base
   end
 
   def total_cost
-    cost = coders.reduce(0) do |sum, coder|
+    cost = teammates.reduce(0) do |sum, coder|
       sum = sum + coder.cost.to_f
     end
     sprintf("%.2f", cost)
