@@ -1,10 +1,11 @@
-class Category < ActiveRecord::Base
+class City < ActiveRecord::Base
   before_validation :assign_slug
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
+  validates :state, presence: true
   validates :slug, presence: true, uniqueness: true
 
-  has_many :coders
+  has_many :homes
 
   def to_param
     slug
@@ -12,9 +13,5 @@ class Category < ActiveRecord::Base
 
   def assign_slug
     self.slug ||= name.parameterize if name
-  end
-
-  def active_coders
-    coders.where(active: true)
   end
 end

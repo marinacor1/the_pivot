@@ -1,11 +1,11 @@
 FactoryGirl.define do
 
   factory :home do |n|
-    sequence(:address) {|n| "address #{n}" }
-    sequence(:zip_code) {|n| "8000 #{n}" }
-    sequence(:title) {|n| "This House#{n}@email.com" }
+    sequence(:address) {|n| "123#{n} Lane St. " }
+    sequence(:zip_code) {|n| "8000#{n}" }
+    sequence(:title) {|n| "This House #{n}" }
     sequence(:description) {|n| "Some description #{n}" }
-    sequence(:daily_rate) { |n| }
+    sequence(:daily_rate) { "#{n}" }
     sequence(:image_url) { "http://robohash.org/#{n}" }
   end
 
@@ -24,7 +24,7 @@ FactoryGirl.define do
       end
 ​
       after(:create) do |city, evaluator|
-        create_list(:task, evaluator.tasks_count, city: city)
+        create_list(:home, evaluator.home_count, city: city)
       end
     end
   end
