@@ -2,7 +2,8 @@ require 'rails_helper'
 
 feature "Visitor can view a specific city show page" do
   scenario "when they select a city from the main page dropdown" do
-    city = create(:city_with_homes)
+    # city = create(:city_with_homes)
+    city = City.create(name: "San Antonio", state: "Texas")
 
     visit root_path
 
