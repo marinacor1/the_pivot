@@ -1,5 +1,5 @@
 class Home < ActiveRecord::Base
-  validates :address, presence: :true
+  validates :address, presence: :true, uniqueness: true
   validates :image_url, presence: :true
   validates :title, presence: :true
   validates :description, presence: :true

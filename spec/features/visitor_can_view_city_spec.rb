@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature "Visitor can view a specific city show page" do
   scenario "when they select a city from the main page dropdown" do
-    byebug
     city = create(:city_with_homes)
 
     visit root_path
