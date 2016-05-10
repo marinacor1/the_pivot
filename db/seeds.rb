@@ -6,10 +6,9 @@ class Seed
     generate_dates
   end
 
-  def generate_cities
-    10.times do
-      city = City.create!(name: Faker::Address.city,
-                          state: Faker::Address.state_abbr)
+  def generate_dates
+    50.times do |i|
+      Date.create(date: Faker::Date.forward(i))
     end
   end
 
@@ -24,6 +23,15 @@ class Seed
     end
   end
 
+  def generate_cities
+    10.times do
+      city = City.create!(name: Faker::Address.city,
+                          state: Faker::Address.state_abbr)
+        home = Home.order("RANDOM()").limit(2)
+        city.homes << home
+    end
+  end
+
   def generate_users
     100.times do |i|
       user = User.create!(first_name: Faker::Name.first_name,
@@ -31,21 +39,9 @@ class Seed
                           email: Faker::Internet.email,
                           password: "password",
                           role: rand(0..2))
-  end
-
-  def generate_dates
-    50.times do |i|
-      Date.create(date: Faker::Date.forward(i))
-    end
-  end
-
-  private
-
-  def add_dates(reservation)
-    7.times do |i|
-      date = Date.find(Random.new.rand(1..50))
-      reservation.dates << date
     end
   end
 
 end
+
+Seed.new
