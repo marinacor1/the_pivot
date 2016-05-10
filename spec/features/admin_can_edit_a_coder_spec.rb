@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "When an admin visits the admin coder edit path" do
-  scenario "they are able to edit the coder details" do
+  scenario "they are able to edit the coder detail" do
     user = create(:user)
     user.update(role: 1)
     category1 = Category.create(name: "mobile")
