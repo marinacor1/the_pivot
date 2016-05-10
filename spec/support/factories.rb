@@ -20,7 +20,7 @@ FactoryGirl.define do
 ​
     factory :city_with_homes do
       transient do
-        home_count 4
+        homes_count 4
       end
 ​
       after(:create) do |city, evaluator|
