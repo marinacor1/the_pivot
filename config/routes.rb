@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # get    "/homes/:id",             to: "homes#show"
   # get    "/coders/:id",            to: "coders#show",           as: :coder
   # get    "/coders",                to: "coders#index",          as: :coders
-  # get    "/users/new",             to: "users#new",             as: :new_user
+
+  get    "/users/new",             to: "users#new",             as: :new_user
+
   # post   "/users",                 to: "users#create",          as: :users
   # post   "/contracts",             to: "contracts#create",      as: :contracts
   # get    "/contract/:id",          to: "contracts#show",        as: :contract

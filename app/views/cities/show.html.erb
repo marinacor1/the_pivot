@@ -1,1 +1,11 @@
-<h1><%= @city.name %> Show Page</h1>
+<h1>Basements in <%= @city.name %></h1>
+
+<div class="city-show-page-css">
+  <h3><%= @city.name_and_state %></h3>
+  <ul>
+    <% @city.homes.each do |home| %>
+      <li><%= home.title %></li>
+      <li><%= home.description %></li>
+    <% end %>
+  </ul>
+</div>
