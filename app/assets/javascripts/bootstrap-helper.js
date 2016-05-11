@@ -8,7 +8,8 @@ $(document).ready(function() {
 
   $('#home-date-range').daterangepicker({
     "startDate": getFormattedDate(),
-    "endDate": getFormattedDate()
+    "endDate": getFormattedDate(),
+    "minDate": getFormattedDate()
   }, function(start, end, label) {
     console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
   });
