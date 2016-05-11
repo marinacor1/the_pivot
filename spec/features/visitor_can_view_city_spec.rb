@@ -2,21 +2,12 @@ require 'rails_helper'
 
 feature "Visitor can view a specific city show page" do
   scenario "when they select a city from the main page dropdown" do
-    city = City.create(name: "San Antonio", state: "TX")
-    home = Home.create(
-      address: "123 Fake Street",
-      zip_code: "80002",
-      title: "Adobe Mansion",
-      description: "A basement with dirt walls.",
-      daily_rate: 50.00,
-      image_url: "https://upload.wikimedia.org/wikipedia/commons/8/80/StoneBrick_Basement.JPG",
-      city_id: city.id
-    )
+    city = create(:city_with_homes)
 
     visit root_path
 
     click_on "All Cities"
-    click_link "San Antonio, TX"
+    click_link "#{city.name_and_state}"
 
     expect(current_path).to eq(city_path(city.slug))
 
