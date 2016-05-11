@@ -12,7 +12,14 @@
     <h3>Enjoy this space for just $<%= @home.daily_rate %> per day</h3>
     <p><%= @home.description %></p>
 
-    <input type="text" id="home-date-range" class="form-control", value>
+    <div class="booking-form">
+      <div class="col-xs-6">
+        <input type="text" id="home-date-range" class="form-control", value>
+      </div>
+      <div class="col-xs-3">
+        <button type="button" class="btn btn-success">Book</button>
+      </div>
+    </div>
 
   </div>
 </div>
