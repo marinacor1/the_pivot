@@ -7,7 +7,7 @@
           <div class="thumbnail home-thumb">
             <img src="<%= home.image_url %>" alt="photo of <%= home.title %>">
             <div class="caption">
-              <h3><%= home.title %></h3>
+              <h3><%= link_to home.title, home_path(@city.slug, home.id) %></h3>
               <p><strong><%= home.address %></strong></p>
               <p><strong>$<%= home.daily_rate %> per night</strong></p>
               <p><%= home.description %></p>

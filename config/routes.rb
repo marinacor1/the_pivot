@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   delete "/logout",                to: "sessions#destroy"
   # get    "/dashboard",             to: "users#show",            as: :dashboard
   # get    "/history",               to: "contracts#index"
-  #
+
+  get    "/:city/homes/:id",       to: "homes#show",        as: :home        
   get    "/:city",                 to: "cities#show",       as: :city
 end
