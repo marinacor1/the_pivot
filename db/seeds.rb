@@ -15,7 +15,7 @@ class Seed
   def generate_homes
     20.times do |i|
       home = Home.create!(address: Faker::Address.street_address,
-                          image_url: "http://placekitten.com/48/#{i}0",
+                          image_url: "http://placekitten.com/30#{i}/25#{i}",
                           zip_code: Faker::Address.zip_code,
                           title: Faker::Hipster.sentence(2),
                           description: Faker::Hipster.sentence,
@@ -37,8 +37,7 @@ class Seed
       user = User.create!(first_name: Faker::Name.first_name,
                           last_name: Faker::Name.last_name,
                           email: Faker::Internet.email,
-                          password: "password",
-                          role: rand(0..2))
+                          password: "password")
     end
   end
 

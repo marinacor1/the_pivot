@@ -2,14 +2,13 @@ class User < ActiveRecord::Base
   has_many :contracts
   has_secure_password
 
-  validates :name, presence: true
+  validates :first_name, presence: true
 
-  validates :username, presence: true,
-                       uniqueness: true
+  validates :last_name, presence: true
 
-  validates :email, presence: true,
-                    format: /\A\S+@\S+\z/,
-                    uniqueness: { case_sensitive: false }
+  validates :email, presence: true
+                    # format: /\A\S+@\S+\z/,
+                    # uniqueness: { case_sensitive: false }
 
   validates :password_digest, presence: true,
                               length: {minimum: 5,
