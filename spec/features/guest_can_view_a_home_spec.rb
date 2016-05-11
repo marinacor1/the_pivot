@@ -5,7 +5,6 @@ feature "guest can view a home" do
     city = create(:city_with_homes)
 
     visit city_path(city.slug)
-save_and_open_page
 
     click_on "#{city.homes.first.title}"
 
