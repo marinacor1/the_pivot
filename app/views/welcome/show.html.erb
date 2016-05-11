@@ -6,7 +6,7 @@
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
     <% @cities.each do |city| %>
-      <li><a href="#"><%= city.name %></a></li>
+      <li><%= link_to city.name, city_path(city.slug) %></li>
     <% end %>
     <li role="separator" class="divider"></li>
     <li><a href="#">Separated link</a></li>

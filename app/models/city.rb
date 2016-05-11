@@ -6,7 +6,7 @@ class City < ActiveRecord::Base
   validates :slug, presence: true, uniqueness: true
 
   has_many :homes
-
+ 
   def to_param
     slug
   end

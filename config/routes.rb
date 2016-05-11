@@ -27,5 +27,5 @@ Rails.application.routes.draw do
   # get    "/dashboard",             to: "users#show",            as: :dashboard
   # get    "/history",               to: "contracts#index"
   #
-  # get    "/:slug",                 to: "categories#show",       as: :category
+  get    "/:city",                 to: "cities#show",       as: :city
 end
