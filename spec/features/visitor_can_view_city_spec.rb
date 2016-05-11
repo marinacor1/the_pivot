@@ -3,6 +3,7 @@ require 'rails_helper'
 feature "Visitor can view a specific city show page" do
   scenario "when they select a city from the main page dropdown" do
     city = create(:city_with_homes)
+    home = city.homes.first
 
     visit root_path
 
@@ -11,10 +12,15 @@ feature "Visitor can view a specific city show page" do
 
     expect(current_path).to eq(city_path(city.slug))
 
-    within(".city-show-page-css") do
+    within(".city-page") do
       expect(page).to have_content(city.name_and_state)
-      expect(page).to have_content(city.homes.first.title)
     end
 
+    within(first(".home-thumb")) do
+      expect(page).to have_content(home.title)
+      expect(page).to have_content(home.address)
+      expect(page).to have_content(home.daily_rate)
+      expect(page).to have_content(home.description)
+    end
   end
 end

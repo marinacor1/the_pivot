@@ -1,12 +1,12 @@
 FactoryGirl.define do
 
-  factory :home do |n|
-    sequence(:address) {|n| "123#{n} Lane St. " }
-    zip_code 80203
-    sequence(:title) {|n| "This House #{n}" }
-    sequence(:description) {|n| "Some description #{n}" }
-    daily_rate 64.99
+  factory :home do
     sequence(:image_url) { |n| "http://robohash.org/#{n}" }
+    sequence(:address) { |n| "123#{n} Main St." }
+    sequence(:title) { |n| "This House #{n}" }
+    description Faker::Hipster.paragraph
+    zip_code 8000
+    daily_rate 64.99
   end
 
   factory :city do
@@ -20,7 +20,7 @@ FactoryGirl.define do
 
     factory :city_with_homes do
       transient do
-        home_count 2
+        home_count 5
       end
 
       after(:create) do |city, evaluator|
