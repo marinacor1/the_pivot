@@ -34,4 +34,6 @@ Rails.application.routes.draw do
     resources :homes, only: [:show]
   end
 
+  #scope if you want Denver/homes 
+
 end

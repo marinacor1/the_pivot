@@ -7,8 +7,11 @@ feature "guest can view a home" do
 
     visit city_path(city.slug)
 
-    click_on "#{city.homes.first.title}"
+    click_on home.title
+
     expect(current_path).to eq(city_home_path(city.slug, home.id))
+
+
     expect(page).to have_content "Charming Bungalow Studio"
     expect(page).to have_content "Daily Rate: $65"
     expect(page).to have_content "Beautiful home, walking distance to East Austin."
