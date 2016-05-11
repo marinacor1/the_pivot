@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h1>Hello, world!</h1>
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      All Cities
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <% @cities.each do |city| %>
+        <li><%= link_to city.name_and_state, city_path(city.slug) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

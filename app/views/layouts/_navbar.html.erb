@@ -1,15 +1,16 @@
-<nav id="primary">
-  <h1><a href="/" class="link">Super Coders</a></h1>
-  <div class="right links">
-    <%= link_to "All Coders", coders_path, class: "link" %>
-    <%= history_create_account %>
-    <%= login_logout %>
-    <%= link_to "Your Team (#{@team.contents.keys.count})", teams_path, class: "link" %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Air B'n'Basement</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right nav-pills">
+        <li><%= history_create_account %></li>
+        <li><%= login_logout %></li>
+        <li><a href="/">Cart <span class="badge">0</span></a></li>
+      </ul>
+    </div>
   </div>
 </nav>
-
-<div class="nav-secondary">
-  <% @nav_categories.each do |category| %>
-    <%= link_to category.name, category_path(category), class: "nav-category-links link" %>
-  <% end %>
-</div>

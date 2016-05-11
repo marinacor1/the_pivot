@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
       flash[:message] = "You have successfully logged in!"
       if current_admin?
         redirect_to admin_dashboard_path
-      elsif session[:team]
-        redirect_to teams_path
+      elsif session[:cart]
+        redirect_to carts_path
       else
         redirect_to root_path
       end

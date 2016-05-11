@@ -11,28 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427174625) do
+ActiveRecord::Schema.define(version: 20160510210404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: :cascade do |t|
+  create_table "cities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+    t.string   "state"
   end
-
-  create_table "coders", force: :cascade do |t|
-    t.string  "name"
-    t.string  "experience"
-    t.string  "image_url"
-    t.string  "cost"
-    t.integer "category_id"
-    t.boolean "active",      default: true
-  end
-
-  add_index "coders", ["category_id"], name: "index_coders_on_category_id", using: :btree
 
   create_table "contracts", force: :cascade do |t|
     t.datetime "created_at",                        null: false
@@ -42,6 +32,20 @@ ActiveRecord::Schema.define(version: 20160427174625) do
   end
 
   add_index "contracts", ["user_id"], name: "index_contracts_on_user_id", using: :btree
+
+  create_table "homes", force: :cascade do |t|
+    t.string  "image_url"
+    t.string  "address"
+    t.integer "zip_code"
+    t.string  "title"
+    t.string  "description"
+    t.decimal "daily_rate"
+    t.integer "city_id"
+    t.integer "user_id"
+  end
+
+  add_index "homes", ["city_id"], name: "index_homes_on_city_id", using: :btree
+  add_index "homes", ["user_id"], name: "index_homes_on_user_id", using: :btree
 
   create_table "teammates", force: :cascade do |t|
     t.integer "coder_id"
@@ -63,8 +67,9 @@ ActiveRecord::Schema.define(version: 20160427174625) do
     t.integer  "role",            default: 0
   end
 
-  add_foreign_key "coders", "categories"
   add_foreign_key "contracts", "users"
-  add_foreign_key "teammates", "coders"
+  add_foreign_key "homes", "cities"
+  add_foreign_key "homes", "users"
   add_foreign_key "teammates", "contracts"
+  add_foreign_key "teammates", "homes", column: "coder_id"
 end

@@ -1,20 +1,32 @@
 FactoryGirl.define do
-  factory :coder do |n|
-    sequence(:name) {|n| "name #{n}" }
-    sequence(:experience) {|n| "experience #{n}"}
-    sequence(:cost) {|n| n}
-    sequence(:image_url) {|n| "image_#{n}.png"}
+
+  factory :home do
+    sequence(:image_url) { |n| "http://robohash.org/#{n}" }
+    sequence(:address) { |n| "123#{n} Main St." }
+    sequence(:title) { |n| "This House #{n}" }
+    description Faker::Hipster.paragraph
+    zip_code 8000
+    daily_rate 64.99
   end
 
-  factory :category do |n|
-    sequence(:name) {|n| "name #{n}" }
+  factory :city do
+    sequence :name, ["Denver", "Aurora", "Turingopolis"].cycle do |n|
+      "#{n}"
+    end
+
+    sequence :state, ["CO", "NY", "CA"].cycle do |n|
+      "#{n}"
+    end
+
+    factory :city_with_homes do
+      transient do
+        home_count 5
+      end
+
+      after(:create) do |city, evaluator|
+        create_list(:home, evaluator.home_count, city: city)
+      end
+    end
   end
 
-  factory :user do |n|
-    sequence(:name) {|n| "name #{n}" }
-    sequence(:username) {|n| "username #{n}" }
-    sequence(:email) {|n| "email#{n}@email.com" }
-    sequence(:organization) {|n| "organization #{n}" }
-    sequence(:password) { "password" }
-  end
 end

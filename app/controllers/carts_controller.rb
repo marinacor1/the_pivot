@@ -1,13 +1,13 @@
-class TeamsController < ApplicationController
+class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-    @coders = Coder.find(@team.contents.keys)
+    @reservations = Reservation.find(@team.contents.keys)
   end
 
   def create
     coder = Coder.find(params[:coder_id])
-    flash[:notice] = "Coder has already been added" if @team.contents.keys.include?(coder.id.to_s)
+    # flash[:notice] = "Coder has already been added" if @team.contents.keys.include?(coder.id.to_s)
     @team.add_coder(coder.id)
     session[:team] = @team.contents
     redirect_to coders_path
