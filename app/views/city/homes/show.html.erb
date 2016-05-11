@@ -1,8 +1,6 @@
-<% @homes.each do |home| %>
-  <h1>@home.title</h1>
-  <h1>@home.daily_rate<h1>
-  <h1>@home.description</h1>
+  <h1><%= @home.title %></h1>
+  <h1><%= @home.daily_rate %><h1>
+  <h1><%= @home.description %></h1>
   <h1>Check in:</h1>
   <h1>Check out:</h1>
-  <img src="<%= home.image_url %>" alt="Home image">
-<% end %>
+  <img src="<%= @home.image_url %>" alt="Home image">
