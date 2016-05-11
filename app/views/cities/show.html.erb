@@ -4,7 +4,7 @@
   <h3><%= @city.name_and_state %></h3>
   <ul>
     <% @city.homes.each do |home| %>
-      <li><%= home.title %></li>
+      <li><%= link_to home.title, city_home_path(@city.slug, home.id) %></li>
       <li><%= home.description %></li>
     <% end %>
   </ul>

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root   "welcome#show"
   #
-  # get    "/homes/:id",             to: "homes#show"
   # get    "/coders/:id",            to: "coders#show",           as: :coder
   # get    "/coders",                to: "coders#index",          as: :coders
 
@@ -30,4 +29,9 @@ Rails.application.routes.draw do
   # get    "/history",               to: "contracts#index"
   #
   get    "/:city",                 to: "cities#show",       as: :city
+
+  namespace :city, path: ':city', as: :city do
+    resources :homes, only: [:show]
+  end
+
 end
