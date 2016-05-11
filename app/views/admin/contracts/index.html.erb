@@ -1,6 +1,0 @@
-<div class="center-60">
-<h2>All Contracts</h2>
-  <% @contracts.each do |contract| %>
-    <p><%= link_to contract.id, admin_contract_path(contract.id) %>: $<%= contract.total_cost %></p>
-  <% end %>
-</div>

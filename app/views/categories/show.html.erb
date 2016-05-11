@@ -1,7 +1,0 @@
-<h2><%= @category.name %></h2>
-
-<% @category.active_coders.each_slice(4) do |coder| %>
-  <div class="row">
-    <%= render partial: "shared/list", locals: { coder: coder, attributes: "attributes" } %>
-  </div>
-<% end %>
