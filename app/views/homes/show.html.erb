@@ -1,21 +1,23 @@
-<div class="page-header">
-  <h1><%= @home.title %><small> in <%= @city.name_and_state %></small></h1>
-</div>
-
-<div class="row home">
-
-  <div class="col-sm-12 col-md-6">
-    <img src="<%= @home.image_url %>" class="img-responsive" alt="image of <%= @home.title %>">
+<div class="container">
+  <div class="page-header">
+    <h1><%= @home.title %><small> in <%= @city.name_and_state %></small></h1>
   </div>
 
-  <div class="col-sm-23 col-md-6">
-    <h3>Enjoy this space for just $<%= @home.daily_rate %> per night</h3>
-    <p><%= @home.description %></p>
+  <div class="row home">
 
-    <form class="date-picker-box">
-      <input type="text" id="home-date-range" class="form-control", value>
-      <button class="btn btn-success">Request to Book</button>
-    </form>
+    <div class="col-sm-12 col-md-6">
+      <img src="<%= @home.image_url %>" class="img-responsive" alt="image of <%= @home.title %>">
+    </div>
 
+    <div class="col-sm-23 col-md-6">
+      <h3>Enjoy this space for just $<%= @home.daily_rate %> per night</h3>
+      <p><%= @home.description %></p>
+
+      <form class="date-picker-box">
+        <input type="text" id="home-date-range" class="form-control", value>
+        <button class="btn btn-success">Request to Book</button>
+      </form>
+
+    </div>
   </div>
 </div>
