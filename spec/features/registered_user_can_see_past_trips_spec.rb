@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'feature_helper'
 
 feature "User can see individual past trips details" do
   include FeatureHelper
