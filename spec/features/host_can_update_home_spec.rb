@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature "host can update home" do
-  it "shows an update form for home" do
+  xit "shows an update form for home" do
     city = create(:city_with_homes, name: "Denver", state: "CO")
     host = create(:user)
     home = city.homes.first(user_id: host.id)
     original_home_name = home.name
 
-    ApplicationController.any_instance.stubs(:current_user).returns(home)
+    ApplicationController.any_instance.stubs(:current_user).returns(host)
 
     visit dashboard_path
 
@@ -22,5 +22,21 @@ RSpec.feature "host can update home" do
     expect(page).to have_content "Stinky Outhouse"
     expect(page).to have_content "San Francisco, CA"
     expect(current_path).to eq("/denver-co/homes/#{home.id}")
+  end
+
+  xit "will not allow a non-host to update home" do
+    city = create(:city_with_homes, name: "Denver", state: "CO")
+    host = create(:user)
+    home = city.homes.first(user_id: host.id)
+    original_home_name = home.name
+
+    ApplicationController.any_instance.stubs(:current_user).returns(home)
+
+    visit dashboard_path
+
+    expect(page).to_not have_content "Manage Your Home"
+
+    expect(current_path).to eq("/denver-co/homes/#{home.id}/edit")
+
   end
 end
