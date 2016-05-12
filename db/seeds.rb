@@ -15,7 +15,7 @@ class Seed
   def generate_homes
     20.times do |i|
       home = Home.create!(address: Faker::Address.street_address,
-                          image_url: "http://placekitten.com/48/#{i}0",
+                          image_url: "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/09/Bamboo-Home-Bali-Airbnb-Off-Grid-537x358.jpg",
                           zip_code: Faker::Address.zip_code,
                           title: Faker::Hipster.sentence(2),
                           description: Faker::Hipster.sentence,
