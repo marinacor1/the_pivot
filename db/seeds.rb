@@ -3,12 +3,12 @@ class Seed
     generate_cities
     generate_homes
     generate_users
-    generate_dates
+    generate_days
   end
 
-  def generate_dates
-    50.times do |i|
-      Date.create(date: Faker::Date.forward(i))
+  def generate_days
+    60.times do |i|
+      Day.create(date: Date.today + i)
     end
   end
 
