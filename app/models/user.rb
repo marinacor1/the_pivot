@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
 
   validates :last_name, presence: true
 
-  validates :email, presence: true
-                    # format: /\A\S+@\S+\z/,
-                    # uniqueness: { case_sensitive: false }
+  validates :email, presence: true,
+                    format: { with: /\A\S+@\S+\z/ },
+                    uniqueness: { case_sensitive: false }
 
   validates :password_digest, presence: true,
                               length: {minimum: 5,
