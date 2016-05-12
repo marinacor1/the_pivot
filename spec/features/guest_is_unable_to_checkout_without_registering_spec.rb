@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Guest is unable to checkout without registering' do
-  scenario 'must create a user account' do
+  xscenario 'must create a user account' do
     user = create(:user)
     city = create(:city_with_homes, name: "Denver", state: "CO")
     home = city.homes.first

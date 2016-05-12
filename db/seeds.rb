@@ -7,6 +7,7 @@ class Seed
     generate_homes
     generate_cities
     generate_users
+    generate_specific_users
     generate_days
     generate_reservations
   end
@@ -70,6 +71,23 @@ class Seed
     end
     puts "Done Creating Users"
   end
+
+  def generate_specific_users
+   puts "Creating Specific Users"
+   User.create!(
+     first_name: "user",
+     last_name: "user",
+     email: "user@gmail.com",
+     password: "password"
+     )
+   User.create!(
+     first_name: "josh",
+     last_name: "cheek",
+     email: "josh@turing.io",
+     password: "password"
+   )
+   puts "Done Creating Users"
+ end
 
 end
 
