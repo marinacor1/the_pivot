@@ -1,9 +1,6 @@
 class Api::V1::ReservationsController < ApplicationController
 
   def create
-    require "pry"
-    binding.pry
-    Reservation.create(reservation_params)
   end
 
   private

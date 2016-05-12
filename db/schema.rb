@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510210404) do
+ActiveRecord::Schema.define(version: 20160512163439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 20160510210404) do
 
   add_index "contracts", ["user_id"], name: "index_contracts_on_user_id", using: :btree
 
+  create_table "days", force: :cascade do |t|
+    t.date "date"
+  end
+
   create_table "homes", force: :cascade do |t|
     t.string  "image_url"
     t.string  "address"
@@ -47,29 +51,37 @@ ActiveRecord::Schema.define(version: 20160510210404) do
   add_index "homes", ["city_id"], name: "index_homes_on_city_id", using: :btree
   add_index "homes", ["user_id"], name: "index_homes_on_user_id", using: :btree
 
-  create_table "teammates", force: :cascade do |t|
-    t.integer "coder_id"
-    t.integer "contract_id"
-    t.string  "cost"
+  create_table "reservation_days", force: :cascade do |t|
+    t.integer "day_id"
+    t.integer "reservation_id"
   end
 
-  add_index "teammates", ["coder_id"], name: "index_teammates_on_coder_id", using: :btree
-  add_index "teammates", ["contract_id"], name: "index_teammates_on_contract_id", using: :btree
+  add_index "reservation_days", ["day_id"], name: "index_reservation_days_on_day_id", using: :btree
+  add_index "reservation_days", ["reservation_id"], name: "index_reservation_days_on_reservation_id", using: :btree
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "home_id"
+    t.integer "trip_id"
+    t.integer "user_id"
+  end
+
+  add_index "reservations", ["home_id"], name: "index_reservations_on_home_id", using: :btree
+  add_index "reservations", ["trip_id"], name: "index_reservations_on_trip_id", using: :btree
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email"
-    t.string   "organization"
     t.string   "password_digest"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.integer  "role",            default: 0
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_foreign_key "contracts", "users"
   add_foreign_key "homes", "cities"
   add_foreign_key "homes", "users"
-  add_foreign_key "teammates", "contracts"
-  add_foreign_key "teammates", "homes", column: "coder_id"
+  add_foreign_key "reservation_days", "days"
+  add_foreign_key "reservation_days", "reservations"
+  add_foreign_key "reservations", "users"
 end
