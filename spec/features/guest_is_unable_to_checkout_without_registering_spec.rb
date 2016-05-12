@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Guest is unable to checkout without registering' do
   scenario 'must create a user account' do
-    coder1, coder2 = create_list(:coder, 2)
+    user1, user2 = create_list(:user, 2)
 
-    visit coders_path
+    visit users_path
 
     submissions = page.all('input[type="submit"]')
 
@@ -23,9 +23,9 @@ feature 'Guest is unable to checkout without registering' do
   end
 
  scenario "must login to user account" do
-     coder1, coder2 = create_list(:coder, 2)
+     user1, user2 = create_list(:user, 2)
 
-    visit coders_path
+    visit users_path
 
     submissions = page.all('input[type="submit"]')
 
