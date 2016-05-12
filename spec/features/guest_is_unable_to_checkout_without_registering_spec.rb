@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Guest is unable to checkout without registering' do
   scenario 'must create a user account' do
-     user1, user2 = create_list(:user, 2)
+    user = create(:user)
     city = create(:city_with_homes, name: "Denver", state: "CO")
     home = city.homes.first
 
@@ -17,10 +17,20 @@ feature 'Guest is unable to checkout without registering' do
     expect(page).to_not have_link("Book Now")
 
     within("div.book") do
-      click_link("Login")
+      click_link("Login or Create a New Account")
     end
 
-    expect(current_path).to eq(login_path)
+      expect(current_path).to eq(login_path)
+
+      within(".new-form") do
+        fill_in "First Name", with: "Woody"
+        fill_in "Last Name", with: "Allen"
+        fill_in "Email", with: "wood@allen.com"
+        click_on "Create Account"
+      end
+
+      expect(current_path).to eq("/denver-co/homes/#{home.id}")
+      expect(page).to have_content "Book Now"
     end
 
 end
