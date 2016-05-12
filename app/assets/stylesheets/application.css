@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.date-picker-box {
+  display: flex;
+  padding-right: 6.5em;
+}
+
+.date-picker-box input {
+  margin-right: 1em;
+}

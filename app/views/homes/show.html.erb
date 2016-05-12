@@ -9,17 +9,13 @@
   </div>
 
   <div class="col-sm-23 col-md-6">
-    <h3>Enjoy this space for just $<%= @home.daily_rate %> per day</h3>
+    <h3>Enjoy this space for just $<%= @home.daily_rate %> per night</h3>
     <p><%= @home.description %></p>
 
-    <div class="booking-form">
-      <div class="col-xs-6">
-        <input type="text" id="home-date-range" class="form-control", value>
-      </div>
-      <div class="col-xs-3">
-        <button type="button" class="btn btn-success">Book</button>
-      </div>
-    </div>
+    <form class="date-picker-box">
+      <input type="text" id="home-date-range" class="form-control", value>
+      <button class="btn btn-success">Request to Book</button>
+    </form>
 
   </div>
 </div>

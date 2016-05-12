@@ -1,22 +1,46 @@
 $(document).ready(function() {
-  function getFormattedDate() {
-    var fullDate = new Date()
-    var twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
-    var currentDate = twoDigitMonth + "/" + fullDate.getDate() + "/" + fullDate.getFullYear();
-    return currentDate
-  }
+  // fetchAvailability();
+    // need to make sure that the calendar is rendered AFTER the fetchAvailability function returns
+    // in $.ajax({success()}), call the renderCalendar function and feed it the return value (aka blackout dates)
+  renderCalendar();
+});
 
+function renderCalendar() {
   $('#home-date-range').daterangepicker({
+    "autoApply": true,
     "startDate": getFormattedDate(),
     "endDate": getFormattedDate(),
     "minDate": getFormattedDate()
-  }, function(start, end, label) {
-    console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
   });
 
-  $('#home-date-range').on('apply.daterangepicker', function(ev, picker) {
-    console.log(picker.startDate.format('YYYY-MM-DD'));
-    console.log(picker.endDate.format('YYYY-MM-DD'));
-  });
+  bindCalendarEvents();
+}
 
-});
+function bindCalendarEvents() {
+  $('.date-picker-box button').on('click', function(event) {
+    event.preventDefault();
+    var dates  = $(event.target).siblings().val().split(' - ');
+    var pathElements = window.location.pathname.split("/")
+    var homeId = pathElements[pathElements.length - 1]
+    var data   = { data: { startDate: dates[0], endDate: dates[1], homeId: homeId }};
+
+    $.ajax({
+      method:  "POST",
+      url:     "/api/v1/reservations",
+      data:    data,
+      success: function(response) {
+        // console.log("Successful", response)
+        $('.nav-pills li:last-child').click()
+      }, error: function(xhr) {
+        alert("Something went wrong :(")
+      }
+    });
+  });
+}
+
+function getFormattedDate() {
+  var fullDate = new Date()
+  var twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
+  var currentDate = twoDigitMonth + "/" + fullDate.getDate() + "/" + fullDate.getFullYear();
+  return currentDate
+}
