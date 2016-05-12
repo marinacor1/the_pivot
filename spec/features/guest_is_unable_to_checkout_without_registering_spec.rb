@@ -15,7 +15,7 @@ feature 'Guest is unable to checkout without registering' do
 
     expect(page).to_not have_link("Create Team")
 
-    within("div.create-team") do
+    within("div.book") do
       click_link("Create Account")
     end
 
