@@ -31,6 +31,8 @@ feature 'Guest is unable to checkout without registering' do
 
     click_on home.title
 
+    expect(current_path).to eq("/denver-co/homes/#{home.id}")
+
     select("January 4, 2017") ("January 6, 2017") #don't know how to do this
 
     expect(page).to_not have_link("Book Now")
