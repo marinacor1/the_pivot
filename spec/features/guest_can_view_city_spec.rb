@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Visitor can view a specific city show page" do
+feature "Guest can view a specific city show page" do
   scenario "when they select a city from the main page dropdown" do
     city = create(:city_with_homes, name: "Denver", state: "CO")
     home = city.homes.first
