@@ -6,10 +6,11 @@ RSpec.feature "host can update home" do
     host = create(:user)
     home = city.homes.first
     home.user_id = host.id
-    original_home_name = home.name
-
-    ApplicationController.any_instance.stubs(:current_user).returns(host)
-
+    original_home_name = home.title
+    host_role = Role.create(name: "host")
+    # r_u_role = Role.create(name: "registered_user")
+    # UserRole.create(user: host, role: host_role)
+    host.user_roles.create(role: host_role)
     visit dashboard_path
 
     click_link "Manage Your Home"
@@ -26,12 +27,6 @@ RSpec.feature "host can update home" do
   end
 
   xit "will not allow a non-host to update home" do
-    city = create(:city_with_homes, name: "Denver", state: "CO")
-    host = create(:user)
-    home = city.homes.first(user_id: host.id)
-    original_home_name = home.name
-
-    ApplicationController.any_instance.stubs(:current_user).returns(home)
 
     visit dashboard_path
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root   "welcome#show"
+  get    "/dashboard",             to: "users#show",            as: :dashboard
   #
   # get    "/homes/:id",             to: "homes#show"
   # get    "/coders/:id",            to: "coders#show",           as: :coder
@@ -32,7 +33,6 @@ Rails.application.routes.draw do
   get    "/login",                 to: "sessions#new"
   post   "/login",                 to: "sessions#create"
   delete "/logout",                to: "sessions#destroy"
-  # get    "/dashboard",             to: "users#show",            as: :dashboard
   # get    "/history",               to: "contracts#index"
 
   get    "/:city/homes/:id",       to: "homes#show",        as: :home
