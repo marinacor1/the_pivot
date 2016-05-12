@@ -29,7 +29,6 @@ function bindCalendarEvents() {
       url:     "/api/v1/reservations",
       data:    data,
       success: function(response) {
-        // console.log("Successful", response)
         $('.nav-pills li:last-child').click()
       }, error: function(xhr) {
         alert("Something went wrong :(")
