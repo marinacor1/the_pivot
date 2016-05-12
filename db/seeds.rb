@@ -23,8 +23,9 @@ class Seed
     puts "Creating Reservations"
     10.times do
       reservation = Reservation.create(home_id: rand(1..@num_homes))
-      days        = Day.order("RANDOM()").limit(7)
-      reservation.days << days
+      day        = Day.order("RANDOM()").first
+      reservation_day = ReservationDay.create(day_id: day.id)
+      reservation.reservation_days << reservation_day
     end
     puts "Done Creating Reservations"
   end
