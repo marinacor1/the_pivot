@@ -1,4 +1,5 @@
 class Reservation < ActiveRecord::Base
-  has_many :days
   belongs_to :home
+  has_many :reservation_days
+  has_many :days, through: :reservation_days
 end
