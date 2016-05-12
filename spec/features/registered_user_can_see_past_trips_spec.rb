@@ -32,5 +32,28 @@ feature "User can see individual past trips details" do
     select("January 8, 2017") ("January 12, 2017") #don't know how to do this
 
     click_link ("Book Now")
-  end 
+
+    within(".navbar") do
+      click_link "Logout"
+    end
+
+    visit root_path
+
+    click_link "Login"
+
+    user_login
+
+    visit dashboard_path
+
+    click_link "View Past Trips"
+
+    expect(page).to have_content "Denver, CO"
+    expect(page).to have_content home.title
+    expect(page).to have_content "January 4, 2017"
+    expect(page).to have_content "January 6, 2017"
+    expect(page).to have_content "Austin, TX"
+    expect(page).to have_content home2.title
+    expect(page).to have_content "January 8, 2017"
+    expect(page).to have_content "January 12, 2017"
+  end
 end
