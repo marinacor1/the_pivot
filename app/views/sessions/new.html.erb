@@ -1,0 +1,9 @@
+<div class="user-form">
+  <h2>Login</h2>
+  <%= form_for(:session, url: login_path) do |f| %>
+    <%= f.text_field :email, placeholder: "email" %>
+    <%= f.password_field :password, placeholder: "password" %>
+    <%= f.submit "Login", class: "add-button" %>
+  <% end %>
+  <%= link_to "Create Account", new_user_path, class: "link" %>
+</div>
