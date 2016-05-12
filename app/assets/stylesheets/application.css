@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+ .date-picker-box {
+   display: flex;
+   padding-right: 6.5em;
+ }
+
+ .date-picker-box input {
+   margin-right: 1em;
+ }
+
+.header {
+  padding-top: 0px;
+  padding-bottom: 50px;
+  background: url(header_pic.jpg) no-repeat center;
+  background-size: cover;
+  height: 600px;
+}
+
+.navbar {
+  margin-bottom: 0px !important;
+}
+
+.welcome-cities {
+  position: inherit !important;
+  float: none;
+  padding: auto;
+}
+
+.welcome-drop {
+  text-align: center;
+  padding: 230px;
+  color: white;
+  font-size: 200%;
+  text-shadow: 1px #899bae;
+}

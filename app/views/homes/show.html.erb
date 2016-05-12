@@ -1,25 +1,23 @@
-<div class="jumbotron">
-  <h2>Hire a Genius</h2>
-  <%= link_to "Your Dream Coder", coders_path, class: "button link" %>
-</div>
+<div class="container">
+  <div class="page-header">
+    <h1><%= @home.title %><small> in <%= @city.name_and_state %></small></h1>
+  </div>
 
-<main>
-  <div class="text-center">
-    <h3>Team</h3>
-    <p>We are a group of skilled individuals.</p>
-  </div>
-  <div class="row">
-    <div class="one-third">
-      <h4 class="text-center"> Sal</h4>
-      <p class="text-center">Team Talent Manager</p>
+  <div class="row home">
+
+    <div class="col-sm-12 col-md-6">
+      <img src="<%= @home.image_url %>" class="img-responsive" alt="image of <%= @home.title %>">
     </div>
-    <div class="one-third">
-      <h4 class="text-center">Thom</h4>
-      <p class="text-center">CEO</p>
-    </div>
-    <div class="one-third">
-      <h4 class="text-center">Hedy </h4>
-      <p class="text-center">Office Manager</p>
+
+    <div class="col-sm-23 col-md-6">
+      <h3>Enjoy this space for just $<%= @home.daily_rate %> per night</h3>
+      <p><%= @home.description %></p>
+
+      <form class="date-picker-box">
+        <input type="text" id="home-date-range" class="form-control", value>
+        <button class="btn btn-success">Request to Book</button>
+      </form>
+
     </div>
   </div>
-</main>
+</div>

@@ -7,6 +7,12 @@ Rails.application.routes.draw do
 
   get    "/users/new",             to: "users#new",             as: :new_user
 
+  namespace :api do
+    namespace :v1 do
+      post "/reservations", to: "reservations#create"
+    end
+  end
+
   # post   "/users",                 to: "users#create",          as: :users
   # post   "/contracts",             to: "contracts#create",      as: :contracts
   # get    "/contract/:id",          to: "contracts#show",        as: :contract
@@ -28,6 +34,7 @@ Rails.application.routes.draw do
   delete "/logout",                to: "sessions#destroy"
   # get    "/dashboard",             to: "users#show",            as: :dashboard
   # get    "/history",               to: "contracts#index"
-  #
+
+  get    "/:city/homes/:id",       to: "homes#show",        as: :home
   get    "/:city",                 to: "cities#show",       as: :city
 end
