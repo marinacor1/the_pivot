@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512025051) do
+ActiveRecord::Schema.define(version: 20160512034252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,14 +51,15 @@ ActiveRecord::Schema.define(version: 20160512025051) do
   add_index "homes", ["city_id"], name: "index_homes_on_city_id", using: :btree
   add_index "homes", ["user_id"], name: "index_homes_on_user_id", using: :btree
 
-  create_table "teammates", force: :cascade do |t|
-    t.integer "coder_id"
-    t.integer "contract_id"
-    t.string  "cost"
+  create_table "reservations", force: :cascade do |t|
+    t.integer "day_id"
+    t.integer "home_id"
+    t.integer "trip_id"
   end
 
-  add_index "teammates", ["coder_id"], name: "index_teammates_on_coder_id", using: :btree
-  add_index "teammates", ["contract_id"], name: "index_teammates_on_contract_id", using: :btree
+  add_index "reservations", ["day_id"], name: "index_reservations_on_day_id", using: :btree
+  add_index "reservations", ["home_id"], name: "index_reservations_on_home_id", using: :btree
+  add_index "reservations", ["trip_id"], name: "index_reservations_on_trip_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -72,6 +73,4 @@ ActiveRecord::Schema.define(version: 20160512025051) do
   add_foreign_key "contracts", "users"
   add_foreign_key "homes", "cities"
   add_foreign_key "homes", "users"
-  add_foreign_key "teammates", "contracts"
-  add_foreign_key "teammates", "homes", column: "coder_id"
 end
