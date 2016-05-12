@@ -4,6 +4,11 @@ class Api::V1::ReservationsController < ApplicationController
     require "pry"
     binding.pry
     Reservation.create(reservation_params)
+    start_date = reservation_params[:startDate]
+    Day.create(date: start_date)
+    end_date = reservation_params[:endDate]
+    Day.create(date: end_date)
+    home = Home.find(reservation_params[:homeId])
   end
 
   private
