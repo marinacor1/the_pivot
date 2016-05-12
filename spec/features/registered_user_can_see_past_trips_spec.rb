@@ -2,69 +2,35 @@ require 'rails_helper'
 
 feature "User can see individual past trips details" do
   scenario "when they click link from history page" do
-    @user1, @user2 = create_list(:user, 2)
     user = create(:user)
-    visit login_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: "password"
-    click_button "Login"
-    visit users_path
-    @submissions = page.all('input[type="submit"]')
-    @submissions[0].click
-    @submissions[1].click
-    visit teams_path
-    click_link "Create Team"
-    @contract = Contract.first
+    email = user.email
 
-    formatted_date_created = @contract.created_at.strftime("%B %d, %Y - %H:%M")
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
 
-    visit history_path
+    user1, user2 = create_list(:user, 2)
+    city = create(:city_with_homes, name: "Denver", state: "CO")
+    home = city.homes.first
+    city2 = create(:city_with_homes, name: "Austin", state: "TX")
+    home2 = city.homes.first
 
-    expect(page).to have_content("Contract ID: #{@contract.id}")
-    click_link "View"
+    visit '/denver-co'
 
-    expect(page).to have_link(@user1.name)
-    expect(page).to have_link(@user2.name)
-    expect(page).to have_content(@user1.cost)
-    expect(page).to have_content(@user2.cost)
-    expect(page).to have_content("Contracted")
-    total_cost = sprintf("%.2f", (@user1.cost.to_f + @user2.cost.to_f))
-    expect(page).to have_content(total_cost)
-    expect(page).to have_content(formatted_date_created)
-    expect(page).to_not have_content("Completed at:")
-    expect(page).to_not have_content("Cancelled at:")
-  end
+    click_on home.title
 
-  scenario "when they click link from history page and a contract has been completed" do
-    @contract.update(status: "Completed")
-    formatted_date_updated = @contract.updated_at.strftime("%B %d, %Y - %H:%M")
+    expect(current_path).to eq("/denver-co/homes/#{home.id}")
 
-    visit history_path
-    click_link "View"
+    select("January 4, 2017") ("January 6, 2017") #don't know how to do this
 
-    expect(page).to have_content("Completed")
-    expect(page).to have_content("Completed at:")
-    expect(page).to have_content(formatted_date_updated)
-  end
+    click_link ("Book Now")
 
-  scenario "when they click link from history page and a contract has been cancelled" do
-    @contract.update(status: "Cancelled")
-    formatted_date_updated = @contract.updated_at.strftime("%B %d, %Y - %H:%M")
+    visit '/austin-tx'
 
-    visit history_path
-    click_link "View"
+    click_on home2.title
 
-    expect(page).to have_content("Cancelled")
-    expect(page).to have_content("Cancelled at:")
-    expect(page).to have_content(formatted_date_updated)
-  end
+    expect(current_path).to eq("/austin-tx/homes/#{home.id}")
 
-  scenario "when they click link from history page and a contract has been cancelled" do
-    @contract.update(status: "Paid")
+    select("January 8, 2017") ("January 12, 2017") #don't know how to do this
 
-    visit history_path
-    click_link "View"
-
-    expect(page).to have_content("Paid")
-  end
+    click_link ("Book Now")
+  end 
 end
