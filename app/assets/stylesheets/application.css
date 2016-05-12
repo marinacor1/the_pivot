@@ -29,11 +29,12 @@
 .dropdown-menu {
   position: inherit !important;
   float: none;
+  padding: auto;
 }
 
 .dropdown {
   text-align: center;
-  padding: 200px;
+  padding: 230px;
   color: white;
   font-size: 200%
   text-shadow: 1px #899bae;
