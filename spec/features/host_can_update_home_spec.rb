@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature "host can update home" do
-  xit "shows an update form for home" do
+  it "shows an update form for home" do
     city = create(:city_with_homes, name: "Denver", state: "CO")
     host = create(:user)
-    home = city.homes.first(user_id: host.id)
+    home = city.homes.first
+    home.user_id = host.id
     original_home_name = home.name
 
     ApplicationController.any_instance.stubs(:current_user).returns(host)
