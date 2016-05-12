@@ -13,7 +13,10 @@
   <body>
     <%= render "layouts/navbar" %>
 
-      <%= yield %>
+    <% flash.each do |type, message| %>
+      <h5><%= content_tag :div, message.html_safe, class:"flash-#{type}" %></h5>
+    <% end %>
+    <%= yield %>
 
     <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>

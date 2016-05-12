@@ -6,13 +6,21 @@ FactoryGirl.define do
                           "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/09/Bamboo-Home-Bali-Airbnb-Off-Grid-537x358.jpg",
                           "http://i.huffpost.com/gen/1322228/thumbs/o-MICROHOUSE-AIRBNB-570.jpg?6",
                           "http://assets.urbanturf.com/dc/images/blog/2014/07/portland_airbnb.jpg",
-                          "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/02/6-Best-Airbnb-Homes-You-Can-Rent-1-537x358.jpg"].cycle { |n| "#{n}" }
-    sequence(:image_url) { |n| "http://robohash.org/#{n}" }
+                          "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/02/6-Best-Airbnb-Homes-You-Can-Rent-1-537x358.jpg"].cycle do |n|
+      "#{n}"
+    end
     sequence(:address) { |n| "123#{n} Main St." }
     sequence(:title) { |n| "This House #{n}" }
     description Faker::Hipster.paragraph
     zip_code 8000
     daily_rate 64.99
+  end
+
+  factory :user do
+    first_name Faker::Name.first_name
+    last_name Faker::Name.last_name
+    email Faker::Internet.email
+    password "password"
   end
 
   factory :city do
