@@ -1,10 +1,4 @@
 class UsersController < ApplicationController
-    extend Forwardable
-
-  def_delegators :user,
-                 :patform_admin?,
-                 :host?,
-                 :registered_user?
   def new
     @user = User.new
   end
@@ -24,7 +18,7 @@ class UsersController < ApplicationController
   def show
     #if the user is a host, we want the dashboard to have the link to edit their home
     #this might be a good option for namespacing, so that we don't have to check here
-    #or we want to create a conditional here and then the user dashboards will have logic 
+    #or we want to create a conditional here and then the user dashboards will have logic
     if host?
       @home = Home.find_by(user: current_user)
     end

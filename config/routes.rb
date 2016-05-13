@@ -8,11 +8,17 @@ Rails.application.routes.draw do
   # get    "/coders/:id",            to: "coders#show",           as: :coder
   # get    "/coders",                to: "coders#index",          as: :coders
 
+  namespace :platform_admin do
+    get 'dashboard', to: 'users#show'
+  end
+
+  namespace :host do
+    get 'dashboard', to: 'users#show'
+  end
 
   get    "/users/new",             to: "users#new",             as: :new_user
   post   "/users",                 to: "users#create",          as: :users
   get    "/dashboard",             to: "users#show",            as: :dashboard
-
 
   namespace :api do
     namespace :v1 do
