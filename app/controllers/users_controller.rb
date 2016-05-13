@@ -16,6 +16,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    if host?
+      @home = Home.find_by(user: current_user)
+    end
   end
 
   private
