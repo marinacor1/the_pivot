@@ -2,6 +2,7 @@ class HomesController < ApplicationController
   def show
     @city = City.find_by(slug: params[:city] )
     @home = Home.find(params[:id])
+    #this home does not have a user id
   end
 
   def update
@@ -12,7 +13,6 @@ class HomesController < ApplicationController
       flash[:error] = "Your home could not be updated. Please check your input and try again."
     end
   end
-
 
   private
 

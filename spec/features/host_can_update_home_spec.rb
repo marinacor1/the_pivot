@@ -5,12 +5,21 @@ RSpec.feature "host can update home" do
     city = create(:city_with_homes, name: "Denver", state: "CO")
     host = create(:user)
     home = city.homes.first
-    home.user_id = host.id
     original_home_name = home.title
     host_role = Role.create(name: "host")
     # r_u_role = Role.create(name: "registered_user")
     # UserRole.create(user: host, role: host_role)
     host.user_roles.create(role: host_role)
+    home.user_id = host.id
+
+    visit root_path
+
+    click_link "Login"
+
+    fill_in "Email:", with: "#{host.email}"
+    fill_in "Password:", with: "password"
+    click_link "Login"
+save_and_open_page
     visit dashboard_path
 
     click_link "Manage Your Home"
