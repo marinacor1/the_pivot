@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get    "/:city/homes/:id",       to: "homes#show",        as: :city_home
   get    "/:city/homes/:id/edit",  to: "homes#edit",        as: :edit_home
   put    "/:city/homes/:id",       to: "homes#update"
+  patch  "/:city/homes/:id",       to: "homes#update"
 
   get    "/:city",                 to: "cities#show",       as: :city
 end
