@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get    "/login",                 to: "sessions#new"
+  post   "/login",                 to: "sessions#create"
+  delete "/logout",                to: "sessions#destroy"
   root   "welcome#show"
   #
   # get    "/homes/:id",             to: "homes#show"
@@ -32,9 +35,6 @@ Rails.application.routes.draw do
   # get    "/admin/coders/:id/edit", to: "admin/coders#edit",     as: :edit_admin_coder
   # patch  "/admin/coders/:id",      to: "admin/coders#update",   as: :admin_coder
   #
-  get    "/login",                 to: "sessions#new"
-  post   "/login",                 to: "sessions#create"
-  delete "/logout",                to: "sessions#destroy"
   # get    "/history",               to: "contracts#index"
 
   get    "/:city/homes/:id",       to: "homes#show",        as: :home

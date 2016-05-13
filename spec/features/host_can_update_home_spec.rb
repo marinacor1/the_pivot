@@ -20,7 +20,7 @@ RSpec.feature "host can update home" do
 
     fill_in "email", with: "#{host.email}"
     fill_in "password", with: "password"
-    click_link "Login"
+    click_button "Login"
 
     expect(current_path).to eq '/dashboard'
 
