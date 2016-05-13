@@ -5,6 +5,7 @@ class HomesController < ApplicationController
   end
 
   def edit
+    @city = current_user.home.city
     @home = current_user.home
   end
 

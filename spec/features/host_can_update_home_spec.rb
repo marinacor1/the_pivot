@@ -27,7 +27,7 @@ RSpec.feature "host can update home" do
 
     click_link "Manage Your Home"
 
-    expect(current_path).to eq("/homes/#{home.id}/edit")
+    expect(current_path).to eq("/denver-co/homes/#{home.id}/edit")
 
     fill_in "Title:", with: "Stinky Outhouse"
     fill_in "City:", with: "San Francisco, CA"

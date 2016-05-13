@@ -1,6 +1,6 @@
 <h1>User Dashboard</h1>
 <% if current_user.host? %>
-  <%= link_to "Manage Your Home", edit_home_path(@home) %>
+  <%= link_to "Manage Your Home", edit_home_path(current_user.home.city, current_user.home) %>
 <% end %>
 <div class="user-show">
   <h3>Name</h3>

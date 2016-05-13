@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   # get    "/history",               to: "contracts#index"
 
   get    "/:city/homes/:id",       to: "homes#show",        as: :home
-  get    "/:city/homes/:id",       to: "homes#edit"
+  get    "/:city/homes/:id/edit",       to: "homes#edit",        as: :edit_home
   put    "/:city/homes/:id",       to: "homes#update"
 
   get    "/:city",                 to: "cities#show",       as: :city
