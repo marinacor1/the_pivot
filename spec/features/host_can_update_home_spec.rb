@@ -13,8 +13,6 @@ RSpec.feature "host can update home" do
     # host.user_roles.create(role: host_role)
     host.roles << host_role
     host.home = home
-    # home.user = host.id
-
 
     visit root_path
 

@@ -1,6 +1,6 @@
 <h1>User Dashboard</h1>
-<% if current_user.authorized_to_edit_home?(@home) %>
-  <%= link_to "Manage Your Home", edit_home_path(@user) %>
+<% if current_user.host? %>
+  <%= link_to "Manage Your Home", edit_home_path(@home) %>
 <% end %>
 <div class="user-show">
   <h3>Name</h3>

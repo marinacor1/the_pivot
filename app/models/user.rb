@@ -23,6 +23,11 @@ class User < ActiveRecord::Base
     roles.exists?(name: "registered_user")
   end
 
+  # def authorized_to_edit_home?(home)
+  #   current_user.host?
+
+  # end
+
 
   #create a method that checks to make sure that the home that is passed in the view belongs to the host
 
