@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+    extend Forwardable
+
+  def_delegators :user,
+                 :patform_admin?,
+                 :host?,
+                 :registered_user?
   def new
     @user = User.new
   end
