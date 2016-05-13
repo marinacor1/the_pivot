@@ -1,8 +1,11 @@
 <h1>Edit Your Home </h1>
-<% form_for ([@city, @home]) do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<%= f.label :city %>
-<%= f.text_field :city %>
-<%= f.submit %>
-<% end %>
+Fill in informationa about your home and the name and state of your city.
+<div class="edit_home_form">
+  <%= form_for ([@city, @home]) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.submit "Submit"%>
+  <% end %>
+</div>
