@@ -1,6 +1,7 @@
 <h1>User Dashboard</h1>
-<%= link_to "Manage Your Home", edit_home_path(@user) %>
-<!-- error is that there is no id for user we don't know who the user is -->
+<% if current_user.authorized_to_edit_home?(@home) %>
+  <%= link_to "Manage Your Home", edit_home_path(@user) %>
+<% end %>
 <div class="user-show">
   <h3>Name</h3>
   <p><%= current_user.first_name %></p>

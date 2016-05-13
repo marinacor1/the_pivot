@@ -16,12 +16,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    #if the user is a host, we want the dashboard to have the link to edit their home
-    #this might be a good option for namespacing, so that we don't have to check here
-    #or we want to create a conditional here and then the user dashboards will have logic
-    if host?
+    if current_user.host? # => current_user.host?
       @home = Home.find_by(user: current_user)
     end
+    @home = current_user.home
   end
 
   private

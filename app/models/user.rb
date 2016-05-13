@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :user_roles
   has_many :roles, through: :user_roles
+  has_one :home
   has_secure_password
 
   validates :first_name, presence: true
@@ -21,5 +22,9 @@ class User < ActiveRecord::Base
   def registered_user?
     roles.exists?(name: "registered_user")
   end
+
+
+  #create a method that checks to make sure that the home that is passed in the view belongs to the host
+
 
 end
