@@ -16,11 +16,13 @@ RSpec.feature "host can update home" do
 
     click_link "Login"
 
-    fill_in "Email:", with: "#{host.email}"
-    fill_in "Password:", with: "password"
+    expect(current_path).to eq '/login'
+
+    fill_in "email", with: "#{host.email}"
+    fill_in "password", with: "password"
     click_link "Login"
-save_and_open_page
-    visit dashboard_path
+
+    expect(current_path).to eq '/dashboard'
 
     click_link "Manage Your Home"
 
