@@ -12,7 +12,7 @@ module ApplicationHelper
     if current_user
       link_to "Past Trips", root_path, class: "link"
     else
-      link_to "Create Account", root_path, class: "link"
+      link_to "Create Account", new_user_path, class: "link"
     end
   end
 
