@@ -46,6 +46,7 @@ class PermissionsService
   end
 
   def unregistered_guest_permissions
+    return true if controller == "welcome"
     return true if controller == "stores" && action == "index"
     return true if controller == "sessions" && action == "new"
     return true if controller == "sessions" && action == "create"
