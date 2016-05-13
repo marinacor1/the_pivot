@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       if session[:cart]
         redirect_to carts_path
       else
-        redirect_to root_path
+        redirect_to dashboard_path
       end
     else
       flash[:error] = "login unsuccessful"
