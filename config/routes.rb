@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   # get    "/coders/:id",            to: "coders#show",           as: :coder
   # get    "/coders",                to: "coders#index",          as: :coders
 
+
   get    "/users/new",             to: "users#new",             as: :new_user
+  post   "/users",                 to: "users#create",          as: :users
+  get    "/dashboard",             to: "users#show",            as: :dashboard
+
 
   namespace :api do
     namespace :v1 do
@@ -13,7 +17,6 @@ Rails.application.routes.draw do
     end
   end
 
-  # post   "/users",                 to: "users#create",          as: :users
   # post   "/contracts",             to: "contracts#create",      as: :contracts
   # get    "/contract/:id",          to: "contracts#show",        as: :contract
   # get    "/teams",                 to: "teams#index",           as: :teams
@@ -32,7 +35,6 @@ Rails.application.routes.draw do
   get    "/login",                 to: "sessions#new"
   post   "/login",                 to: "sessions#create"
   delete "/logout",                to: "sessions#destroy"
-  # get    "/dashboard",             to: "users#show",            as: :dashboard
   # get    "/history",               to: "contracts#index"
 
   get    "/:city/homes/:id",       to: "homes#show",        as: :home
