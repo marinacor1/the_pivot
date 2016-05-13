@@ -1,3 +1,10 @@
 <h1>User Dashboard</h1>
-<%=binding.pry %>
 <%= link_to "Manage Your Home", edit_home_path(@home) %>
+<div class="user-show">
+  <h3>Name</h3>
+  <p><%= current_user.first_name %></p>
+  <h3>Username</h3>
+  <p><%= current_user.last_name%></p>
+  <h3>Email</h3>
+  <p><%= current_user.email %></p>
+</div>
