@@ -5,7 +5,7 @@ class HomesController < ApplicationController
   end
 
   def edit
-   
+    @home = current_user.home
   end
 
   def update

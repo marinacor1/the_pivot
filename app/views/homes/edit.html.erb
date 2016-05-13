@@ -1,0 +1,8 @@
+<h1>Edit Your Home </h1>
+<% form_for @home do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.label :city %>
+<%= f.text_field :city %>
+<%= f.submit %>
+<% end %>
