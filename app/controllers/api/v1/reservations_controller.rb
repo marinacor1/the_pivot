@@ -21,10 +21,6 @@ class Api::V1::ReservationsController < ApplicationController
     # Reservation has:
     # => start_date
     # => end_date
-
-    # OR
-    # ReservationDate has home_id added
-    # => validates unique scope of home_id and date_ids
   end
 
   private
