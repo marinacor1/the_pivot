@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root   "welcome#show"
-  get    "/dashboard",             to: "users#show",            as: :dashboard
   #
   # get    "/homes/:id",             to: "homes#show"
   # get    "/coders/:id",            to: "coders#show",           as: :coder
