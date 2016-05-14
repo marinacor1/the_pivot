@@ -1,4 +1,5 @@
 class Api::V1::ReservationsController < ApplicationController
+  respond_to :json
 
   def create
     # model
@@ -17,6 +18,7 @@ class Api::V1::ReservationsController < ApplicationController
 
     if reservation.valid? && reservation.has_no_conflicts?
       reservation.save
+      respond_with :api, :v1, reservation, location: -> { root_path }
     end
   end
 
