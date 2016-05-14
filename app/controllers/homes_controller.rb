@@ -5,13 +5,24 @@ class HomesController < ApplicationController
   end
 
   def edit
-    @city = current_user.home.city
-    @home = current_user.home
+    if current_user.host?
+      @city = current_user.home.city
+      @home = current_user.home
+    else
+      @city = City.find_by(slug: params[:city])
+      @home = Home.find(params[:id])
+    end
   end
 
   def update
-    @city = current_user.home.city
-    @home = current_user.home
+    if current_user.host?
+      @city = current_user.home.city
+      @home = current_user.home
+    else
+      @city = City.find_by(slug: params[:city])
+      @home = Home.find(params[:id])
+    end
+
     if @home.update(params_check)
       flash[:error] = "Success! Your home updated."
       redirect_to city_home_path(@city, @home)

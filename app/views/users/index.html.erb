@@ -1,5 +1,6 @@
 <h1>Edit Any User or Home</h1>
-<%= @users.each do |user| %>
+<% @users.each do |user| %>
+<p>
   <%= user.first_name %>
   <%= user.last_name %>
   <%= user.email %>
@@ -7,4 +8,5 @@
     <% if user.home %>
       <%= link_to "Edit User Home", edit_home_path(user.home.city, user.home) %>
     <% end %>
+  </p>
 <% end %>
