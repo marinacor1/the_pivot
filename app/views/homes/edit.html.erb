@@ -1,0 +1,17 @@
+<h1>Edit Your Home </h1>
+Fill in informationa about your home and the name and state of your city.
+<div class="edit_home_form">
+  <%= form_for ([@city, @home]) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :image_url %>
+  <%= f.text_field :image_url %>
+  <%= f.label :zip_code %>
+  <%= f.text_field :zip_code %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.submit "Submit"%>
+  <% end %>
+</div>

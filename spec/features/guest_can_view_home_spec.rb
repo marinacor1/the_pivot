@@ -14,7 +14,7 @@ feature "Guest can view a home" do
     within(".page-header") do
       expect(page).to have_content home.title
     end
-    
+
     within(".home") do
       expect(page).to have_content "#{home.daily_rate} per night"
       expect(page).to have_content home.description
