@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  // isInvalidDate - use ajax to reload calendar to remove ordered dates
+  
   // fetchAvailability();
     // need to make sure that the calendar is rendered AFTER the fetchAvailability function returns
     // in $.ajax({success()}), call the renderCalendar function and feed it the return value (aka blackout dates)

@@ -30,7 +30,7 @@ class Api::V1::ReservationsController < ApplicationController
 
     # respond_with carts_path(reservation.id)
 
-     respond_with reservation, location: -> { carts_path(reservation.id) }
+     respond_with reservation, location: -> { cart_path(reservation.id) }
 
   end
 

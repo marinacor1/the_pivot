@@ -1,7 +1,6 @@
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-
   def create
     # make sure Reservation has user_id at this point
     reservation = Reservation.find(params[:reservation_id])
@@ -12,9 +11,7 @@ class CartsController < ApplicationController
       session[:cart] = @cart.contents
       flash[:notice] = "Booking Requested!"
     end
-    require "pry"
-    binding.pry
-    # redirect_to request.referrer
+    redirect_to request.referrer
   end
 
   def show
