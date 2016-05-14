@@ -5,7 +5,6 @@ feature "Registered user can manage account" do
     user = create(:user)
     original_first = user.first_name
     original_last = user.last_name
-    ApplicationController.any_instance.stubs(:current_user).returns(user)
 
     visit dashboard_path
 
