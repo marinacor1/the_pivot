@@ -1,10 +1,14 @@
 require 'rails_helper'
+require 'features_helper'
 
 feature "Registered user can manage account" do
+  include FeaturesHelper
   scenario "when they click edit account on their dashboard" do
     user = create(:user)
     original_first = user.first_name
     original_last = user.last_name
+
+    user_login(user)
 
     visit dashboard_path
 

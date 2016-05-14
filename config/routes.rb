@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   get    "/users/new",             to: "users#new",             as: :new_user
   post   "/users",                 to: "users#create",          as: :users
-  patch   "/users",                to: "users#create"          
+  patch   "/users",                to: "users#create"
+  resources :users, only: [:edit, :update]
   get    "/dashboard",             to: "users#show",            as: :dashboard
   #
   # get    "/homes/:id",             to: "homes#show"
