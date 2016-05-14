@@ -27,10 +27,16 @@ module FeaturesHelper
   def user_login(user)
     visit root_path
 
-    click_link "Login"
+    click_on "Login"
+
+    expect(current_path).to eq login_path
+
     fill_in "email", with: user.email
-    fill_in "password", with: "password"
-    click_link "Login"
+    fill_in "password", with: user.password
+
+    within(".user-form") do
+      click_on "Login"
+    end
   end
 
 end
