@@ -7,7 +7,7 @@ RSpec.feature "User can book any home" do
     city = create(:city_with_homes, name: "Denver", state: "CO")
     home = city.homes.first
 
-    ApplicationController.any_instance.stubs(:current_user).returns(user)
+    ApplicationController.any_instance.stub(:current_user).and_return(user)
 
     visit '/denver-co'
 
@@ -15,11 +15,15 @@ RSpec.feature "User can book any home" do
 
     expect(current_path).to eq("/denver-co/homes/#{home.id}")
 
-    select("January 4, 2017 through January 6, 2017") #don't know how to do this
+    within(".date-picker-box") do
+      # fill_in('.form-control', with: "07/23/2016 - 07/25/2016")
+      # page.execute_script("$('#home-date-range').datepicker('startDate', '01/01/2010')")
 
-    expect(page).to_not have_link("Book Now")
+      expect(page).to have_button("Request to Book")
+      click_button "Request to Book"
+    end
 
+    # expect cart to increase by one / modal?
     expect(page).to have_content "Pack your bags! Your reservations are made!"
-    #expect cart to increase by one
   end
 end

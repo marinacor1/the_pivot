@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   respond_to :html
 
   protect_from_forgery with: :null_session
+  before_action :set_cart
   helper_method :current_user
 
   def current_user

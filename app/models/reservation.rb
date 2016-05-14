@@ -9,5 +9,4 @@ class Reservation < ActiveRecord::Base
   def trip_length
     (self.check_out - self.check_in).to_i
   end
-
 end

@@ -11,4 +11,9 @@ class Day < ActiveRecord::Base
     reservation_id.nil?
   end
 
+  def self.book(reservation)
+    days = self.where(date: reservation.check_in..reservation.check_out)
+    reservation.days << days
+  end
+
 end

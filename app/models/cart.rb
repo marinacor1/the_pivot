@@ -10,28 +10,24 @@ class Cart
   end
 
   def add_reservation(reservation_id)
-    contents[reservation_id.to_s] ||= 0
-    contents[reservation_id.to_s] += 1
+    contents[reservation.to_s] = 1
   end
 
-  def add_coder(coder_id)
-    contents[coder_id.to_s] ||= 0
-    contents[coder_id.to_s] += 1
+  def remove_reservation(reservation_id)
+    contents.delete(reservation_id.to_s)
   end
 
-  def remove_coder(coder_id)
-    new_contents = {}
-    contents.each do |coder, count|
-      new_contents[coder] = 1 unless coder == coder_id.to_s
-    end
-    @contents = new_contents
+  def reservations
+    self.contents.map { |reservation_id, _quantity| Reservation.find(reservation_id) }
   end
 
-  def total_cost
-    total = contents.reduce(0) do |sum, coder_id|
-      sum += Coder.find(coder_id[0]).cost.to_f
-      sum
-    end
-    sprintf("%.2f", total)
+  def has_reservation?(reservation_id)
+    contents.has_key?(reservation_id.to_s)
   end
+
+  def total_days
+    # ActiveRecord
+    # tasks.reduce(0) { |sum, task| sum += task.hours }
+  end
+
 end

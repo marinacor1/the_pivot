@@ -14,6 +14,14 @@ class Api::V1::ReservationsController < ApplicationController
       check_out: end_date
       )
 
+    # ReservationBooker - PORO handles everything
+    # => adds reservation to cart
+    # => reservation.valid? && reservation.has_no_conflicts?
+    # => Day.book(reservation)
+
+    # require "pry"
+    # binding.pry
+
     reservation.days << Day.where(date: start_date..end_date)
 
     if reservation.valid? && reservation.has_no_conflicts?
