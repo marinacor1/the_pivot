@@ -74,19 +74,28 @@ class Seed
 
   def generate_users
     puts "Creating Users"
-    @num_users.times do |i|
-      user = User.create!(
-        first_name: Faker::Name.first_name,
+    @num_homes.times do |i|
+    User.create!(
+        first_name: "Host#{i}",
         last_name: Faker::Name.last_name,
         email: Faker::Internet.email,
         password: "password"
         )
     end
+    role1 = Role.find_by(name: "registered_user")
+    role2 = Role.find_by(name: "host")
+    role3 = Role.find_by(name: "platform_admin")
+    homes = Homes.all
+    homes.each do |home, i|
+      UserRole.create(user: User.find_by(first_name: "Host#{i}"), role: role2)
+    end
     puts "Done Creating Users"
   end
 
   def generate_platform_admin
+    puts "Creating Platform admin"
 
+    puts "Done Platform admin"
   end
 
   def generate_specific_users
