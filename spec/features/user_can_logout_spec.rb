@@ -17,7 +17,7 @@ RSpec.feature "user can logout" do
       click_on "Login"
     end
 
-    expect(current_path).to eq root_path
+    expect(current_path).to eq dashboard_path
 
     click_on "Logout"
 

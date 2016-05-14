@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       flash[:message] = "You have successfully logged in!"
-      if session[:cart]
+      @user.roles << Role.create(name:"registered_user")
+    if session[:cart]
         redirect_to carts_path
       else
         redirect_to dashboard_path

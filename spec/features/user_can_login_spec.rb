@@ -16,6 +16,6 @@ RSpec.feature "user can login" do
     within(".user-form") do
       click_on "Login"
     end
-    expect(current_path).to eq root_path
+    expect(current_path).to eq dashboard_path
   end
 end
