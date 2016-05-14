@@ -6,6 +6,7 @@
   <%= user.email %>
   <%= link_to "Edit User Account", edit_user_path(user) %>
     <% if user.home %>
+    <%= binding.pry %>
       <%= link_to "Edit User Home", edit_home_path(user.home.city, user.home) %>
     <% end %>
   </p>
