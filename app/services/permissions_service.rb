@@ -2,7 +2,7 @@ class PermissionsService
   extend Forwardable
 
   def_delegators :user,
-                 :patform_admin?,
+                 :platform_admin?,
                  :host?,
                  :registered_user?
 
