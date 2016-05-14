@@ -22,7 +22,7 @@ RSpec.feature "host can update home" do
 
     expect(current_path).to eq '/dashboard'
 
-    click_link "All Users"
+    click_link "Edit User Account or Homes"
 
     click_link User.last.first.home.title
 
