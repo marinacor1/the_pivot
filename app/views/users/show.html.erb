@@ -1,5 +1,6 @@
 <h1>User Dashboard</h1>
 <%= link_to "Edit Account",  edit_user_path(current_user)%>
+<%= link_to "All Homes", homes_path %>
 <% if current_user.host? %>
   <%= link_to "Manage Your Home", edit_home_path(current_user.home.city, current_user.home) %>
 <% end %>

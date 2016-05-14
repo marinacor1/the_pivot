@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   patch   "/users",                to: "users#create"
   resources :users, only: [:edit, :update]
   get    "/dashboard",             to: "users#show",            as: :dashboard
+
+
+  get    "/users",                 to: "users#index",        as: :homes
   #
   # get    "/homes/:id",             to: "homes#show"
   # get    "/coders/:id",            to: "coders#show",           as: :coder
@@ -43,6 +46,5 @@ Rails.application.routes.draw do
   get    "/:city/homes/:id/edit",  to: "homes#edit",        as: :edit_home
   put    "/:city/homes/:id",       to: "homes#update"
   patch  "/:city/homes/:id",       to: "homes#update"
-
   get    "/:city",                 to: "cities#show",       as: :city
 end

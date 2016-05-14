@@ -22,7 +22,9 @@ RSpec.feature "host can update home" do
 
     expect(current_path).to eq '/dashboard'
 
-    click_link "Manage Your Home"
+    click_link "All Users"
+
+    click_link User.last.first.home.title
 
     expect(current_path).to eq("/denver-co/homes/#{home.id}/edit")
 

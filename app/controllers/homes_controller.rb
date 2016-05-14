@@ -20,6 +20,10 @@ class HomesController < ApplicationController
     end
   end
 
+  def index
+    @homes = Home.all
+  end
+
   private
 
   def params_check
