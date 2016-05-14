@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update_attributes(params_check)
+    if @user.update_attributes(user_params)
       flash[:error] = "Success! Your account updated."
     else
       flash[:error] = "Your account could not be updated. Please check your input and try again."
