@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    binding.pry
     @user = current_user
   end
 
