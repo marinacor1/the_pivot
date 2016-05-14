@@ -6,4 +6,8 @@ class Reservation < ActiveRecord::Base
     return true unless self.days.any? { |day| !day.available? }
   end
 
+  def trip_length
+    (self.check_out - self.check_in).to_i
+  end
+
 end

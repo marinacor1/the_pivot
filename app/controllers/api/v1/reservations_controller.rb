@@ -4,7 +4,6 @@ class Api::V1::ReservationsController < ApplicationController
     # model
     start_date = reservation_params[:startDate].to_date
     end_date   = reservation_params[:endDate].to_date
-    total_days = (end_date - start_date).to_i
     home_id    = reservation_params[:homeId].to_i
     # user_id = current_user.id
 
