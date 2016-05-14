@@ -19,10 +19,13 @@ function renderCalendar() {
 function bindCalendarEvents() {
   $('.date-picker-box button').on('click', function(event) {
     event.preventDefault();
-    var dates  = $(event.target).siblings().val().split(' - ');
+    var dates     = $(event.target).siblings().val().split(' - ');
+    var startDate = new Date(dates[0]);
+    var endDate   = new Date(dates[1])
+
     var pathElements = window.location.pathname.split("/")
     var homeId = pathElements[pathElements.length - 1]
-    var data   = { data: { startDate: dates[0], endDate: dates[1], homeId: homeId }};
+    var data   = { data: { startDate: startDate, endDate: endDate, homeId: homeId }};
 
     $.ajax({
       method:  "POST",

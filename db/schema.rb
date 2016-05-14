@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512163439) do
+ActiveRecord::Schema.define(version: 20160513235849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,11 @@ ActiveRecord::Schema.define(version: 20160512163439) do
   add_index "contracts", ["user_id"], name: "index_contracts_on_user_id", using: :btree
 
   create_table "days", force: :cascade do |t|
-    t.date "date"
+    t.date    "date"
+    t.integer "reservation_id"
   end
+
+  add_index "days", ["reservation_id"], name: "index_days_on_reservation_id", using: :btree
 
   create_table "homes", force: :cascade do |t|
     t.string  "image_url"
@@ -51,18 +54,12 @@ ActiveRecord::Schema.define(version: 20160512163439) do
   add_index "homes", ["city_id"], name: "index_homes_on_city_id", using: :btree
   add_index "homes", ["user_id"], name: "index_homes_on_user_id", using: :btree
 
-  create_table "reservation_days", force: :cascade do |t|
-    t.integer "day_id"
-    t.integer "reservation_id"
-  end
-
-  add_index "reservation_days", ["day_id"], name: "index_reservation_days_on_day_id", using: :btree
-  add_index "reservation_days", ["reservation_id"], name: "index_reservation_days_on_reservation_id", using: :btree
-
   create_table "reservations", force: :cascade do |t|
     t.integer "home_id"
     t.integer "trip_id"
     t.integer "user_id"
+    t.date    "check_in"
+    t.date    "check_out"
   end
 
   add_index "reservations", ["home_id"], name: "index_reservations_on_home_id", using: :btree
@@ -79,9 +76,8 @@ ActiveRecord::Schema.define(version: 20160512163439) do
   end
 
   add_foreign_key "contracts", "users"
+  add_foreign_key "days", "reservations"
   add_foreign_key "homes", "cities"
   add_foreign_key "homes", "users"
-  add_foreign_key "reservation_days", "days"
-  add_foreign_key "reservation_days", "reservations"
   add_foreign_key "reservations", "users"
 end
