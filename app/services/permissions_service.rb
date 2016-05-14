@@ -35,22 +35,30 @@ class PermissionsService
   def host_permissions
     return true if controller = "sessions"
     return true if controller == "homes" && action.in?(%w( index show edit update))
-    return true if controller == "user" && action.in?(%w(new create edit update show))
-    # return true if controller == "reservations" && action.in?(%w( index show))
-    # return true if controller == "trips" && action.in?(%w( index show))
+    return true if controller == "welcome"
+    return true if controller == "users" && action.in?(%w(new create edit update show))
+    return true if controller == "cities" && action == "index"
+    return true if controller == "cities" && action == "show"
+    return true if controller == "sessions" && action == "new"
+    return true if controller == "sessions" && action == "create"
+    return true if controller == "sessions" && action == "destroy"
   end
 
   def registered_user_permissions
-    return true if controller = "sessions"
-    # return true if controller == "items" && action.in?(%w( index show))
-    # return true if controller == "stores" && action.in?(%w( index show))
+    return true if controller == "welcome"
+    return true if controller == "users" && action.in?(%w(new create show edit update))
+    return true if controller == "cities" && action == "index"
+    return true if controller == "cities" && action == "show"
+    return true if controller == "homes" && action == "show"
+    return true if controller == "homes" && action == "index"
+    return true if controller == "sessions" && action == "new"
+    return true if controller == "sessions" && action == "create"
+    return true if controller == "sessions" && action == "destroy"
   end
 
   def unregistered_guest_permissions
     return true if controller == "welcome"
-    return true if controller == "users" && action.in?(%w(new create show))
-    return true if controller == "stores" && action == "index"
-    return true if controller == "stores" && action == "show"
+    return true if controller == "users" && action.in?(%w(new create))
     return true if controller == "cities" && action == "index"
     return true if controller == "cities" && action == "show"
     return true if controller == "homes" && action == "show"

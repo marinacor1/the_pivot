@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:message] = "Logged in as #{@user.first_name}"
+      @user.roles << Role.create(name:"registered_user")
       redirect_to dashboard_path
     else
       flash[:action] = "login unsuccesful"
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.host? # => current_user.host?
+    if current_user.host?
       @home = Home.find_by(user: current_user)
     end
     @home = current_user.home

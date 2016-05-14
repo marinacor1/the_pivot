@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   root   "welcome#show"
-  
+
   get    "/login",                 to: "sessions#new"
   post   "/login",                 to: "sessions#create"
   delete "/logout",                to: "sessions#destroy"
 
   get    "/users/new",             to: "users#new",             as: :new_user
   post   "/users",                 to: "users#create",          as: :users
+  patch   "/users",                to: "users#create"          
   get    "/dashboard",             to: "users#show",            as: :dashboard
   #
   # get    "/homes/:id",             to: "homes#show"
