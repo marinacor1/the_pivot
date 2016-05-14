@@ -7,12 +7,9 @@ Rails.application.routes.draw do
 
   get    "/users/new",             to: 'users#new',             as: :new_user
 
-  namespace :api do
-    namespace :v1 do
-      post "/reservations", to: "reservations#create"
-    end
-  end
-
+  resources :reservations, only: [:create]
+  
+  # post    "/reservations",          to: '/reservations#create', as: :reservations
 
   # post   "/users",                 to: "users#create",          as: :users
   # post   "/contracts",             to: "contracts#create",      as: :contracts
