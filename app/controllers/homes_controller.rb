@@ -10,9 +10,11 @@ class HomesController < ApplicationController
   end
 
   def update
+    @city = current_user.home.city
+    @home = current_user.home
     if @home.update(params_check)
       flash[:error] = "Success! Your home updated."
-      redirect_to @home
+      redirect_to city_home_path(@city, @home)
     else
       flash[:error] = "Your home could not be updated. Please check your input and try again."
     end

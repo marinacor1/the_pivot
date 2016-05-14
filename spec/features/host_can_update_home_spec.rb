@@ -31,12 +31,12 @@ RSpec.feature "host can update home" do
 
   within(".edit_home_form") do
     fill_in "Title", with: "Stinky Outhouse"
-    fill_in "Address", with: "lsdjsd"
+    fill_in "Description", with: "It's stinky. Very stinky."
     click_on "Submit"
   end
 
     expect(page).to have_content "Stinky Outhouse"
-    expect(page).to have_content "San Francisco, CA"
+    expect(page).to have_content "It's stinky. Very stinky."
     expect(current_path).to eq("/denver-co/homes/#{home.id}")
   end
 
