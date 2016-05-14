@@ -7,12 +7,10 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       flash[:message] = "You have successfully logged in!"
-      if current_admin?
-        redirect_to admin_dashboard_path
-      elsif session[:cart]
+      if session[:cart]
         redirect_to carts_path
       else
-        redirect_to root_path
+        redirect_to dashboard_path
       end
     else
       flash[:error] = "login unsuccessful"
