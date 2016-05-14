@@ -25,14 +25,35 @@ function bindCalendarEvents() {
 
     var pathElements = window.location.pathname.split("/")
     var homeId = pathElements[pathElements.length - 1]
-    var data   = { data: { startDate: startDate, endDate: endDate, homeId: homeId }};
+    var data   = {
+                    data: {
+                            startDate: startDate,
+                            endDate: endDate,
+                            homeId: homeId
+                          }
+                  };
 
     $.ajax({
-      method:  "POST",
-      url:     "/api/v1/reservations",
-      data:    data,
-      success: function(response) {
-        $('.nav-pills li:last-child').click()
+      method:   "POST",
+      dataType: "json",
+      url:      "/api/v1/reservations",
+      data:     data,
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      success: function(data) {
+        window.location.href = "/cart"
+
+        // if (data.redirect) {
+        //     // data.redirect contains the string URL to redirect to
+        //     window.location.href = data.redirect;
+        // }
+        // else {
+        //     // data.form contains the HTML for the replacement form
+        //     $("#myform").replaceWith(data.form);
+        // }
+
+        // $('.navbar-right li:last-child').click()
+        // successmessage = 'Data was succesfully captured';
+        // $("label#successmessage").text(successmessage);
       }, error: function(xhr) {
         alert("Something went wrong :(")
       }

@@ -1,5 +1,6 @@
 class Api::V1::ReservationsController < ApplicationController
   respond_to :json
+  # respond_to :html
 
   def create
     # model
@@ -19,15 +20,18 @@ class Api::V1::ReservationsController < ApplicationController
     # => reservation.valid? && reservation.has_no_conflicts?
     # => Day.book(reservation)
 
-    # require "pry"
-    # binding.pry
-
     reservation.days << Day.where(date: start_date..end_date)
 
-    if reservation.valid? && reservation.has_no_conflicts?
-      reservation.save
-      respond_with :api, :v1, reservation, location: -> { root_path }
-    end
+    # if reservation.valid? && reservation.has_no_conflicts?
+    #   reservation.save
+    # end
+
+    # respond_with :api, :v1, reservation, location: -> { root_path }
+
+    # respond_with carts_path(reservation.id)
+
+     respond_with reservation, location: -> { carts_path(reservation.id) }
+
   end
 
   private

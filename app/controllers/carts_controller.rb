@@ -12,7 +12,9 @@ class CartsController < ApplicationController
       session[:cart] = @cart.contents
       flash[:notice] = "Booking Requested!"
     end
-    redirect_to request.referrer
+    require "pry"
+    binding.pry
+    # redirect_to request.referrer
   end
 
   def show
