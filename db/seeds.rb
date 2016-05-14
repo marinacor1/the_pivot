@@ -9,6 +9,7 @@ class Seed
     generate_host_and_homes
     generate_cities
     generate_users
+    generate_platform_admin
     generate_specific_users
     generate_days
     generate_reservations
@@ -43,18 +44,33 @@ class Seed
 
   def generate_hosts_and_homes
     puts "Creating Hosts and Homes"
-    user = User.create!(first_name: Faker::Name.first_name,
-                       last_name: Faker::Name.last_name,
-                       email: Faker::Internet.email,
-                       password: "password")
+    #create same amount of users as homes
+    @num_homes.times do |i|
+    User.create!(
+        first_name: "Host#{i}",
+        last_name: Faker::Name.last_name,
+        email: Faker::Internet.email,
+        password: "password"
+        )
+    end
+    #create homes
     @num_homes.times do |i|
       home = User.home.create!(address:     Faker::Address.street_address,
                               image_url:   "https://robohash.org/#{i}",
                               zip_code:    Faker::Address.zip_code,
                               title:       "Basement #{i}",
                               description: Faker::Hipster.sentence,
-                              daily_rate:  40.99,
-                              user_id: user.id)
+                              daily_rate:  40.99)
+    end
+    #revisit roles already created
+    role1 = Role.find_by(name: "registered_user")
+    role2 = Role.find_by(name: "host")
+    role3 = Role.find_by(name: "platform_admin")
+    #for each user, make their role be host and give them a home
+    users = Users.all
+    users.each_with_index do |user, i|
+      UserRole.create(user: User.find_by(first_name: "Host#{i}"), role: role2)
+      user.home = Home.all[index]
     end
     puts "Done Creating Hosts and Homes"
   end
@@ -74,27 +90,27 @@ class Seed
 
   def generate_users
     puts "Creating Users"
-    @num_homes.times do |i|
+    @num_users.times do |i|
     User.create!(
-        first_name: "Host#{i}",
+        first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
         email: Faker::Internet.email,
         password: "password"
         )
-    end
-    role1 = Role.find_by(name: "registered_user")
-    role2 = Role.find_by(name: "host")
-    role3 = Role.find_by(name: "platform_admin")
-    homes = Homes.all
-    homes.each do |home, i|
-      UserRole.create(user: User.find_by(first_name: "Host#{i}"), role: role2)
     end
     puts "Done Creating Users"
   end
 
   def generate_platform_admin
     puts "Creating Platform admin"
-
+      pa = User.create!(
+                        first_name: "PlatformAdmin",
+                        last_name: Faker::Name.last_name,
+                        email: "platform_admin@gmail.com",
+                        password: "password"
+                        )
+      end
+      pa.roles << Role.find_by(name: "platform_admin")
     puts "Done Platform admin"
   end
 
@@ -112,6 +128,13 @@ class Seed
      email: "josh@turing.io",
      password: "password"
    )
+      marina = User.create!(
+        first_name: "Marina",
+        last_name: "Corona",
+        email: "marina@gmail.com",
+        password: "password"
+      )
+
    puts "Done Creating Users"
  end
 
