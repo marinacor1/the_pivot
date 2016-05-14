@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   end
 
   def platform_admin?
-    roles.exist?(name: "platform_admin")
+    roles.exists?(name: "platform_admin")
   end
 
 end
