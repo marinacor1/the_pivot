@@ -1,21 +1,21 @@
 require 'rails_helper'
 
-RSpec.feature "host can update home" do
+RSpec.feature "platform_admin can update home" do
   it "shows an update form for home" do
     city = create(:city_with_homes, name: "Denver", state: "CO")
-    host = create(:user, email: "macies@li.biz", password: "password")
+    platform_admin = create(:user, email: "macies@li.biz", password: "password")
     home = city.homes.first
     original_home_name = home.title
-    host_role = Role.create(name: "host")
-    host.roles << host_role
-    host.home = home
+    platform_admin_role = Role.create(name: "platform_admin")
+    platform_admin.roles << platform_admin_role
+    platform_admin.home = home
 
     visit root_path
 
     click_link "Login"
 
     expect(current_path).to eq '/login'
-    fill_in "email", with: "#{host.email}"
+    fill_in "email", with: "#{platform_admin.email}"
     fill_in "password", with: "password"
     click_button "Login"
 
@@ -34,13 +34,6 @@ RSpec.feature "host can update home" do
     expect(page).to have_content "Stinky Outhouse"
     expect(page).to have_content "It's stinky. Very stinky."
     expect(current_path).to eq("/denver-co/homes/#{home.id}")
-  end
-
-  it "will not allow a non-host to update home" do
-
-    visit dashboard_path
-
-    expect(page).to_not have_content "Manage Your Home"
   end
 
 end
