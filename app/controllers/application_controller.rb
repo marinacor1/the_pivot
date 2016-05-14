@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def authorize!
     unless current_permission.allow?
-      redirect_to root_url, danger: "You shall not pass!"
+      redirect_to root_url
     end
   end
 

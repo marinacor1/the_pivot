@@ -15,7 +15,7 @@ class PermissionsService
   def allow?
     case
     # when platform_admin? then platform_admin_permissions
-  when host? then host_permissions
+    when host? then host_permissions
     when registered_user? then registered_user_permissions
     else
       unregistered_guest_permissions
@@ -47,6 +47,7 @@ class PermissionsService
 
   def unregistered_guest_permissions
     return true if controller == "welcome"
+    return true if controller == "users" && action == "new"
     return true if controller == "stores" && action == "index"
     return true if controller == "sessions" && action == "new"
     return true if controller == "sessions" && action == "create"

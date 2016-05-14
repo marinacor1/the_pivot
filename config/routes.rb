@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
+  root   "welcome#show"
+  
   get    "/login",                 to: "sessions#new"
   post   "/login",                 to: "sessions#create"
   delete "/logout",                to: "sessions#destroy"
-  root   "welcome#show"
+
+  get    "/users/new",             to: "users#new",             as: :new_user
+  post   "/users",                 to: "users#create",          as: :users
+  get    "/dashboard",             to: "users#show",            as: :dashboard
   #
   # get    "/homes/:id",             to: "homes#show"
   # get    "/coders/:id",            to: "coders#show",           as: :coder
   # get    "/coders",                to: "coders#index",          as: :coders
 
-  get    "/users/new",             to: "users#new",             as: :new_user
-  post   "/users",                 to: "users#create",          as: :users
-  get    "/dashboard",             to: "users#show",            as: :dashboard
 
   namespace :api do
     namespace :v1 do
