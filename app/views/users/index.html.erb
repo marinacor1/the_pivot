@@ -4,7 +4,7 @@
   <%= user.last_name %>
   <%= user.email %>
   <%= link_to "Edit User Account", edit_user_path(user) %>
-    <% if user.home> %>
+    <% if user.home %>
       <%= link_to "Edit User Home", edit_home_path(user.home.city, user.home) %>
     <% end %>
 <% end %>
