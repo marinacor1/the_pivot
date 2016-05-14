@@ -6,7 +6,7 @@ class Seed
     @num_hosts = @num_homes
 
     generate_roles
-    generate_host_and_homes
+    generate_hosts_and_homes
     generate_cities
     generate_users
     generate_platform_admin
@@ -55,7 +55,7 @@ class Seed
     end
     #create homes
     @num_homes.times do |i|
-      home = User.home.create!(address:     Faker::Address.street_address,
+      Home.create!(address:     Faker::Address.street_address,
                               image_url:   "https://robohash.org/#{i}",
                               zip_code:    Faker::Address.zip_code,
                               title:       "Basement #{i}",
@@ -67,10 +67,12 @@ class Seed
     role2 = Role.find_by(name: "host")
     role3 = Role.find_by(name: "platform_admin")
     #for each user, make their role be host and give them a home
-    users = Users.all
-    users.each_with_index do |user, i|
+    users = User.all
+    i = 0
+    users.each do |user|
       UserRole.create(user: User.find_by(first_name: "Host#{i}"), role: role2)
-      user.home = Home.all[index]
+      user.home = Home.all[i]
+      i +=1
     end
     puts "Done Creating Hosts and Homes"
   end
@@ -109,7 +111,6 @@ class Seed
                         email: "platform_admin@gmail.com",
                         password: "password"
                         )
-      end
       pa.roles << Role.find_by(name: "platform_admin")
     puts "Done Platform admin"
   end
