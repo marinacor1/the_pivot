@@ -1,6 +1,9 @@
 class Reservation < ActiveRecord::Base
   belongs_to :home
-  has_many :reservation_days
-  has_many :days, through: :reservation_days
+  has_many :days
+
+  def has_no_conflicts?
+    return true unless self.days.any? { |day| !day.available? }
+  end
 
 end

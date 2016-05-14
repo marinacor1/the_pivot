@@ -8,19 +8,17 @@ class Api::V1::ReservationsController < ApplicationController
     home_id    = reservation_params[:homeId].to_i
     # user_id = current_user.id
 
-    # create ReservationDays (by finding existing Days in db)
-    reservation   = Reservation.new(home_id: home_id)
-    days          = Day.where(date: start_date..end_date)
-    reserved_days = days.map { |day| ReservationDay.create(day_id: day.id) }
+    reservation = Reservation.new(
+      home_id: home_id,
+      check_in: start_date,
+      check_out: end_date
+      )
 
-    reservation.reservation_days << reserved_days
-    # reservation.save
-    require "pry"
-    binding.pry
+    reservation.days << Day.where(date: start_date..end_date)
 
-    # Reservation has:
-    # => start_date
-    # => end_date
+    if reservation.valid? && reservation.has_no_conflicts?
+      reservation.save
+    end
   end
 
   private
