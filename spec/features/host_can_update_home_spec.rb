@@ -40,13 +40,10 @@ RSpec.feature "host can update home" do
     expect(current_path).to eq("/denver-co/homes/#{home.id}")
   end
 
-  xit "will not allow a non-host to update home" do
+  it "will not allow a non-host to update home" do
 
     visit dashboard_path
 
     expect(page).to_not have_content "Manage Your Home"
-
-    expect(current_path).to eq("/denver-co/homes/#{home.id}/edit")
-
   end
 end
