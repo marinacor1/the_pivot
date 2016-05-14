@@ -1,14 +1,15 @@
 require 'rails_helper'
 
-RSpec.feature "platform_admin can update home" do
+RSpec.feature "host can update home" do
   it "shows an update form for home" do
     city = create(:city_with_homes, name: "Denver", state: "CO")
-    platform_admin = create(:user, email: "macies@li.biz", password: "password")
+    host = create(:user, email: "macies@li.biz", password: "password")
     home = city.homes.first
     original_home_name = home.title
-    platform_admin_role = Role.create(name: "platform_admin")
-    platform_admin.roles << platform_admin_role
-    platform_admin.home = home
+    host.roles << Role.create(name: "host")
+    host.home = home
+    platform_admin = create(:user, email: "pa@admin.co", password: "password")
+    platform_admin.roles << Role.create(name: "platform_admin")
 
     visit root_path
 
