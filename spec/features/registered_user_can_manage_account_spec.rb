@@ -4,7 +4,9 @@ require 'features_helper'
 feature "Registered user can manage account" do
   include FeaturesHelper
   scenario "when they click edit account on their dashboard" do
-    user = User.create(first_name: "Tim", last_name: "Allan", email: "Tim@gmail.com", password: "password")
+    user = User.create(first_name: "Tim", last_name: "Allan", email: "email@gmail.com", password: "password")
+    original_first = user.first_name
+    original_last = user.last_name
 
     visit root_path
 
@@ -31,7 +33,8 @@ feature "Registered user can manage account" do
       click_on "Update Account"
     end
 
-    expect(page).to have_content "Welcome to Your Dashboard, Leslie"
+    expect(page).to have_content "Success! Your account updated."
+    expect(page).to have_content "Leslie"
     expect(page).not_to have_content original_first
     expect(page).not_to have_content original_last
   end
