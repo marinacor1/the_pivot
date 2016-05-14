@@ -12,7 +12,7 @@ feature 'Guest is unable to checkout without registering' do
 
     expect(current_path).to eq("/denver-co/homes/#{home.id}")
 
-    select("January 4, 2017 through January 6, 2017") #don't know how to do this
+    select("January 4, 2017 through January 6, 2017")
 
     expect(page).to_not have_link("Book Now")
 
