@@ -2,23 +2,35 @@ class Api::V1::CartsController < ApplicationController
   respond_to :json
 
   def create
-    home_id = params.dig("data", "homeId")
-    reservation = Home.find(home_id).reservations.where(user_id: current_user.id).last
+    raw_reservation = params[:data]
 
-    if @cart.has_reservation?(reservation.id) # || someone else reserved while in cart
-      flash.now[:notice] = "These days are already reserved!"
-    else
-      @cart.add_reservation(reservation.id)
-      session[:cart] = @cart.contents
-      flash.now[:notice] = "Cart has been updated!"
+    # reformat raw_reservation (PORO?)
+    # => Ruby syntax
+    # => .to_date on start and end dates
+    # structure it as the hash we'll pass into sessions[:cart]
 
-      #### After checkout is hit
-      # Day.book(reservation)
-      # reservation.pending = false
-    end
+    # reservation = formatted_reservation_hash
+    # if @cart.has_reservation? # matching home_id with this current_user
+    #   flash[:notice] = "An overlapping Trip is already in your Cart!"
+    # else
+    #   session[:cart] = reservation / formatted_reservation_hash
+    #   flash[:notice] = "Pending Reservation added to Cart"
+    # end
+
+    @cart.add_reservation(1)
+    session[:cart] = @cart.contents
+    
+    #### After checkout is hit
+    # PORO steps in
+    # Day.book(reservation)
+    # reservation.pending = false
 
     respond_with @cart,
       location: -> { api_v1_carts_path(@cart) }
+  end
+
+  def test
+
   end
 
 end

@@ -18,7 +18,8 @@ class Cart
   end
 
   def reservations
-    self.contents.map { |reservation_id, _quantity| Reservation.find(reservation_id) }
+    self.contents.to_a
+    # self.contents.map { |reservation_id, _quantity| Reservation.find(reservation_id) }
   end
 
   def has_reservation?(reservation_id)

@@ -1,6 +1,6 @@
 $(document).ready(function() {
   renderCalendar();
-  confirmReservation();
+  // confirmReservation();
 });
 
 function getFormattedDate() {
@@ -53,11 +53,12 @@ function bindCalendarEvents() {
     $.ajax({
       method:   "POST",
       dataType: "json",
-      url:      "/api/v1/reservations",
+      url:      "/api/v1/carts",
       data:     data,
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       success: function(data) {
-        confirmReservation();
+        var cartSum = Object.keys(data.contents).length
+        $('#cart-count').text(cartSum);
       }, error: function(xhr) {
           alert("Reservation failed! Please try again.")
         }
@@ -65,39 +66,39 @@ function bindCalendarEvents() {
     });
 }
 
-function confirmReservation() {
-  $('#reserve-days').on('click', function() {
-    $('#lets-go').empty();
-    $('#lets-go').append("<button class='btn btn-danger' id='trip-ready'>Let's Go!</button>");
-  })
-  addReservationToCart();
-}
+// function confirmReservation() {
+//   $('#reserve-days').on('click', function() {
+//     $('#lets-go').empty();
+//     $('#lets-go').append("<button class='btn btn-danger' id='trip-ready'>Let's Go!</button>");
+//   })
+//   addReservationToCart();
+// }
 
-function addReservationToCart() {
-  var pathElements = window.location.pathname.split("/")
-  var homeId = pathElements[pathElements.length - 1]
-  var data   = {
-                  data: {
-                          homeId: homeId
-                        }
-               };
-
-  $('#trip-ready').on('click', function() {
-    $.ajax({
-      method:   "POST",
-      dataType: "json",
-      url:      "/api/v1/carts",
-      data:     data,
-      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-      success: function(data) {
-        var cartSum = Object.keys(data.contents).length
-        $('#cart-count').text(cartSum);
-        }, error: function(xhr) {
-          alert("Something went wrong :(")
-        }
-      });
-    });
-}
+// function addReservationToCart() {
+//   var pathElements = window.location.pathname.split("/")
+//   var homeId = pathElements[pathElements.length - 1]
+//   var data   = {
+//                   data: {
+//                           homeId: homeId
+//                         }
+//                };
+//
+//   $('#trip-ready').on('click', function() {
+//     $.ajax({
+//       method:   "POST",
+//       dataType: "json",
+//       url:      "/api/v1/carts",
+//       data:     data,
+//       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+//       success: function(data) {
+//         var cartSum = Object.keys(data.contents).length
+//         $('#cart-count').text(cartSum);
+//         }, error: function(xhr) {
+//           alert("Something went wrong :(")
+//         }
+//       });
+//     });
+// }
 
 InvalidDates = {
     getDates: function(callback) {

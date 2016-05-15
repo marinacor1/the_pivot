@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root   "welcome#show"
-  
+
   # get    "/homes/:id",             to: "homes#show"
   # get    "/coders/:id",            to: "coders#show",           as: :coder
   # get    "/coders",                to: "coders#index",          as: :coders
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      post '/reservations', to: 'reservations#create'
+      # post '/reservations', to: 'reservations#create'
       post '/carts',        to: 'carts#create'
     end
   end
