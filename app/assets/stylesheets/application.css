@@ -13,9 +13,7 @@
  *= require_tree .
  *= require_self
  */
-.navbar {
-  margin-bottom: 0px !important;
-}
+
  .date-picker-box {
    display: flex;
    padding-right: 6.5em;
@@ -23,6 +21,10 @@
 
  .date-picker-box input {
    margin-right: 1em;
+ }
+
+ .login-button {
+   color: black;
  }
 
 .header {
@@ -35,7 +37,7 @@
 
 .login-user-form {
   text-align: center;
-  padding: 230px;
+  padding: 250px;
   color: white;
   font-size: 130%;
   text-shadow: 1px #899bae;
@@ -47,6 +49,21 @@
   background: url(garden_home.jpeg) no-repeat center;
   background-size: cover;
   height: 600px;
+}
+
+.create-account-link {
+  padding-top: 15px;
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.btn-default {
+  color: black;
+  text-decoration: none;
+}
+.button {
+  color: black;
+  text-decoration: none;
 }
 
 .welcome-cities {
@@ -61,4 +78,8 @@
   color: white;
   font-size: 200%;
   text-shadow: 1px #899bae;
+}
+
+.navbar {
+  margin-bottom: 0px !important;
 }

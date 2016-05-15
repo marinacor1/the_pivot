@@ -1,11 +1,15 @@
 <div class="user-form">
-  <div class="container login-user-form">
+  <div class="login-user-form">
   <h1>Login</h1>
+  <div class ="login-button">
   <%= form_for(:session, url: login_path) do |f| %>
     <%= f.text_field :email, placeholder: "email" %>
     <%= f.password_field :password, placeholder: "password" %>
-    <%= f.submit "Login" %>
+      <%= f.submit "Login"%>
+    </div>
   <% end %>
-    <%= link_to "Create Account", new_user_path, class: "link" %>
+    <div class= "create-account-link" role="group" aria-label="Submission">
+      <button type="button" class="btn btn-default"><%= link_to "Create Account", new_user_path %></button>
+    </div>
   </div>
 </div>
