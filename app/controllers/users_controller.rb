@@ -17,7 +17,6 @@ class UsersController < ApplicationController
       redirect_to dashboard_path
   end
 
-
   def create
     @user = User.new(user_params)
     if @user.save
@@ -36,6 +35,10 @@ class UsersController < ApplicationController
       @home = Home.find_by(user: current_user)
     end
     @home = current_user.home
+  end
+
+  def index
+    @users = User.all
   end
 
   private

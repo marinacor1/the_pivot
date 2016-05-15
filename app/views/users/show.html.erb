@@ -3,6 +3,9 @@
 <% if current_user.host? %>
   <%= link_to "Manage Your Home", edit_home_path(current_user.home.city, current_user.home) %>
 <% end %>
+<% if current_user.platform_admin? %>
+<%= link_to "Edit User Account or Homes", users_path %>
+<% end %>
 <div class="user-show">
   <h3>Name</h3>
   <p><%= current_user.first_name %></p>

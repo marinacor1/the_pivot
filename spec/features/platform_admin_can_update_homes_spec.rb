@@ -6,22 +6,25 @@ RSpec.feature "host can update home" do
     host = create(:user, email: "macies@li.biz", password: "password")
     home = city.homes.first
     original_home_name = home.title
-    host_role = Role.create(name: "host")
-    host.roles << host_role
+    host.roles << Role.create(name: "host")
     host.home = home
+    platform_admin = create(:user, email: "pa@admin.co", password: "password")
+    platform_admin.roles << Role.create(name: "platform_admin")
 
     visit root_path
 
     click_link "Login"
 
     expect(current_path).to eq '/login'
-    fill_in "email", with: "#{host.email}"
+    fill_in "email", with: "#{platform_admin.email}"
     fill_in "password", with: "password"
     click_button "Login"
 
     expect(current_path).to eq '/dashboard'
 
-    click_link "Manage Your Home"
+    click_link "Edit User Account or Homes"
+
+    click_link "Edit User Home"
 
     expect(current_path).to eq("/denver-co/homes/#{home.id}/edit")
 
@@ -34,13 +37,6 @@ RSpec.feature "host can update home" do
     expect(page).to have_content "Stinky Outhouse"
     expect(page).to have_content "It's stinky. Very stinky."
     expect(current_path).to eq("/denver-co/homes/#{home.id}")
-  end
-
-  it "will not allow a non-host to update home" do
-
-    visit dashboard_path
-
-    expect(page).to_not have_content "Manage Your Home"
   end
 
 end

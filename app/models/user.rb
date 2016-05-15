@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
     roles.exists?(name: "registered_user")
   end
 
+  def platform_admin?
+    roles.exists?(name: "platform_admin")
+  end
+
 end
