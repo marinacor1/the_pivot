@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save && current_user.host?
+    if @user.save && current_user != nil && current_user.host?
       host_role = Role.create(name: "host")
       @user.roles << host_role
       @user.home = current_user.home

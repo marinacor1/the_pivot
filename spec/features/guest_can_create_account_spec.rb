@@ -14,7 +14,7 @@ RSpec.feature "guest can create account" do
     fill_in "Last name", with: "Draganovic"
     fill_in "Email", with: "admir@gmail.com"
     fill_in "Password", with: "password"
-
+  
     click_on "Submit"
 
     expect(User.all.last.first_name).to eq "Admir"
