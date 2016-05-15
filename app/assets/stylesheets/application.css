@@ -95,8 +95,13 @@
 }
 
 .form-group-account {
-  padding: 30px;
-  font-size: 150% !important;
+  padding: 25px;
+  font-size: 150%;
+}
+
+.submit-create {
+  padding-top: 80px;
+  padding-right: 100px;
 }
 
 .navbar {
