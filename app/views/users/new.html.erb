@@ -1,30 +1,30 @@
 <div class ="create-account-page">
   <h1>Create an Account </h1>
     <%= form_for @user do |f| %>
-        <div class="form-group">
-          <%= f.label :first_name, "First Name:", class: "col-md-4 control-label" %>
-          <div class="col-md-8">
+        <div class="form-group-account">
+          <%= f.label :first_name, "First Name:", class: "col-md-2 control-label" %>
+          <div class="col-md-4">
             <%= f.text_field :first_name, class: "form-control" %>
           </div>
         </div>
 
-        <div class="form-group">
-          <%= f.label :last_name, "Last Name:", class: "col-md-4 control-label" %>
-          <div class="col-md-8">
+        <div class="form-group-account">
+          <%= f.label :last_name, "Last Name:", class: "col-md-2 control-label" %>
+          <div class="col-md-4">
             <%= f.text_field :last_name, class: "form-control" %>
           </div>
         </div>
 
-        <div class="form-group">
-          <%= f.label :email, "Email:", class: "col-md-4 control-label" %>
-          <div class="col-md-8">
+        <div class="form-group-account">
+          <%= f.label :email, "Email:", class: "col-md-2 control-label" %>
+          <div class="col-md-4">
             <%= f.text_field :email, class: "form-control" %>
           </div>
         </div>
 
-        <div class="form-group">
-          <%= f.label :password, "Password:", class: "col-md-4 control-label" %>
-          <div class="col-md-8">
+        <div class="form-group-account">
+          <%= f.label :password, "Password:", class: "col-md-2 control-label" %>
+          <div class="col-md-4">
             <%= f.text_field :password, class: "form-control" %>
           </div>
         </div>
