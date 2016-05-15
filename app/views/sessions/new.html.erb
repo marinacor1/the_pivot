@@ -1,5 +1,4 @@
-<div class="user-form">
-  <div class="login-user-form">
+<div class="login-user-form">
   <h1>Login</h1>
   <div class ="login-button">
     <%= form_for(:session, url: login_path) do |f| %>
@@ -8,8 +7,7 @@
       <%= f.submit "Login"%>
     <% end %>
   </div>
-    <div class= "create-account-link" role="group" aria-label="Submission">
-      <button type="button" class="btn btn-default"><%= link_to "Create Account", new_user_path %></button>
-    </div>
+  <div class= "create-account-link" role="group" aria-label="Submission">
+    <button type="button" class="btn btn-default"><%= link_to "Create Account", new_user_path %></button>
   </div>
 </div>

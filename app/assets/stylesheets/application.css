@@ -37,17 +37,12 @@
 
 .login-user-form {
   text-align: center;
-  padding: 250px;
   color: white;
   font-size: 130%;
   text-shadow: 1px #899bae;
-}
-
-.user-form {
-  padding-top: 0px;
-  padding-bottom: 50px;
   background: url(garden_home.jpeg) no-repeat center;
   background-size: cover;
+  padding: 250px;
   height: 600px;
 }
 
