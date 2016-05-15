@@ -13,19 +13,11 @@
       <h3>Enjoy this space for just $<%= @home.daily_rate %> per night</h3>
       <p><%= @home.description %></p>
 
-      <!-- <form class="date-picker-box" id="reservation" action="/reservations" method="post">
-        <input type="hidden" name="home[id]" value="#{@home.id}" />
-        <input name="dates"  type="text" id="home-date-range" class="form-control", value>
-        <input name="commit" type="submit" value="Request to Book">
-      </form> -->
-
-      <%= form_for @reservation do |f| %>
-        <%= hidden_field(:home, :id) %>
-        <%= date_field("reservation", "check_in") %>
-        <%= date_field("reservation", "check_out") %>
-        <%= f.submit "Book" %>
-      <% end %>
-
+      <form class="date-picker-box" id="reservation" action="/reservations" method="post">
+        <input type="hidden" id="home_id" name="reservation[home_id]" value="<%= @home.id %>" />
+        <input name="reservation[dates]"  type="text" id="home-date-range" class="form-control", value>
+        <input name="commit" class="btn btn-success" type="submit" value="Request to Book">
+      </form>
 
     </div>
   </div>

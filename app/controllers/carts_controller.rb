@@ -3,6 +3,9 @@ class CartsController < ApplicationController
 
   def create
     # make sure Reservation has user_id at this point
+    require "pry"
+    binding.pry
+    
     reservation = Reservation.find(params[:reservation_id])
     if @cart.has_reservation?(reservation.id)
       flash[:notice] = "These days are already reserved!"
@@ -11,7 +14,7 @@ class CartsController < ApplicationController
       session[:cart] = @cart.contents
       flash[:notice] = "Booking Requested!"
     end
-    redirect_to request.referrer
+    # redirect_to request.referrer
   end
 
   def show

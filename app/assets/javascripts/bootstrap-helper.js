@@ -1,5 +1,6 @@
 $(document).ready(function() {
   renderCalendar();
+
 });
 
 function renderCalendar() {
@@ -7,10 +8,14 @@ function renderCalendar() {
     "autoApply": true,
     "startDate": getFormattedDate(),
     "endDate": getFormattedDate(),
-    "minDate": getFormattedDate()
-  }, function(start, end, label) {
-     console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
-  })
+    "minDate": getFormattedDate(),
+    "isInvalidDate": function(date) {
+      for (var ii = 0; ii < some_date_range.length; ii++) {
+      if (date.format('DD-MM-YYYY') == some_date_range[ii]) {
+        return true;
+      }
+    }
+  }})
 }
 
 function getFormattedDate() {
@@ -19,3 +24,10 @@ function getFormattedDate() {
   var currentDate = twoDigitMonth + "/" + fullDate.getDate() + "/" + fullDate.getFullYear();
   return currentDate
 }
+
+var some_date_range = [
+ '02-06-2016',
+ '03-06-2016',
+ '04-06-2016',
+ '05-06-2016'
+];

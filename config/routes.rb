@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get    "/users/new",             to: 'users#new',             as: :new_user
 
   resources :reservations, only: [:create]
-  
+
   # post    "/reservations",          to: '/reservations#create', as: :reservations
 
   # post   "/users",                 to: "users#create",          as: :users
