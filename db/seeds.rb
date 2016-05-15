@@ -54,9 +54,24 @@ class Seed
         )
     end
     #create homes
+    home_urls = ["http://i.huffpost.com/gen/1322250/thumbs/o-ECO-LODGE-AIRBNB-570.jpg?6",
+                          "https://a0.muscache.com/im/pictures/40005ce7-2aa3-4591-baea-9f033093308f.jpg?aki_policy=x_medium",
+                          "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/09/Bamboo-Home-Bali-Airbnb-Off-Grid-537x358.jpg",
+                          "http://i.huffpost.com/gen/1322228/thumbs/o-MICROHOUSE-AIRBNB-570.jpg?6",
+                          "http://assets.urbanturf.com/dc/images/blog/2014/07/portland_airbnb.jpg",
+                          "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/02/6-Best-Airbnb-Homes-You-Can-Rent-1-537x358.jpg",
+                        "http://www.cement.org/images/default-source/default-album/insulated-concrete-forms-home.jpg?sfvrsn=0",
+                      "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2012/09/Doe-Bay-Cottage-Method-Homes-5-537x335.jpg",
+                    "http://www.rockfordhomes.net/sites/default/files/news-images/rockford_homes_new-homes-columbus.jpg",
+                  "http://www.thenester.com/wp-content/uploads/2011/12/DSC_0134-550x365.jpg",
+                "http://www.ryanhomes.com/assets/images/kitchen-thumb.jpg",
+              "http://www.eagleriverhomes.net/img/home_slider/60J060%20LR.jpg",
+            "http://clv.h-cdn.co/assets/cm/15/10/640x480/gallery_54f0d9d889efa_-_01-millertinyhouse-048-edit1-lgn.jpg",
+          "http://www.rpmmidwest.com/wp-content/uploads/2015/02/http-www.wfs_.orgblogsthomas-freywhy-tiny-home-movement-may-not-be-so-tiny.jpg"]
+
     @num_homes.times do |i|
       Home.create!(address:     Faker::Address.street_address,
-                              image_url:   "https://robohash.org/#{i}",
+                              image_url:   "#{home_urls[rand(0..13)]}",
                               zip_code:    Faker::Address.zip_code,
                               title:       "Basement #{i}",
                               description: Faker::Hipster.sentence,
