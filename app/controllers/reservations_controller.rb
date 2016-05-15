@@ -1,34 +1,24 @@
 class ReservationsController < ApplicationController
 
-  def create
-    @reservation = Reservation.new(reservation_params)
-    if @reservation.valid? # && @reservation.has_no_conflicts?
-      flash[:notice] = "Booking added to Trip!"
+  def pending
+    invalid_dates = Reservation.where(pending: false)
 
-      Day.book(@reservation)
+    # need to format dates 'm-d-yyyy'
 
-      redirect_to add_cart_path(@reservation.id)
-    else
-      flash[:notice] = "Those days are already booked! Contact the Host for more detail!"
-      redirect_to request.referrer
+    invalid_dates = [
+      '06-02-2016',
+      '06-03-2016',
+      '06-04-2016',
+      '06-05-2016',
+      '06-10-2016',
+      '06-11-2016'
+    ]
+
+    respond_to do |format|
+      format.html
+      format.json {render json: invalid_dates }
     end
+
   end
-
-  private
-
-    def initial_strong_params
-      params.require(:reservation).permit("home_id", "dates")
-    end
-
-    def reservation_params
-      # need to refactor
-      raw_dates = initial_strong_params[:dates].split(" - ")
-      dates     = raw_dates.map { |date| date_formatter(date) }
-      {home_id: initial_strong_params[:home_id], "check_in" => dates[0], "check_out" => dates[1]}
-    end
-
-    def date_formatter(date)
-      Date.strptime(date, "%m/%d/%Y")
-    end
 
 end

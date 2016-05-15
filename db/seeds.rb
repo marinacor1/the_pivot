@@ -21,6 +21,7 @@ class Seed
   end
 
   def generate_reservations
+    # user_id / no reservation day
     puts "Creating Reservations"
     10.times do
       reservation     = Reservation.create(home_id: rand(1..@num_homes))

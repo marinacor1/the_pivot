@@ -3,13 +3,6 @@ $(document).ready(function() {
   confirmReservation();
 });
 
-var some_date_range = [
- '06-02-2016',
- '06-03-2016',
- '06-04-2016',
- '06-05-2016',
-];
-
 function getFormattedDate() {
   var fullDate      = new Date()
   var twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
@@ -18,22 +11,23 @@ function getFormattedDate() {
 }
 
 function renderCalendar() {
-  // let some_date_range = invalidDatesAjax();
-  $('#home-date-range').daterangepicker({
-    "autoApply": true,
-    "startDate": getFormattedDate(),
-    "endDate": getFormattedDate(),
-    "minDate": getFormattedDate(),
-    "isInvalidDate": function(date) {
-      for (var ii = 0; ii < some_date_range.length; ii++) {
-      if (date.format('MM-DD-YYYY') == some_date_range[ii]) {
-        return true;
+  InvalidDates.getDates(function(invalidDates) {
+    $('#home-date-range').daterangepicker({
+      "autoApply": true,
+      "startDate": getFormattedDate(),
+      "endDate": getFormattedDate(),
+      "minDate": getFormattedDate(),
+      "isInvalidDate": function(date) {
+        for (var ii = 0; ii < invalidDates.length; ii++) {
+        if (date.format('MM-DD-YYYY') == invalidDates[ii]) {
+          return true;
+        }
       }
-    }
-  }})
+    }})
 
-  // ajax call to create Reservation (post to api/v1/reservations)
-  bindCalendarEvents();
+    // Create Reservations (post to api/v1/reservations)
+    bindCalendarEvents();
+  });
 }
 
 var reservationCount = 0;
@@ -49,10 +43,10 @@ function bindCalendarEvents() {
     var data   = {
                     data: {
                             startDate: startDate,
-                            endDate: endDate,
-                            homeId: homeId
+                            endDate:   endDate,
+                            homeId:    homeId
                           }
-                  };
+                 };
     reservationCount += 1
     if (reservationCount > 1) { return }
 
@@ -86,7 +80,7 @@ function addReservationToCart() {
                   data: {
                           homeId: homeId
                         }
-                };
+               };
 
   $('#trip-ready').on('click', function() {
     $.ajax({
@@ -103,20 +97,20 @@ function addReservationToCart() {
         }
       });
     });
-  }
+}
 
-// function invalidDatesAjax() {
-//     $.ajax({
-//       method:   "GET",
-//       dataType: "json",
-//       url:      "/api/v1/reservations",
-//       data:     data,
-//       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-//       success: function(data) {
-//         confirmReservation();
-//       }, error: function(xhr) {
-//           alert("Reservation failed! Please try again.")
-//         }
-//       });
-//     });
-//   }
+InvalidDates = {
+    getDates: function(callback) {
+      $.ajax({
+            method:   "GET",
+            dataType: "json",
+            url:      "/reservations/pending",
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+            success: function(data) {
+              callback.call(this,data);
+            }, error: function(xhr) {
+              alert("Something went wrong :(")
+            }
+      });
+     }
+}

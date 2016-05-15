@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160513235849) do
+ActiveRecord::Schema.define(version: 20160515050950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160513235849) do
     t.integer "user_id"
     t.date    "check_in"
     t.date    "check_out"
+    t.boolean "pending",   default: true
   end
 
   add_index "reservations", ["home_id"], name: "index_reservations_on_home_id", using: :btree

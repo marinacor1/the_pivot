@@ -11,6 +11,10 @@ class Api::V1::CartsController < ApplicationController
       @cart.add_reservation(reservation.id)
       session[:cart] = @cart.contents
       flash.now[:notice] = "Cart has been updated!"
+
+      #### After checkout is hit
+      # Day.book(reservation)
+      # reservation.pending = false
     end
 
     respond_with @cart,
