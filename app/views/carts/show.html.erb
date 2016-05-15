@@ -10,11 +10,17 @@
       <% @reservations.each do |reservation| %>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Home Title <small>home city</small></h3>
+            <h3 class="panel-title"><%= reservation[1]['home_title'] %> <small>home city</small></h3>
           </div>
           <div class="panel-body">
-            <div class="stay-length">
-              <p>Check In: <%= reservation[1]['check_in'] %> - Check Out: <%= reservation[1]['check_out'] %></p>
+            <div class="reservation-desc">
+              <p><%= reservation[1]['home_desc'] %></p>
+              <p>
+                <strong>Check In: <%= reservation[1]['check_in'] %> - Check Out: <%= reservation[1]['check_out'] %></strong>
+                <span class="btn-group pull-right">
+                  <%= link_to 'Delete', cart_path(reservation[0]), method: :destroy %>
+                </span>
+              </p>
             </div>
           </div>
         </div>

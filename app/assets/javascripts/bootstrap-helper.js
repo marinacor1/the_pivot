@@ -30,7 +30,7 @@ function renderCalendar() {
   });
 }
 
-var reservationCount = 0;
+// var reservationCount = 0;
 function bindCalendarEvents() {
   $('.date-picker-box button').on('click', function(event) {
     event.preventDefault();
@@ -47,9 +47,10 @@ function bindCalendarEvents() {
                             homeId:   homeId
                           }
                  };
-    reservationCount += 1
-    // change button text to 'Reserved!'
-    if (reservationCount > 1) { return }
+
+    // reservationCount += 1
+    // // change button text to 'Reserved!'
+    // if (reservationCount > 1) { return }
 
     $.ajax({
       method:   "POST",
@@ -66,40 +67,6 @@ function bindCalendarEvents() {
       });
     });
 }
-
-// function confirmReservation() {
-//   $('#reserve-days').on('click', function() {
-//     $('#lets-go').empty();
-//     $('#lets-go').append("<button class='btn btn-danger' id='trip-ready'>Let's Go!</button>");
-//   })
-//   addReservationToCart();
-// }
-
-// function addReservationToCart() {
-//   var pathElements = window.location.pathname.split("/")
-//   var homeId = pathElements[pathElements.length - 1]
-//   var data   = {
-//                   data: {
-//                           homeId: homeId
-//                         }
-//                };
-//
-//   $('#trip-ready').on('click', function() {
-//     $.ajax({
-//       method:   "POST",
-//       dataType: "json",
-//       url:      "/api/v1/carts",
-//       data:     data,
-//       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-//       success: function(data) {
-//         var cartSum = Object.keys(data.contents).length
-//         $('#cart-count').text(cartSum);
-//         }, error: function(xhr) {
-//           alert("Something went wrong :(")
-//         }
-//       });
-//     });
-// }
 
 InvalidDates = {
     getDates: function(callback) {

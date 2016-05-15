@@ -47,7 +47,11 @@ Rails.application.routes.draw do
   # get    "/history",               to: "contracts#index"
 
   get    "/cart",                  to: 'carts#show',            as: :cart
-  post   "/cart",                  to: 'carts#create'
+  post   '/cart',                  to: 'carts#destroy'
+  # delete '/cart',                  to: 'carts#destroy'
+
+  # delete '/cart/:id',              to: 'carts#destroy',         as: :cart_delete
+  # post   "/cart",                  to: 'carts#create'
 
   get    "/:city/homes/:id",       to: "homes#show",        as: :home
   get    "/:city",                 to: "cities#show",       as: :city

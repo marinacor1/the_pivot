@@ -3,13 +3,14 @@ class Api::V1::CartsController < ApplicationController
 
   def create
     reservation = formatted_reservation_data(reservation_params)
-    @cart.add_reservation(reservation)
-    session[:cart] = @cart.contents
 
-    # reformat raw_reservation (PORO?)
-    # => Ruby syntax
-    # => .to_date on start and end dates
-    # structure it as the hash we'll pass into sessions[:cart]
+    if @cart.has_reservation?(reservation_params[:homeId]) # check_in / check_out dates
+      flash[:notice] = "A similar reservation is already in your Cart!"
+    else
+      flash[:notice] = "Pending Reservation added to Cart"
+      @cart.add_reservation(reservation)
+      session[:cart] = @cart.contents
+    end
 
     # reservation = formatted_reservation_hash
     # if @cart.has_reservation? # matching home_id with this current_user
@@ -29,20 +30,20 @@ class Api::V1::CartsController < ApplicationController
   end
 
 
-  # helper methods?
+  # application helper methods?
   def reservation_params
     params.require(:data).permit("checkIn", "checkOut", "homeId")
   end
 
   def formatted_reservation_data(data)
     {
-      data[:homeId].to_i => {
-                              check_in:  data[:checkIn].to_date,
-                              check_out: data[:checkOut].to_date,
-                              # user_id:   current_user.id
-                              # home_name
-                              # total_stay
-                            }
+      data[:homeId] => {
+                         check_in:   data[:checkIn].to_date,
+                         check_out:  data[:checkOut].to_date,
+                         home_title: Home.find(data[:homeId].to_i).title,
+                         home_desc:  Home.find(data[:homeId].to_i).description,
+                         # user_id:   current_user.id
+                       }
     }
   end
 
