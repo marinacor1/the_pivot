@@ -19,10 +19,11 @@ RSpec.feature "User can book any home" do
       # fill_in('.form-control', with: "07/23/2016 - 07/25/2016")
       # page.execute_script("$('#home-date-range').datepicker('startDate', '01/01/2010')")
 
-      expect(page).to have_button("Request to Book")
-      click_button "Request to Book"
+      expect(page).to have_button("Reserve Dates")
+      click_button "Reserve Dates"
     end
 
+    expect(page).to have_text("Cart 1")
     # expect cart to increase by one / modal?
     expect(page).to have_content "Pack your bags! Your reservations are made!"
   end
