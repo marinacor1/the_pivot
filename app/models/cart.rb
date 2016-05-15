@@ -10,7 +10,7 @@ class Cart
   end
 
   def add_reservation(reservation_id)
-    contents[reservation.to_s] = 1
+    contents[reservation_id.to_s] = 1
   end
 
   def remove_reservation(reservation_id)

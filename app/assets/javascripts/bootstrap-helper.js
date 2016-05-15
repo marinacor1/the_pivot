@@ -3,18 +3,44 @@ $(document).ready(function() {
   confirmReservation();
 });
 
+var reservationCount = 0
+
 function confirmReservation() {
-  someAjaxFunctionCall()
-  $('#submit').on('click', function() {
+  $('#reserve-days').on('click', function() {
     $('#lets-go').empty();
-    $('#lets-go').append("<div><button class='btn btn-danger' id='trip-ready'>Let's Go!</button></div>");
+    $('#lets-go').append("<button class='btn btn-danger' id='trip-ready'>Let's Go!</button>");
   })
+  addReservationToCart();
 }
 
-function someAjaxFunctionCall() {
+function addReservationToCart() {
+  var pathElements = window.location.pathname.split("/")
+  var homeId = pathElements[pathElements.length - 1]
+  var data   = {
+                  data: {
+                          homeId: homeId
+                        }
+                };
+
+  $('#trip-ready').on('click', function() {
+    $.ajax({
+      method:   "POST",
+      dataType: "json",
+      url:      "/api/v1/carts",
+      data:     data,
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      success: function(data) {
+        var cartSum = Object.keys(data.contents).length
+        $('#cart-count').text(cartSum);
+        }, error: function(xhr) {
+          alert("Something went wrong :(")
+        }
+      });
+    });
+  }
+
   // Adds reservation to Cart / takes you to cart (via controller)
   // $.ajax
-}
 
 function renderCalendar() {
   // let some_date_range = invalidDatesAjax();
@@ -30,9 +56,9 @@ function renderCalendar() {
       }
     }
   }})
-
-  bindCalendarEvents();
+  
   // ajax call to create Reservation (post to api/v1/reservations)
+  bindCalendarEvents();
 }
 
 function bindCalendarEvents() {
@@ -51,6 +77,8 @@ function bindCalendarEvents() {
                             homeId: homeId
                           }
                   };
+    reservationCount += 1
+    if (reservationCount > 1) { return }
 
     $.ajax({
       method:   "POST",
@@ -59,12 +87,12 @@ function bindCalendarEvents() {
       data:     data,
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       success: function(data) {
-        console.log("Whatever");
+        confirmReservation();
       }, error: function(xhr) {
-        alert("Something went wrong :(")
-      }
+          alert("Something went wrong :(")
+        }
+      });
     });
-  });
 }
 
 function getFormattedDate() {
