@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512214931) do
+ActiveRecord::Schema.define(version: 20160515173652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,11 +45,9 @@ ActiveRecord::Schema.define(version: 20160512214931) do
     t.string  "description"
     t.decimal "daily_rate"
     t.integer "city_id"
-    t.integer "user_id"
   end
 
   add_index "homes", ["city_id"], name: "index_homes_on_city_id", using: :btree
-  add_index "homes", ["user_id"], name: "index_homes_on_user_id", using: :btree
 
   create_table "reservation_days", force: :cascade do |t|
     t.integer "day_id"
@@ -92,14 +90,17 @@ ActiveRecord::Schema.define(version: 20160512214931) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "home_id"
   end
+
+  add_index "users", ["home_id"], name: "index_users_on_home_id", using: :btree
 
   add_foreign_key "contracts", "users"
   add_foreign_key "homes", "cities"
-  add_foreign_key "homes", "users"
   add_foreign_key "reservation_days", "days"
   add_foreign_key "reservation_days", "reservations"
   add_foreign_key "reservations", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
+  add_foreign_key "users", "homes"
 end
