@@ -6,7 +6,7 @@ RSpec.feature "User can book any home" do
     city = create(:city_with_homes, name: "Denver", state: "CO")
     home = city.homes.first
 
-    ApplicationController.any_instance.stub(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit '/denver-co'
 
