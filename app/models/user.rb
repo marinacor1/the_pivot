@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
+  belongs_to :home
   has_many :user_roles
   has_many :roles, through: :user_roles
-  has_one :home
   has_secure_password
 
   validates :first_name, presence: true
