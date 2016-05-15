@@ -3,12 +3,9 @@ class Api::V1::ReservationsController < ApplicationController
 
   def create
     formatted_data = format_ajax_data(reservation_params)
-    reservation = Reservation.create(formatted_data)
-
-    Day.book(reservation)
-
-    respond_with reservation,
-      location: -> { api_v1_reservations_path(reservation) }
+    res = Reservation.create(formatted_data)
+    Day.book(res)
+    respond_with res, location: -> { api_v1_reservations_path(res) }
   end
 
   private
@@ -18,16 +15,11 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def format_ajax_data(reservation_params)
-    check_in  = reservation_params[:startDate].to_date
-    check_out = reservation_params[:endDate].to_date
-    home_id   = reservation_params[:homeId].to_i
-    user_id   = current_user.id
-
     {
-      home_id: home_id,
-      check_in: check_in,
-      check_out: check_out,
-      user_id: user_id
+      home_id:   reservation_params[:homeId].to_i,
+      check_in:  reservation_params[:startDate].to_date,
+      check_out: reservation_params[:endDate].to_date,
+      user_id:   current_user.id
     }
   end
 end
