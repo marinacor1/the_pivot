@@ -75,6 +75,17 @@
   text-shadow: 1px #899bae;
 }
 
+.home-edit-page {
+  text-align: center;
+  color: white;
+  font-size: 130%;
+  text-shadow: 1px #899bae;
+  background: url(living_room.jpeg) no-repeat center;
+  background-size: cover;
+  padding: 250px;
+  height: 600px;
+}
+
 .navbar {
   margin-bottom: 0px !important;
 }

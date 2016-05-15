@@ -1,17 +1,35 @@
-<h1>Edit Your Home </h1>
-Fill in informationa about your home and the name and state of your city.
-<div class="edit_home_form">
-  <%= form_for ([@city, @home]) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
-  <%= f.label :zip_code %>
-  <%= f.text_field :zip_code %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.submit "Submit"%>
-  <% end %>
+<div class="home-edit-page">
+  <h1>Edit Your Home </h1>
+  <div class="edit_home_form">
+    <form>
+    <fieldset class="form-group">
+      <%= form_for ([@city, @home]) do |f| %>
+      <label for="formGroupExampleInput"><%= f.label :title %></label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+      <%= f.text_field :title %>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="formGroupExampleInput2"><%= f.label :description %></label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+      <%= f.text_area :description %>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="formGroupExampleInput2"><%= f.label :image_url %></label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+      <%= f.text_field :image_url %>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="formGroupExampleInput2"><%= f.label :zip_code %></label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+      <%= f.text_field :zip_code %>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="formGroupExampleInput2"><%= f.label :address %></label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+      <%= f.text_field :address %>
+    </fieldset>
+    <%= f.submit "Submit"%>
+    <% end %>
+    </form>
+  </div>
 </div>
