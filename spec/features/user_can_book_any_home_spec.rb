@@ -33,5 +33,11 @@ RSpec.feature "User can book any home" do
     within('#cart-count') do
       expect(page).to have_text("1")
     end
+
+    visit '/denver-co'
+
+    within('#cart-count') do
+      expect(page).to have_text("1")
+    end
   end
 end
