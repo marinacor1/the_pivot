@@ -24,7 +24,7 @@ RSpec.feature "host can update home" do
 
     expect(current_path).to eq("/denver-co/homes/#{home.id}/edit")
 
-    within(".edit_home_form") do
+    within(".home-edit-page") do
       fill_in "Title", with: "Stinky Outhouse"
       fill_in "Description", with: "It's stinky. Very stinky."
       click_on "Submit"

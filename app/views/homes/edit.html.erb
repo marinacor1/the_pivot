@@ -1,17 +1,41 @@
-<h1>Edit Your Home </h1>
-Fill in informationa about your home and the name and state of your city.
-<div class="edit_home_form">
-  <%= form_for ([@city, @home]) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
-  <%= f.label :zip_code %>
-  <%= f.text_field :zip_code %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.submit "Submit"%>
-  <% end %>
+<div class ="home-edit-page">
+  <h1>Edit Your Home </h1>
+    <%= form_for ([@city, @home]), :html => {:class => "form-horizontal center"} do |f| %>
+        <div class="form-group">
+          <%= f.label :title, "Title:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :description, "Description:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :description, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :address, "Address:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :address, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :zip_code, "Zip Code:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :zip_code, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :image_url, "Image Link:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :image_url, class: "form-control" %>
+          </div>
+        </div>
+
+        <%= f.submit "Submit", class: "btn btn-default" %>
+    <% end %>
 </div>
