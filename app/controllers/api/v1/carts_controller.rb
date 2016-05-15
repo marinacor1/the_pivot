@@ -2,7 +2,9 @@ class Api::V1::CartsController < ApplicationController
   respond_to :json
 
   def create
-    raw_reservation = params[:data]
+    reservation = formatted_reservation_data(reservation_params)
+    @cart.add_reservation(reservation)
+    session[:cart] = @cart.contents
 
     # reformat raw_reservation (PORO?)
     # => Ruby syntax
@@ -17,9 +19,6 @@ class Api::V1::CartsController < ApplicationController
     #   flash[:notice] = "Pending Reservation added to Cart"
     # end
 
-    @cart.add_reservation(1)
-    session[:cart] = @cart.contents
-    
     #### After checkout is hit
     # PORO steps in
     # Day.book(reservation)
@@ -29,8 +28,22 @@ class Api::V1::CartsController < ApplicationController
       location: -> { api_v1_carts_path(@cart) }
   end
 
-  def test
 
+  # helper methods?
+  def reservation_params
+    params.require(:data).permit("checkIn", "checkOut", "homeId")
+  end
+
+  def formatted_reservation_data(data)
+    {
+      data[:homeId].to_i => {
+                              check_in:  data[:checkIn].to_date,
+                              check_out: data[:checkOut].to_date,
+                              # user_id:   current_user.id
+                              # home_name
+                              # total_stay
+                            }
+    }
   end
 
 end

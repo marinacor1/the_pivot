@@ -35,19 +35,20 @@ function bindCalendarEvents() {
   $('.date-picker-box button').on('click', function(event) {
     event.preventDefault();
     var dates     = $(event.target).siblings().val().split(' - ');
-    var startDate = new Date(dates[0]);
-    var endDate   = new Date(dates[1])
+    var checkIn = new Date(dates[0]);
+    var checkOut   = new Date(dates[1])
 
     var pathElements = window.location.pathname.split("/")
     var homeId = pathElements[pathElements.length - 1]
     var data   = {
                     data: {
-                            startDate: startDate,
-                            endDate:   endDate,
-                            homeId:    homeId
+                            checkIn:  checkIn,
+                            checkOut: checkOut,
+                            homeId:   homeId
                           }
                  };
     reservationCount += 1
+    // change button text to 'Reserved!'
     if (reservationCount > 1) { return }
 
     $.ajax({

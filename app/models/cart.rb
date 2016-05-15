@@ -6,11 +6,12 @@ class Cart
   end
 
   def total
-    contents.values.sum
+    contents.keys.count
   end
 
-  def add_reservation(reservation_id)
-    contents[reservation_id.to_s] = 1
+  def add_reservation(reservation_data)
+    home_id = reservation_data.keys.pop
+    contents[home_id] = reservation_data[home_id]
   end
 
   def remove_reservation(reservation_id)
@@ -18,7 +19,7 @@ class Cart
   end
 
   def reservations
-    self.contents.to_a
+    self.contents
     # self.contents.map { |reservation_id, _quantity| Reservation.find(reservation_id) }
   end
 

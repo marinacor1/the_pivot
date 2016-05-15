@@ -1,4 +1,25 @@
 <div class="container">
-  <h1>Cart</h1>
-  <h3>Reserved Trips: <%= @cart.reservations.count %></h3>
+
+  <div class="row city-page">
+
+    <div class="page-header">
+      <h1>Your Cart <small>Reserved Trips: <%= @cart.reservations.count %></small></h1>
+    </div>
+
+    <div class="city-homes">
+      <% @reservations.each do |reservation| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Home Title <small>home city</small></h3>
+          </div>
+          <div class="panel-body">
+            <div class="stay-length">
+              <p>Check In: <%= reservation[1]['check_in'] %> - Check Out: <%= reservation[1]['check_out'] %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
 </div>
