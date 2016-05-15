@@ -2,8 +2,13 @@
 
   <div class="row city-page">
 
-    <div class="page-header">
-      <h1>Your Cart <small>Reserved Trips: <%= @cart.reservations.count %></small></h1>
+    <div class='page-header'>
+      <div class='btn-toolbar pull-right'>
+        <div class='btn-group'>
+          <%= link_to 'Checkout', root_path, class: "btn btn-success" %>
+        </div>
+      </div>
+      <h1>Your Cart <small>Trips: <%= @cart.reservations.count %></small></h1>
     </div>
 
     <div class="city-homes">
@@ -18,7 +23,7 @@
               <p>
                 <strong>Check In: <%= reservation[1]['check_in'] %> - Check Out: <%= reservation[1]['check_out'] %></strong>
                 <span class="btn-group pull-right">
-                  <%= link_to 'Delete', cart_path(reservation[0]), method: :destroy %>
+                  <%= link_to 'Delete', cart_path(reservation[0]), method: :destroy, class: "btn btn-danger" %>
                 </span>
               </p>
             </div>

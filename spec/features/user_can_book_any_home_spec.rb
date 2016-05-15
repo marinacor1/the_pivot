@@ -19,25 +19,31 @@ RSpec.feature "User can book any home" do
     expect(current_path).to eq("/denver-co/homes/#{home.id}")
 
     within(".date-picker-box") do
-      expect(page).to have_button("Reserve Dates")
+      expect(page).to have_button("Request Dates")
       sleep(1)
-      click_button "Reserve Dates"
-    end
-
-    within('#lets-go') do
-      sleep(1)
-      click_on "Let's Go!"
-      sleep(1)
+      click_button "Request Dates"
     end
 
     within('#cart-count') do
       expect(page).to have_text("1")
     end
 
-    visit '/denver-co'
+    visit '/cart'
 
     within('#cart-count') do
       expect(page).to have_text("1")
+    end
+
+    within('.page-header') do
+      expect(page).to have_text("Your Cart")
+      expect(page).to have_text("Trips: 1")
+      expect(page).to have_link("Checkout")
+    end
+
+    within(".panel") do
+      expect(page).to have_text(home.title)
+      expect(page).to have_text(home.description)
+      expect(page).to have_link("Delete")
     end
   end
 end
