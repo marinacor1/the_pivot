@@ -7,7 +7,7 @@ RSpec.feature "host can update home" do
     home = city.homes.first
     original_home_name = home.title
     host.roles << Role.create(name: "host")
-    host.home = home
+    home.users << host
     platform_admin = create(:user, email: "pa@admin.co", password: "password")
     platform_admin.roles << Role.create(name: "platform_admin")
 
