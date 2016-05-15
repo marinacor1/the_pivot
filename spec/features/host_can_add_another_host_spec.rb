@@ -7,7 +7,7 @@ RSpec.feature 'host can add another host' do
     home = city.homes.first
     host_role = Role.create(name: "host")
     host.roles << host_role
-    host.home = home
+    home.users << host
 
     visit root_path
 
