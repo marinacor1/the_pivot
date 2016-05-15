@@ -31,6 +31,14 @@
   height: 600px;
 }
 
+.user-form {
+  padding-top: 0px;
+  padding-bottom: 50px;
+  background: url(garden_pic.jpg) no-repeat center;
+  background-size: cover;
+  height: 600px;
+}
+
 .navbar {
   margin-bottom: 0px !important;
 }
