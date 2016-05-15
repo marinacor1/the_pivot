@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User can book any home" do
-  scenario "when view a home show page" do
+  scenario "when view a home show page", js: true do
     user = create(:user)
 
     city = create(:city_with_homes, name: "Denver", state: "CO")
@@ -20,11 +20,17 @@ RSpec.feature "User can book any home" do
       # page.execute_script("$('#home-date-range').datepicker('startDate', '01/01/2010')")
 
       expect(page).to have_button("Reserve Dates")
+      sleep(1)
       click_button "Reserve Dates"
+    end
+
+    within('#lets-go') do
+      sleep(1)
+      click_on "Let's Go!"
     end
 
     expect(page).to have_text("Cart 1")
     # expect cart to increase by one / modal?
-    expect(page).to have_content "Pack your bags! Your reservations are made!"
+    # expect(page).to have_content "Pack your bags! Your reservations are made!"
   end
 end

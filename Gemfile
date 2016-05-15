@@ -45,6 +45,7 @@ group :development, :test do
   gem 'pry'
   gem 'factory_girl_rails', '~>4.0'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
+  gem 'selenium-webdriver'
 end
 
 group :development do
