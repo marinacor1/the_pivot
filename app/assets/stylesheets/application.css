@@ -23,6 +23,10 @@
    margin-right: 1em;
  }
 
+ .login-button {
+   color: black;
+ }
+
 .header {
   padding-top: 0px;
   padding-bottom: 50px;
@@ -31,8 +35,30 @@
   height: 600px;
 }
 
-.navbar {
-  margin-bottom: 0px !important;
+.login-user-form {
+  text-align: center;
+  color: white;
+  font-size: 130%;
+  text-shadow: 1px #899bae;
+  background: url(garden_home.jpeg) no-repeat center;
+  background-size: cover;
+  padding: 250px;
+  height: 600px;
+}
+
+.create-account-link {
+  padding-top: 15px;
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.btn-default {
+  color: black;
+  text-decoration: none;
+}
+.button {
+  color: black;
+  text-decoration: none;
 }
 
 .welcome-cities {
@@ -47,4 +73,8 @@
   color: white;
   font-size: 200%;
   text-shadow: 1px #899bae;
+}
+
+.navbar {
+  margin-bottom: 0px !important;
 }
