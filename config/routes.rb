@@ -7,7 +7,13 @@ Rails.application.routes.draw do
 
   get    "/users/new",             to: 'users#new',             as: :new_user
 
-  resources :reservations, only: [:create]
+  # resources :reservations, only: [:create]
+
+  namespace :api do
+    namespace :v1 do
+      post "/reservations", to: "reservations#create"
+    end
+  end
 
   # post    "/reservations",          to: '/reservations#create', as: :reservations
 
