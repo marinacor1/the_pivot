@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   get    "/dashboard",             to: "users#show",            as: :dashboard
 
-
+  
   get    "/users",                 to: "users#index",        as: :homes
   #
   # get    "/homes/:id",             to: "homes#show"

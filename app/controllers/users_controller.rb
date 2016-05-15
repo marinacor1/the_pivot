@@ -19,7 +19,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    if @user.save && current_user != nil && current_user.host?
+      host_role = Role.create(name: "host")
+      @user.roles << host_role
+      @user.home = current_user.home
+      redirect_to dashboard_path
+    elsif @user.save
       session[:user_id] = @user.id
       flash[:message] = "Logged in as #{@user.first_name}"
       @user.roles << Role.create(name:"registered_user")
@@ -32,9 +37,8 @@ class UsersController < ApplicationController
 
   def show
     if current_user.host?
-      @home = Home.find_by(user: current_user)
+      @home = current_user.home
     end
-    @home = current_user.home
   end
 
   def index
