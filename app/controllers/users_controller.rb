@@ -20,11 +20,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save && current_user.host?
-
       host_role = Role.create(name: "host")
       @user.roles << host_role
-
-      # current_user.home.users << user
       @user.home = current_user.home
       redirect_to dashboard_path
     elsif @user.save
