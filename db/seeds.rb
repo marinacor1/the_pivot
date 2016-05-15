@@ -129,12 +129,6 @@ class Seed
      email: "josh@turing.io",
      password: "password"
    )
-      marina = User.create!(
-        first_name: "Marina",
-        last_name: "Corona",
-        email: "marina@gmail.com",
-        password: "password"
-      )
 
    puts "Done Creating Users"
  end
