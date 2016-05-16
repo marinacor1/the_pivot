@@ -6,12 +6,14 @@
       <div class='btn-toolbar pull-right'>
         <div class='btn-group'>
 
-          <% if current_user %>
-            <%= link_to 'Checkout', root_path, class: "btn btn-success" %>
+          <% if current_user && !@cart.contents.empty?%>
+            <%= button_to 'Checkout', trips_path, class: "btn btn-success" %>
+          <% elsif @cart.contents.empty? %>
+
           <% else %>
             <%= link_to "Login or Create a New Account", login_path, class: "btn btn-success" %>
           <% end %>
-          
+
         </div>
       </div>
       <h1>Your Cart <small>Trips: <%= @cart.reservations.count %></small></h1>

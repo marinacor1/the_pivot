@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "User can remove booking from cart" do
-  xscenario "when viewing the cart", js: true do
+RSpec.feature "User can checkout" do
+  scenario "when logged in with registered account", js: true do
     user = create(:user)
     city = create(:city_with_homes, name: "Denver", state: "CO")
     home = city.homes.first
@@ -33,16 +33,18 @@ RSpec.feature "User can remove booking from cart" do
     within('.page-header') do
       expect(page).to have_text("Your Cart")
       expect(page).to have_text("Trips: 1")
-      expect(page).to have_link("Checkout")
-      click_link "Delete"
+      expect(page).to have_button("Checkout")
+      click_button "Checkout"
     end
 
-    expect(current_path).to eq("/cart")
+    expect(current_path).to eq("/trips")
 
     within('.page-header') do
-      expect(page).to have_text("Your Cart")
-      expect(page).to have_text("Trips: 0")
-      expect(page).to have_link("Checkout")
+      expect(page).to have_text("My Trips")
+    end
+
+    within('.trips') do
+      expect(page).to have_text(home.title)
     end
   end
 end
