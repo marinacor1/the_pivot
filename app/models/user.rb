@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :contracts
+  has_many :trips
   has_secure_password
 
   validates :first_name, presence: true

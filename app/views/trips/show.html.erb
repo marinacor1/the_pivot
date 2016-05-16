@@ -8,11 +8,11 @@
       <% @trips.each do |trip| %>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Trip <small>with 3 locations</small></h3>
+            <h3 class="panel-title">Trip Booked on <%= trip.created_at %></h3>
           </div>
           <div class="panel-body">
             <div class="trip-info">
-              <p>Some Content</p>
+              <p>Basements: <%= trip.reservations.count %></p>
             </div>
           </div>
         </div>

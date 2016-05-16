@@ -6,11 +6,9 @@ class ReservationProcessor
   end
 
   def create_trip
-    require "pry"
-    binding.pry
     reservations = process_cart
-    # trip = Trip.create
-    # trip.reservations << reservations
+    trip = Trip.create(user_id: @user.id)
+    trip.reservations << reservations
   end
 
   def process_cart

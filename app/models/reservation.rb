@@ -1,5 +1,6 @@
 class Reservation < ActiveRecord::Base
   belongs_to :home
+  belongs_to :trip
   has_many :days
 
   def has_no_conflicts?
