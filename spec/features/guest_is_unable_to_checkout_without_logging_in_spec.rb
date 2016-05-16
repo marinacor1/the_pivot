@@ -42,7 +42,7 @@ feature 'Guest is unable to checkout without logging in' do
 
     expect(current_path).to eq(login_path)
 
-    within(".user-form") do
+    within(".login-user-form") do
       fill_in "email", with: user.email
       fill_in "password", with: user.password
       click_button "Login"

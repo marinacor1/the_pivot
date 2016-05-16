@@ -10,10 +10,10 @@ class SessionsController < ApplicationController
 
       @user.roles << Role.create(name:"registered_user")
 
-      if current_permission
-        redirect_to root_path
-      elsif session[:cart]
+      if current_permission && session[:cart]
         redirect_to cart_path
+      elsif current_permission
+        redirect_to dashboard_path
       else
         redirect_to dashboard_path
       end
