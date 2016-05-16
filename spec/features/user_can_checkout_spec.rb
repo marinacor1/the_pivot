@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "User can book any home" do
-  scenario "when view a home show page", js: true do
+RSpec.feature "User can remove booking from cart" do
+  xscenario "when viewing the cart", js: true do
     user = create(:user)
     city = create(:city_with_homes, name: "Denver", state: "CO")
     home = city.homes.first
@@ -24,10 +24,6 @@ RSpec.feature "User can book any home" do
       click_button "Request Dates"
     end
 
-    within('#cart-count') do
-      expect(page).to have_text("1")
-    end
-
     visit '/cart'
 
     within('#cart-count') do
@@ -38,12 +34,15 @@ RSpec.feature "User can book any home" do
       expect(page).to have_text("Your Cart")
       expect(page).to have_text("Trips: 1")
       expect(page).to have_link("Checkout")
+      click_link "Delete"
     end
 
-    within(".panel") do
-      expect(page).to have_text(home.title)
-      expect(page).to have_text(home.description)
-      expect(page).to have_link("Delete")
+    expect(current_path).to eq("/cart")
+
+    within('.page-header') do
+      expect(page).to have_text("Your Cart")
+      expect(page).to have_text("Trips: 0")
+      expect(page).to have_link("Checkout")
     end
   end
 end

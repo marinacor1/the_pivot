@@ -49,7 +49,7 @@ function bindCalendarEvents() {
                  };
 
     // reservationCount += 1
-    // // change button text to 'Reserved!'
+    // // change button id/color/text to 'Reserved!'
     // if (reservationCount > 1) { return }
 
     $.ajax({
