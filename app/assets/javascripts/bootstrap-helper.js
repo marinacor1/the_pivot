@@ -1,6 +1,5 @@
 $(document).ready(function() {
   renderCalendar();
-  // confirmReservation();
 });
 
 function getFormattedDate() {
@@ -11,27 +10,15 @@ function getFormattedDate() {
 }
 
 function renderCalendar() {
-  // InvalidDates.getDates(function(invalidDates) {
     $('#home-date-range').daterangepicker({
       "autoApply": true,
       "startDate": getFormattedDate(),
       "endDate": getFormattedDate(),
-      "minDate": getFormattedDate(),
-    //   "isInvalidDate": function(date) {
-    //     for (var ii = 0; ii < invalidDates.length; ii++) {
-    //     if (date.format('MM-DD-YYYY') == invalidDates[ii]) {
-    //       return true;
-    //     }
-    //   }
-    // }
+      "minDate": getFormattedDate()
     })
-
-    // Create Reservations (post to api/v1/reservations)
     bindCalendarEvents();
-  // });
 }
 
-// var reservationCount = 0;
 function bindCalendarEvents() {
   $('.date-picker-box button').on('click', function(event) {
     event.preventDefault();
@@ -48,10 +35,6 @@ function bindCalendarEvents() {
                             homeId:   homeId
                           }
                  };
-
-    // reservationCount += 1
-    // // change button id/color/text to 'Reserved!'
-    // if (reservationCount > 1) { return }
 
     $.ajax({
       method:   "POST",

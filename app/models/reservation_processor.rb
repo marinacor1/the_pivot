@@ -29,12 +29,4 @@ class ReservationProcessor
     end
   end
 
-  # create Days
-
-  # Book Days into Reservation
-
-  # Add Days to invalid list
-
-  # bundle Reservation(s) in Trip
-
 end

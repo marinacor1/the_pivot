@@ -4,7 +4,6 @@ class Reservation < ActiveRecord::Base
   has_many :days
 
   def has_no_conflicts?
-    # will now change due to pending process
     return true unless self.days.any? { |day| !day.available? }
   end
 

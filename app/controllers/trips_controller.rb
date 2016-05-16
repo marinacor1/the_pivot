@@ -9,9 +9,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    # do I really need to pass in current_user?
     r_processor = ReservationProcessor.new(session[:cart], current_user)
-    # ReservationProcessor.create_trip(session[:cart], current_user)
     r_processor.create_trip
 
     flash[:notice] = "Trip Booked!"

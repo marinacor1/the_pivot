@@ -2,7 +2,6 @@ class ReservationsController < ApplicationController
 
   def pending
     invalid_dates = Reservation.where(pending: false)
-    # need to format dates 'm-d-yyyy'
 
     invalid_dates = [
       '06-02-2016',
