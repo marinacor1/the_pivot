@@ -67,7 +67,6 @@
   float: none;
   padding: auto;
 }
-
 .welcome-drop {
   text-align: center;
   padding: 230px;
@@ -98,6 +97,13 @@
 .form-group-account {
   padding: 25px;
   font-size: 150%;
+}
+
+.users-index-page {
+  color: #696969;
+  padding: 30px;
+  padding-left: 50px;
+  height: 1000px;
 }
 
 .navbar {
