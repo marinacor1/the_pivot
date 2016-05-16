@@ -37,7 +37,7 @@ RSpec.feature "User can remove booking from cart" do
     within('.page-header') do
       expect(page).to have_text("Your Cart")
       expect(page).to have_text("Trips: 1")
-      expect(page).to have_link("Checkout")
+      expect(page).to have_button("Checkout")
     end
 
     within(".panel") do
@@ -52,7 +52,7 @@ RSpec.feature "User can remove booking from cart" do
     within('.page-header') do
       expect(page).to have_text("Your Cart")
       expect(page).to have_text("Trips: 0")
-      expect(page).to have_link("Checkout")
+      expect(page).to_not have_button("Checkout")
     end
   end
 end

@@ -35,7 +35,7 @@ feature 'Guest is unable to checkout without logging in' do
     end
 
     within(".page-header") do
-      expect(page).to_not have_link("Checkout")
+      expect(page).to_not have_button("Checkout")
       expect(page).to have_link("Login or Create a New Account")
       click_link("Login or Create a New Account")
     end
@@ -52,7 +52,7 @@ feature 'Guest is unable to checkout without logging in' do
 
     within(".page-header") do
       expect(page).to_not have_link("Login or Create a New Account")
-      expect(page).to have_link("Checkout")
+      expect(page).to have_button("Checkout")
     end
   end
 end

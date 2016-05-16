@@ -37,7 +37,7 @@ RSpec.feature "User can add home to cart" do
     within('.page-header') do
       expect(page).to have_text("Your Cart")
       expect(page).to have_text("Trips: 1")
-      expect(page).to have_link("Checkout")
+      expect(page).to have_button("Checkout")
     end
 
     within(".panel") do
@@ -85,7 +85,7 @@ RSpec.feature "User can add home to cart" do
     within('.page-header') do
       expect(page).to have_text("Your Cart")
       expect(page).to have_text("Trips: 1")
-      expect(page).to have_link("Checkout")
+      expect(page).to have_button("Checkout")
     end
 
     within(".city-homes") do
@@ -119,7 +119,7 @@ RSpec.feature "User can add home to cart" do
     within('.page-header') do
       expect(page).to have_text("Your Cart")
       expect(page).to have_text("Trips: 2")
-      expect(page).to have_link("Checkout")
+      expect(page).to have_button("Checkout")
     end
 
     within(".city-homes") do
