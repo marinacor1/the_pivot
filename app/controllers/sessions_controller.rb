@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       if current_admin?
         redirect_to admin_dashboard_path
       elsif session[:cart]
-        redirect_to carts_path
+        redirect_to cart_path
       else
         redirect_to root_path
       end

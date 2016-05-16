@@ -1,12 +1,16 @@
 require 'rails_helper'
 
-feature 'Guest is unable to checkout without registering' do
-  scenario 'must create a user account' do
+feature 'Guest is unable to checkout without logging in' do
+  scenario 'must create a user account', js: true do
     user = create(:user)
     city = create(:city_with_homes, name: "Denver", state: "CO")
     home = city.homes.first
 
     visit '/denver-co'
+
+    within('#cart-count') do
+      expect(page).to have_text("0")
+    end
 
     click_on home.title
 
@@ -38,19 +42,17 @@ feature 'Guest is unable to checkout without registering' do
 
     expect(current_path).to eq(login_path)
 
-    within(".new-form") do
-      fill_in "First Name", with: "Woody"
-      fill_in "Last Name",  with: "Allen"
-      fill_in "Email",      with: "wood@allen.com"
-      click_on "Create Account"
+    within(".user-form") do
+      fill_in "email", with: user.email
+      fill_in "password", with: user.password
+      click_button "Login"
     end
 
-    expect(current_path).to eq("/cart")
+    expect(current_path).to eq(cart_path)
 
     within(".page-header") do
       expect(page).to_not have_link("Login or Create a New Account")
       expect(page).to have_link("Checkout")
-      click_link("Checkout")
     end
   end
 end

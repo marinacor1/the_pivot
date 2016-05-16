@@ -5,7 +5,13 @@
     <div class='page-header'>
       <div class='btn-toolbar pull-right'>
         <div class='btn-group'>
-          <%= link_to 'Checkout', root_path, class: "btn btn-success" %>
+
+          <% if current_user %>
+            <%= link_to 'Checkout', root_path, class: "btn btn-success" %>
+          <% else %>
+            <%= link_to "Login or Create a New Account", login_path, class: "btn btn-success" %>
+          <% end %>
+          
         </div>
       </div>
       <h1>Your Cart <small>Trips: <%= @cart.reservations.count %></small></h1>
