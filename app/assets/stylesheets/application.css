@@ -75,6 +75,19 @@
   text-shadow: 1px #899bae;
 }
 
+.single-home {
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.single-home-image {
+  border: black solid 1px;
+  padding-right: 50px;
+  border-radius: 8px;
+}
+
 .home-edit-page {
   text-align: center;
   color: white;

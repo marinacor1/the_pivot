@@ -1,22 +1,25 @@
 <div class="container">
-  <div class="row city-page">
+  <div class="city-page">
+    <div class = "city-splash">
     <h1>Basements in <%= @city.name_and_state %></h1>
-
-    <div class="city-homes">
+   <div class = "row home-aligned">
       <% @city.homes.each do |home| %>
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail home-thumb">
-              <img src="<%= home.image_url %>" alt="photo of <%= home.title %>">
+        <div class="city-homes col-xs-9 col-sm-6 col-md-4 col-lg-3">
+            <div class="single-home">
+              <div class="single-home-image">
+                <%= link_to image_tag(home.image_url, width: "221", height: "170"), city_home_path(home.city, home) %>
+              </div>
               <div class="caption">
                 <h3><%= link_to home.title, city_home_path(@city.slug, home.id) %></h3>
                 <p><strong><%= home.address %></strong></p>
                 <p><strong>$<%= home.daily_rate %> per night</strong></p>
-                <p><%= home.description %></p>
-                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
               </div>
+
             </div>
+
           </div>
       <% end %>
-    </div>
+</div>
+  </div>
   </div>
 </div>
