@@ -1,7 +1,13 @@
+require "application_responder"
+
 class ApplicationController < ActionController::Base
+  self.responder = ApplicationResponder
+  respond_to :html
+
   protect_from_forgery with: :null_session
-  helper_method :current_user
+  before_action :set_cart
   before_action :authorize!
+  helper_method :current_user
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session["user_id"]

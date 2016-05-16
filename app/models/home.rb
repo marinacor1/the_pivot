@@ -9,5 +9,5 @@ class Home < ActiveRecord::Base
 
   belongs_to :city
   has_many :reservations
-  has_many :reservation_days, through: :reservations
+  has_many :days, through: :reservations
 end

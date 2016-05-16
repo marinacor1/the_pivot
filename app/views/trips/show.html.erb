@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="page-header">
+      <h1>My Trips</h1>
+    </div>
+
+    <div class="trips">
+      <% @trips.each do |trip| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              Trip Booked on <%= trip.created_at %>
+              for <%= trip.reservations.count %> basement(s)
+            </h3>
+          </div>
+          <div class="panel-body">
+            <div class="trip-info">
+              <% trip.reservations.each do |reservation| %>
+                <p><%= Home.find(reservation.home_id).title %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

@@ -9,7 +9,7 @@
       <ul class="nav navbar-nav navbar-right nav-pills">
         <li><%= history_create_account %></li>
         <li><%= login_logout %></li>
-        <li><a href="/">Cart <span class="badge">0</span></a></li>
+        <li><a href="/cart">Cart <span class="badge" id="cart-count"><%= @cart.total %></span></a></li>
       </ul>
     </div>
   </div>

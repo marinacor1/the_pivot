@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :home
+  has_many :trips
   has_many :user_roles
   has_many :roles, through: :user_roles
   has_secure_password

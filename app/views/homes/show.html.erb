@@ -13,9 +13,10 @@
       <h3>Enjoy this space for just $<%= @home.daily_rate %> per night</h3>
       <p><%= @home.description %></p>
 
+
       <form class="date-picker-box">
         <input type="text" id="home-date-range" class="form-control", value>
-        <button class="btn btn-success">Request to Book</button>
+        <button class="btn btn-success" id="reserve-days">Request Dates</button>
       </form>
 
     </div>

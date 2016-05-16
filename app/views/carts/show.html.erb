@@ -1,0 +1,44 @@
+<div class="container">
+
+  <div class="row city-page">
+
+    <div class='page-header'>
+      <div class='btn-toolbar pull-right'>
+        <div class='btn-group'>
+
+          <% if current_user && !@cart.contents.empty?%>
+            <%= button_to 'Checkout', trips_path, class: "btn btn-success" %>
+          <% elsif @cart.contents.empty? %>
+
+          <% else %>
+            <%= link_to "Login or Create a New Account", login_path, class: "btn btn-success" %>
+          <% end %>
+
+        </div>
+      </div>
+      <h1>Your Cart <small>Trips: <%= @cart.reservations.count %></small></h1>
+    </div>
+
+    <div class="city-homes">
+      <% @reservations.each do |reservation| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= reservation[1]['home_title'] %> <small>home city</small></h3>
+          </div>
+          <div class="panel-body">
+            <div class="reservation-desc">
+              <p><%= reservation[1]['home_desc'] %></p>
+              <p>
+                <strong>Check In: <%= reservation[1]['check_in'] %> - Check Out: <%= reservation[1]['check_out'] %></strong>
+                <span class="btn-group pull-right">
+                  <%= link_to 'Delete', cart_path(reservation[0]), method: :destroy, class: "btn btn-danger" %>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
