@@ -12,7 +12,6 @@ class Seed
     generate_platform_admin
     generate_specific_users
     generate_days
-    generate_reservations
   end
 
   def generate_roles
@@ -29,17 +28,6 @@ class Seed
       Day.create(date: Date.today + i)
     end
     puts "Done Creating Days"
-  end
-
-  def generate_reservations
-    puts "Creating Reservations"
-    10.times do
-      reservation     = Reservation.create(home_id: rand(1..@num_homes))
-      day             = Day.order("RANDOM()").first
-      reservation_day = ReservationDay.create(day_id: day.id)
-      reservation.reservation_days << reservation_day
-    end
-    puts "Done Creating Reservations"
   end
 
   def generate_hosts_and_homes

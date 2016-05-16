@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160515173652) do
+ActiveRecord::Schema.define(version: 20160516032035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,11 @@ ActiveRecord::Schema.define(version: 20160515173652) do
   add_index "contracts", ["user_id"], name: "index_contracts_on_user_id", using: :btree
 
   create_table "days", force: :cascade do |t|
-    t.date "date"
+    t.date    "date"
+    t.integer "reservation_id"
   end
+
+  add_index "days", ["reservation_id"], name: "index_days_on_reservation_id", using: :btree
 
   create_table "homes", force: :cascade do |t|
     t.string  "image_url"
@@ -49,18 +52,13 @@ ActiveRecord::Schema.define(version: 20160515173652) do
 
   add_index "homes", ["city_id"], name: "index_homes_on_city_id", using: :btree
 
-  create_table "reservation_days", force: :cascade do |t|
-    t.integer "day_id"
-    t.integer "reservation_id"
-  end
-
-  add_index "reservation_days", ["day_id"], name: "index_reservation_days_on_day_id", using: :btree
-  add_index "reservation_days", ["reservation_id"], name: "index_reservation_days_on_reservation_id", using: :btree
-
   create_table "reservations", force: :cascade do |t|
     t.integer "home_id"
     t.integer "trip_id"
     t.integer "user_id"
+    t.date    "check_in"
+    t.date    "check_out"
+    t.boolean "pending",   default: true
   end
 
   add_index "reservations", ["home_id"], name: "index_reservations_on_home_id", using: :btree
@@ -72,6 +70,14 @@ ActiveRecord::Schema.define(version: 20160515173652) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "trips", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree
 
   create_table "user_roles", force: :cascade do |t|
     t.integer  "user_id"
@@ -96,10 +102,10 @@ ActiveRecord::Schema.define(version: 20160515173652) do
   add_index "users", ["home_id"], name: "index_users_on_home_id", using: :btree
 
   add_foreign_key "contracts", "users"
+  add_foreign_key "days", "reservations"
   add_foreign_key "homes", "cities"
-  add_foreign_key "reservation_days", "days"
-  add_foreign_key "reservation_days", "reservations"
   add_foreign_key "reservations", "users"
+  add_foreign_key "trips", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
   add_foreign_key "users", "homes"
