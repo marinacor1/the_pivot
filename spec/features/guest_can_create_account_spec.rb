@@ -10,11 +10,11 @@ RSpec.feature "guest can create account" do
 
     expect(current_path).to eq new_user_path
 
-    fill_in "First name", with: "Admir"
-    fill_in "Last name", with: "Draganovic"
+    fill_in "First Name", with: "Admir"
+    fill_in "Last Name", with: "Draganovic"
     fill_in "Email", with: "admir@gmail.com"
     fill_in "Password", with: "password"
-  
+
     click_on "Submit"
 
     expect(User.all.last.first_name).to eq "Admir"

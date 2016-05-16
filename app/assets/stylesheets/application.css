@@ -86,6 +86,19 @@
   height: 600px;
 }
 
+.create-account-page {
+  color: white;
+  background: url(create_account.jpeg) no-repeat center;
+  background-size: cover;
+  padding: 150px;
+  height: 600px;
+}
+
+.form-group-account {
+  padding: 25px;
+  font-size: 150%;
+}
+
 .navbar {
   margin-bottom: 0px !important;
 }
