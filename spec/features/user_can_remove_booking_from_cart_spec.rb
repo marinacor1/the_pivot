@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User can remove booking from cart" do
-  xscenario "when viewing the cart", js: true do
+  scenario "when viewing the cart", js: true do
     user = create(:user)
     city = create(:city_with_homes, name: "Denver", state: "CO")
     home = city.homes.first
