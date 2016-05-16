@@ -26,8 +26,11 @@ RSpec.feature "platform admin can edit any user" do
 
     visit '/users'
 
-  find(:xpath, "//tr[contains(., 'Sally')]/td/a", :text => '#{user2.email}').click
+    within("tr:nth-child(2)") do
+      click_on "Edit User Account"
+    end
 
-save_and_open_page
+    expect(current_path).to eq(user_path(user2))
+
   end
 end
