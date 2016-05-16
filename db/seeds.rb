@@ -66,17 +66,17 @@ class Seed
                               daily_rate:  40.99)
     end
     #revisit roles already created
-    role1 = Role.find_by(name: "registered_user")
     role2 = Role.find_by(name: "host")
-    role3 = Role.find_by(name: "platform_admin")
     #for each user, make their role be host and give them a home
     users = User.all
-    i = 0
-    users.each do |user|
-      UserRole.create(user: User.find_by(first_name: "Host#{i}"), role: role2)
-      user.home = Home.all[i]
-      i +=1
+
+    @num_homes.times do |i|
+      host = User.find_by(first_name: "Host#{i}")
+      UserRole.create(user: host, role: role2)
+      host.home = Home.all[i]
+      host.save
     end
+
     puts "Done Creating Hosts and Homes"
   end
 
