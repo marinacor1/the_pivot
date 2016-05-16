@@ -1,0 +1,17 @@
+<h1>User Dashboard</h1>
+<%= link_to "Edit Account",  edit_user_path(current_user)%>
+<% if current_user.host? %>
+  <%= link_to "Manage Your Home", edit_home_path(current_user.home.city, current_user.home) %>
+  <%= link_to "Add Host", new_user_path %>
+<% end %>
+<% if current_user.platform_admin? %>
+<%= link_to "Edit User Account or Homes", users_path %>
+<% end %>
+<div class="user-show">
+  <h3>Name</h3>
+  <p><%= current_user.first_name %></p>
+  <h3>Username</h3>
+  <p><%= current_user.last_name%></p>
+  <h3>Email</h3>
+  <p><%= current_user.email %></p>
+</div>

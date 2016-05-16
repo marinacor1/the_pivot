@@ -48,11 +48,9 @@ ActiveRecord::Schema.define(version: 20160516032035) do
     t.string  "description"
     t.decimal "daily_rate"
     t.integer "city_id"
-    t.integer "user_id"
   end
 
   add_index "homes", ["city_id"], name: "index_homes_on_city_id", using: :btree
-  add_index "homes", ["user_id"], name: "index_homes_on_user_id", using: :btree
 
   create_table "reservations", force: :cascade do |t|
     t.integer "home_id"
@@ -67,6 +65,12 @@ ActiveRecord::Schema.define(version: 20160516032035) do
   add_index "reservations", ["trip_id"], name: "index_reservations_on_trip_id", using: :btree
   add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "trips", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -75,6 +79,16 @@ ActiveRecord::Schema.define(version: 20160516032035) do
 
   add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree
 
+  create_table "user_roles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_roles", ["role_id"], name: "index_user_roles_on_role_id", using: :btree
+  add_index "user_roles", ["user_id"], name: "index_user_roles_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -82,12 +96,17 @@ ActiveRecord::Schema.define(version: 20160516032035) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "home_id"
   end
+
+  add_index "users", ["home_id"], name: "index_users_on_home_id", using: :btree
 
   add_foreign_key "contracts", "users"
   add_foreign_key "days", "reservations"
   add_foreign_key "homes", "cities"
-  add_foreign_key "homes", "users"
   add_foreign_key "reservations", "users"
   add_foreign_key "trips", "users"
+  add_foreign_key "user_roles", "roles"
+  add_foreign_key "user_roles", "users"
+  add_foreign_key "users", "homes"
 end

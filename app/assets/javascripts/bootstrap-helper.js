@@ -11,32 +11,33 @@ function getFormattedDate() {
 }
 
 function renderCalendar() {
-  InvalidDates.getDates(function(invalidDates) {
+  // InvalidDates.getDates(function(invalidDates) {
     $('#home-date-range').daterangepicker({
       "autoApply": true,
       "startDate": getFormattedDate(),
       "endDate": getFormattedDate(),
       "minDate": getFormattedDate(),
-      "isInvalidDate": function(date) {
-        for (var ii = 0; ii < invalidDates.length; ii++) {
-        if (date.format('MM-DD-YYYY') == invalidDates[ii]) {
-          return true;
-        }
-      }
-    }})
+    //   "isInvalidDate": function(date) {
+    //     for (var ii = 0; ii < invalidDates.length; ii++) {
+    //     if (date.format('MM-DD-YYYY') == invalidDates[ii]) {
+    //       return true;
+    //     }
+    //   }
+    // }
+    })
 
     // Create Reservations (post to api/v1/reservations)
     bindCalendarEvents();
-  });
+  // });
 }
 
 // var reservationCount = 0;
 function bindCalendarEvents() {
   $('.date-picker-box button').on('click', function(event) {
     event.preventDefault();
-    var dates     = $(event.target).siblings().val().split(' - ');
-    var checkIn = new Date(dates[0]);
-    var checkOut   = new Date(dates[1])
+    var dates    = $(event.target).siblings().val().split(' - ');
+    var checkIn  = new Date(dates[0]);
+    var checkOut = new Date(dates[1])
 
     var pathElements = window.location.pathname.split("/")
     var homeId = pathElements[pathElements.length - 1]
@@ -62,7 +63,7 @@ function bindCalendarEvents() {
         var cartSum = Object.keys(data.contents).length
         $('#cart-count').text(cartSum);
       }, error: function(xhr) {
-          alert("Reservation failed! Please try again.")
+           alert("Reservation failed! Please try again.")
         }
       });
     });
@@ -78,7 +79,7 @@ InvalidDates = {
             success: function(data) {
               callback.call(this,data);
             }, error: function(xhr) {
-              alert("Something went wrong :(")
+              alert("Something went wrong with Invalid Dates")
             }
       });
      }
