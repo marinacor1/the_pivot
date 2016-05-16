@@ -103,8 +103,10 @@
   color: white;
   background: url(crowd.jpeg) no-repeat center;
   background-size: cover;
-  padding: 50px;
-  height: 900px;
+  padding: 30px;
+  padding-left: 50px;
+  height: 1000px;
+  overflow: visible;;
 }
 
 .navbar {
