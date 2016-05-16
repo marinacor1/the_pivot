@@ -7,9 +7,9 @@ class Seed
     @num_hosts = @num_homes
 
     generate_roles
-    generate_hosts_and_homes
+    generate_hosts_homes_and_cities
     generate_cities
-    generate_users
+    generate_registered_users
     generate_platform_admin
     generate_specific_users
     generate_days
@@ -23,32 +23,23 @@ class Seed
     puts "Done Creating Roles"
   end
 
-  def generate_days
-    puts "Creating Days"
-    @num_days.times do |i|
-      Day.create(date: Date.today + i)
-    end
-    puts "Done Creating Days"
-  end
+  def generate_hosts_homes_and_cities
+    puts "Creating Cities"
 
-  def generate_hosts_and_homes
-    puts "Creating Hosts and Homes"
-    #create same amount of users as homes
-    @num_homes.times do |i|
-    User.create!(
-        first_name: "Host#{i}",
-        last_name: Faker::Name.last_name,
-        email: Faker::Internet.email,
-        password: "password"
-        )
+    @num_cities.times do |i|
+          city = City.create!(name: Faker::Address.city,
+                              state: Faker::Address.state_abbr)
     end
-    #create homes
+
+    puts "Done Creating Cities"
+    puts "Creating homes"
+
     home_urls = ["http://i.huffpost.com/gen/1322250/thumbs/o-ECO-LODGE-AIRBNB-570.jpg?6",
-                          "https://a0.muscache.com/im/pictures/40005ce7-2aa3-4591-baea-9f033093308f.jpg?aki_policy=x_medium",
-                          "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/09/Bamboo-Home-Bali-Airbnb-Off-Grid-537x358.jpg",
-                          "http://i.huffpost.com/gen/1322228/thumbs/o-MICROHOUSE-AIRBNB-570.jpg?6",
-                          "http://assets.urbanturf.com/dc/images/blog/2014/07/portland_airbnb.jpg",
-                          "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/02/6-Best-Airbnb-Homes-You-Can-Rent-1-537x358.jpg",
+                 "https://a0.muscache.com/im/pictures/40005ce7-2aa3-4591-baea-9f033093308f.jpg?aki_policy=x_medium",
+                 "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/09/Bamboo-Home-Bali-Airbnb-Off-Grid-537x358.jpg",
+                 "http://i.huffpost.com/gen/1322228/thumbs/o-MICROHOUSE-AIRBNB-570.jpg?6",
+                 "http://assets.urbanturf.com/dc/images/blog/2014/07/portland_airbnb.jpg",
+                  "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/02/6-Best-Airbnb-Homes-You-Can-Rent-1-537x358.jpg",
                         "http://www.cement.org/images/default-source/default-album/insulated-concrete-forms-home.jpg?sfvrsn=0",
                       "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2012/09/Doe-Bay-Cottage-Method-Homes-5-537x335.jpg",
                     "http://www.rockfordhomes.net/sites/default/files/news-images/rockford_homes_new-homes-columbus.jpg",
@@ -58,52 +49,37 @@ class Seed
             "http://clv.h-cdn.co/assets/cm/15/10/640x480/gallery_54f0d9d889efa_-_01-millertinyhouse-048-edit1-lgn.jpg",
           "http://www.rpmmidwest.com/wp-content/uploads/2015/02/http-www.wfs_.orgblogsthomas-freywhy-tiny-home-movement-may-not-be-so-tiny.jpg"]
 
-    @num_homes.times do |i|
-      Home.create!(address:     Faker::Address.street_address,
-                              image_url:   "#{home_urls[rand(0..13)]}",
-                              zip_code:    Faker::Address.zip_code,
-                              title:       "Basement #{i}",
-                              description: Faker::Hipster.sentence,
-                              daily_rate:  40.99)
-    end
-    #revisit roles already created
-    role2 = Role.find_by(name: "host")
-    #for each user, make their role be host and give them a home
-    users = User.all
-
-    @num_homes.times do |i|
-      host = User.find_by(first_name: "Host#{i}")
-      UserRole.create(user: host, role: role2)
-      host.home = Home.all[i]
-      host.save
-    end
-
-    puts "Done Creating Hosts and Homes"
-  end
-
-  def generate_cities
-    puts "Creating Cities"
-
-    homes = Home.all
-
-    @num_cities.times do |i|
-          city = City.create!(
-            name: Faker::Address.city,
-            state: Faker::Address.state_abbr
-            )
-          end
-
     cities = City.all
 
-    homes.each do |home|
-      home.city_id = cities.sample.id
-      home.save
-    end
+    @num_homes.times do |i|
+      host = User.create!(first_name: "Host#{i}",
+                          last_name: Faker::Name.last_name,
+                          email: Faker::Internet.email,
+                          password: "password"  )
 
-    puts "Done Creating Cities"
+      host.home.create!(address:     Faker::Address.street_address,
+                        image_url:   "#{home_urls[rand(0..13)]}",
+                        zip_code:    Faker::Address.zip_code,
+                        title:       "Basement #{i}",
+                        description: Faker::Hipster.sentence,
+                        daily_rate:  40.99,
+                        city_id: cities.sample.id)
+      role2 = Role.find_by(name: "host")
+
+      host.roles << role2
+      host.roles.save
+    end
   end
 
-  def generate_users
+  def generate_days
+    puts "Creating Days"
+    @num_days.times do |i|
+      Day.create(date: Date.today + i)
+    end
+    puts "Done Creating Days"
+  end
+
+  def generate_registered_users
     puts "Creating Users"
     @num_users.times do |i|
     User.create!(
@@ -112,6 +88,10 @@ class Seed
         email: Faker::Internet.email,
         password: "password"
         )
+    end
+
+    User.all.each do |user|
+      user.roles << Role.find_by(name: "registered_user")
     end
     puts "Done Creating Users"
   end
