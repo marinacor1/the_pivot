@@ -91,6 +91,7 @@ class Seed
             name: Faker::Address.city,
             state: Faker::Address.state_abbr
             )
+          end
 
     cities = City.all
 
