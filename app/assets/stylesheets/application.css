@@ -99,6 +99,14 @@
   font-size: 150%;
 }
 
+.users-index-page {
+  color: white;
+  background: url(crowd.jpeg) no-repeat center;
+  background-size: cover;
+  padding: 50px;
+  height: 900px;
+}
+
 .navbar {
   margin-bottom: 0px !important;
 }
