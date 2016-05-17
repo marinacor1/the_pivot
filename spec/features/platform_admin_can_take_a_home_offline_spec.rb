@@ -47,6 +47,3 @@ RSpec.feature "host can update home" do
     expect(page).to have_content "#{home.description}"
   end
 end
-
-
-#Online? [checked]
