@@ -16,4 +16,10 @@ module ApplicationHelper
     end
   end
 
+  def current_dashboard
+    if current_user
+      link_to "My Dashboard", dashboard_path, class: "link"
+    end
+  end
+
 end
