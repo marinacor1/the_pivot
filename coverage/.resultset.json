@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/helpers/application_helper.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/helpers/application_helper.rb": [
         1,
         null,
         1,
@@ -22,24 +22,24 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/role.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/models/role.rb": [
         1,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/user_role.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/models/user_role.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/welcome_controller.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/welcome_controller.rb": [
         1,
         1,
         10,
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/application_controller.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/application_controller.rb": [
         1,
         null,
         1,
@@ -71,7 +71,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/lib/application_responder.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/lib/application_responder.rb": [
         1,
         1,
         1,
@@ -81,7 +81,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/cart.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/models/cart.rb": [
         1,
         1,
         null,
@@ -112,7 +112,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/services/permissions_service.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/services/permissions_service.rb": [
         1,
         1,
         null,
@@ -221,7 +221,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/user.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/models/user.rb": [
         1,
         1,
         1,
@@ -254,7 +254,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/city.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/models/city.rb": [
         1,
         1,
         null,
@@ -265,7 +265,7 @@
         1,
         null,
         1,
-        8,
+        48,
         null,
         null,
         1,
@@ -277,7 +277,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/users_controller.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/users_controller.rb": [
         1,
         1,
         2,
@@ -332,7 +332,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/home.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/models/home.rb": [
         1,
         1,
         1,
@@ -345,16 +345,22 @@
         1,
         1,
         1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/cities_controller.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/cities_controller.rb": [
         1,
         1,
         8,
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/homes_controller.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/homes_controller.rb": [
         1,
         null,
         1,
@@ -386,7 +392,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/reservation.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/models/reservation.rb": [
         1,
         1,
         1,
@@ -401,7 +407,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/api/v1/carts_controller.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/api/v1/carts_controller.rb": [
         1,
         1,
         null,
@@ -437,7 +443,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/carts_controller.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/carts_controller.rb": [
         1,
         1,
         null,
@@ -454,7 +460,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/sessions_controller.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/sessions_controller.rb": [
         1,
         1,
         null,
@@ -487,7 +493,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/trips_controller.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/trips_controller.rb": [
         1,
         null,
         1,
@@ -509,7 +515,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/reservation_processor.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/models/reservation_processor.rb": [
         1,
         null,
         1,
@@ -543,7 +549,7 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/day.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/models/day.rb": [
         1,
         1,
         null,
@@ -560,14 +566,14 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/trip.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/models/trip.rb": [
         1,
         1,
         1,
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/admin/base_controller.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/admin/base_controller.rb": [
         0,
         0,
         0,
@@ -576,119 +582,10 @@
         0,
         0
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/admin/coders_controller.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/admin/coders_controller.rb": [
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/admin/contracts_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/admin/users_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/api/v1/reservations_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/categories_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/coders_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/contracts_controller.rb": [
         0,
         0,
         0,
@@ -717,7 +614,18 @@
         0,
         0
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/reservations_controller.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/admin/contracts_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/admin/users_controller.rb": [
         0,
         0,
         0,
@@ -741,7 +649,105 @@
         0,
         0
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/sms_sender.rb": [
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/api/v1/reservations_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/categories_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/coders_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/contracts_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/reservations_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/marinacorona/Turing/3Module/super-coders/app/models/sms_sender.rb": [
         0,
         0,
         0,
@@ -760,6 +766,6 @@
         0
       ]
     },
-    "timestamp": 1463438906
+    "timestamp": 1463454535
   }
 }

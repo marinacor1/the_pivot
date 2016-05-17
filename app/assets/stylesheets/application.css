@@ -128,6 +128,25 @@
   height: 300px;
 }
 
+.dashboard-links {
+  padding: 0px;
+  color: white;
+  font-size: 150%
+}
+
+.dashboard-title {
+  padding: 20px;
+}
+
+.dashboard {
+  padding: 0px;
+  background: url(suitcase.jpeg) no-repeat center;
+  background-size: cover;
+  color: white;
+  height: 700px;
+  text-decoration: none !important;
+}
+
 .navbar {
   margin-bottom: 0px !important;
 }
