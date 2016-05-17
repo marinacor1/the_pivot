@@ -150,9 +150,6 @@
         7,
         7,
         0,
-        0,
-        0,
-        0,
         null,
         null,
         1,
@@ -587,13 +584,6 @@
         0,
         0
       ],
-      "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/categories_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
       "/Users/marinacorona/Turing/3Module/super-coders/app/controllers/reservations_controller.rb": [
         0,
         0,
@@ -617,26 +607,8 @@
         0,
         0,
         0
-      ],
-      "/Users/marinacorona/Turing/3Module/super-coders/app/models/sms_sender.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
       ]
     },
-    "timestamp": 1463462480
+    "timestamp": 1463462748
   }
 }

@@ -35,9 +35,6 @@ class PermissionsService
     return true if controller == "welcome"
     return true if controller == "users" && action.in?(%w(new create edit update show index))
     return true if controller == "cities" && action == "show"
-    return true if controller == "sessions" && action == "new"
-    return true if controller == "sessions" && action == "create"
-    return true if controller == "sessions" && action == "destroy"
   end
 
   def host_permissions
