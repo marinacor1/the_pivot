@@ -1,6 +1,6 @@
 <div class ="home-new-page">
-  <h1>Edit Your Home </h1>
-    <%= form_for ([@city, @home]), :html => {:class => "form-horizontal center"} do |f| %>
+  <h1>Make a New Home </h1>
+    <%= form_for (@home), :html => {:class => "form-horizontal center"} do |f| %>
         <div class="form-group">
           <%= f.label :title, "Title:", class: "col-md-4 control-label" %>
           <div class="col-md-8">
@@ -40,6 +40,14 @@
           <%= f.label :daily_rate, "Daily Rate", class: "col-md-4 control-label" %>
           <div class="col-md-8">
             <%= f.text_field :daily_rate, class: "form-control" %>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <%= f.label :city, "City", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= collection_select(:home, :city_id, City.all, :id, :name_and_state, prompt: true )%>
           </div>
         </div>
 

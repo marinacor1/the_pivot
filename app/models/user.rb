@@ -31,4 +31,10 @@ class User < ActiveRecord::Base
   def online?
   end
 
+  def create_new_host(options = {})
+    home = options[:home] if options[:home]
+    roles << Role.create(name: "host")
+    home.users.last  
+  end
+
 end
