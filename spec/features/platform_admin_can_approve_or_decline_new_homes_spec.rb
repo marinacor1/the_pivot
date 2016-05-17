@@ -20,7 +20,7 @@ RSpec.feature "platform admin can approve or decline new homes" do
     fill_in "Description", with: "My house is beautiful."
     fill_in "Image Link", with: "https://s-media-cache-ak0.pinimg.com/736x/1e/c5/eb/1ec5eb28f7580c245d571fcb8be7560e.jpg"
     fill_in "Address", with: "123 Lane Street"
-    fill_in "Zipcode", with: "80203"
+    fill_in "Zip Code", with: "80203"
     fill_in "Daily Rate", with: "$16"
     select('Los Angeles', :from => 'City')
     click_button "Create Your Home"

@@ -36,14 +36,12 @@
           </div>
         </div>
 
-      <% if current_user.platform_admin? %>
         <div class="form-group">
-          <%= f.label :online, "Online?", class: "col-md-4 control-label" %>
+          <%= f.label :daily_rate, "Daily Rate", class: "col-md-4 control-label" %>
           <div class="col-md-8">
-            <%= f.check_box :online, class: "form-control" %>
+            <%= f.text_field :daily_rate, class: "form-control" %>
           </div>
         </div>
-      <% end %>
 
         <%= f.submit "Submit", class: "btn btn-default" %>
     <% end %>
