@@ -11,6 +11,7 @@
           <th>Email</th>
           <th>Edit Account</th>
           <th>Edit Home (if Host)</th>
+          <th>Online Status</th>
         </tr>
       </thead>
       <tbody>
@@ -21,9 +22,10 @@
             <td><%= user.last_name %></td>
             <td><%= user.email %></td>
             <td><%= link_to "Edit User #{user.first_name}'s Account", edit_user_path(user) %></td>
-            <td>  <% if user.home %>
-                <%= link_to "Edit User Home", edit_home_path(user.home.city, user.home) %>
-              <% end %></td>
+              <% if user.home %>
+            <td><%= link_to "Edit User Home", edit_home_path(user.home.city, user.home) %></td>
+              <td><%= check_box(user, online?, options ={"Yes", "No"}, checked_value = "true", unchecked_value = "false")%></td>
+              <% end %>
         </tr>
         <% end %>
     </tbody>

@@ -22,8 +22,8 @@ RSpec.feature "host can update home" do
     expect(current_path).to eq '/dashboard'
 
     click_link "Edit User Account or Homes"
+    save_and_open_page
 
-    click_link "Edit User Home"
 
     uncheck("Online?")
 
