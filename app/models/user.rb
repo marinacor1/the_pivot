@@ -28,4 +28,7 @@ class User < ActiveRecord::Base
     roles.exists?(name: "platform_admin")
   end
 
+  def online?
+  end
+
 end
