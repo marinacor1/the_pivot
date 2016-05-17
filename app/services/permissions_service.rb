@@ -46,7 +46,7 @@ class PermissionsService
     return true if controller == "sessions"
     return true if controller == "homes" && action.in?(%w( index show edit update))
     return true if controller == "welcome"
-    return true if controller == "users" && action.in?(%w(new create edit update show))
+    return true if controller == "users" && action.in?(%w(new create edit update show destroy))
     return true if controller == "cities" && action == "index"
     return true if controller == "cities" && action == "show"
   end
