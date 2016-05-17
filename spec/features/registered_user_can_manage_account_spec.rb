@@ -27,7 +27,7 @@ feature "Registered user can manage account" do
 
     expect(current_path).to eq("/users/#{user.id}/edit")
 
-    within(".edit-form") do
+    within(".user-edit-page") do
       fill_in "First Name", with: "Leslie"
       fill_in "Last Name", with: "Smith"
       click_on "Update Account"
