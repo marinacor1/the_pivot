@@ -1,9 +1,10 @@
 class HomesController < ApplicationController
 
   def show
-    @city = City.find_by(slug: params[:city] )
     @home = Home.find(params[:id])
+    @city = City.find_by(slug: params[:city] )
     @reservation = Reservation.new
+    render file: 'public/404', status: 404 unless @home.online?
   end
 
   def edit
@@ -25,6 +26,6 @@ class HomesController < ApplicationController
   private
 
   def params_check
-    params.require(:home).permit(:image_url, :address, :zip_code, :title, :description, :daily_rate)
+    params.require(:home).permit(:image_url, :address, :zip_code, :title, :description, :daily_rate, :online)
   end
 end

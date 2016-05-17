@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516032035) do
+ActiveRecord::Schema.define(version: 20160517141903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160516032035) do
     t.string  "description"
     t.decimal "daily_rate"
     t.integer "city_id"
+    t.boolean "online",      default: true, null: false
   end
 
   add_index "homes", ["city_id"], name: "index_homes_on_city_id", using: :btree
