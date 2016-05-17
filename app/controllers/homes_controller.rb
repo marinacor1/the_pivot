@@ -4,6 +4,14 @@ class HomesController < ApplicationController
     @home = Home.new
   end
 
+  def create
+    @home = Home.new(params_check)
+    if @home.save
+     flash[:action] = "Your request has been submitted for approval."
+     redirect_to dashboard_path
+    end
+  end
+
   def show
     @home = Home.find(params[:id])
     @city = City.find_by(slug: params[:city] )

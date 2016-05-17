@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   delete "/logout",                to: "sessions#destroy"
 
   get     "/users/new",            to: "users#new",             as: :new_user
-  post    "/users",                to: "users#create",          as: :users
+  # post    "/users",                to: "users#create",          as: :users
   patch   "/users",                to: "users#create"
   delete "/users/:id",             to: "users#destroy"
 
@@ -40,7 +40,8 @@ Rails.application.routes.draw do
   #     get 'pending'
   #   end
   # end
-  resources :homes, only: [:create, :new]
+  get   "/homes/new",              to: "homes#new",         as: :new_home
+  post   "/homes",           to: "homes#create"       #as: :city_home
   get    "/:city/homes/:id",       to: "homes#show",        as: :city_home
   get    "/:city/homes/:id/edit",  to: "homes#edit",        as: :edit_home
   put    "/:city/homes/:id",       to: "homes#update"
