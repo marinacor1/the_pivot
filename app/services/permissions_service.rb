@@ -34,7 +34,7 @@ class PermissionsService
     return true if controller == "homes" && action.in?(%w( index show edit update destroy))
     return true if controller == "welcome"
     return true if controller == "users" && action.in?(%w(new create edit update show index))
-    return true if controller == "cities" && action.in?(%w(index show create edit update index))
+    return true if controller == "cities" && action == "show"
     return true if controller == "sessions" && action == "new"
     return true if controller == "sessions" && action == "create"
     return true if controller == "sessions" && action == "destroy"
@@ -66,7 +66,6 @@ class PermissionsService
     return true if controller == "welcome"
     return true if controller == "sessions"
     return true if controller == "users" && action.in?(%w(new create show edit update))
-    return true if controller == "cities" && action == "index"
     return true if controller == "cities" && action == "show"
     return true if controller == "homes" && action == "show"
     return true if controller == "homes" && action == "index"
@@ -84,7 +83,6 @@ class PermissionsService
 
     return true if controller == "welcome"
     return true if controller == "users" && action.in?(%w(new create))
-    return true if controller == "cities" && action == "index"
     return true if controller == "cities" && action == "show"
     return true if controller == "homes" && action == "show"
     return true if controller == "homes" && action == "index"
