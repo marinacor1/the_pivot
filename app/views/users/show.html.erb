@@ -5,6 +5,9 @@
   <div class="container">
     <div class="dashboard-links row col-md-12">
       <ul><%= link_to "Edit Account",  edit_user_path(current_user)%></ul>
+      <% if current_user.registered_user? && current_user.roles.count == 1%>
+        <ul><%=link_to "Be a host today!", new_home_path  %></ul>
+      <% end %>
       <% if current_user.host? %>
         <ul><%= link_to "Manage Your Home", edit_home_path(current_user.home.city, current_user.home) %></ul>
         <ul><%= link_to "Add Host", new_user_path %></ul>
