@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'features_helper'
 RSpec.feature "platform admin can approve or decline new homes" do
   include FeaturesHelper
-  xscenario "platform admin can approve a new home" do
+  scenario "platform admin can approve a new home" do
     user = User.create(first_name: "Tim", last_name: "Allan", email: "email@gmail.com", password: "password")
     city = City.create(name: "Los Angeles", state: "LA")
     platform_admin = create(:user, email: "pa@admin.co", password: "password")
@@ -31,11 +31,24 @@ RSpec.feature "platform admin can approve or decline new homes" do
 
     click_link "Logout"
 
+    expect(current_path).to eq root_path
 
+    platform_admin_login(platform_admin)
+
+    expect(current_path).to eq dashboard_path
+
+    click_link "Pending Homes"
+
+    check("Approve?")
+
+    visit city_home_path(Home.all.last)
+
+    expect(page).to have_content "Tiny LA Home"
+    expect(page).to have_content "My House is beautiful."
 
   end
 
-  scenario "platform admin can decline a new home" do
+  xscenario "platform admin can decline a new home" do
 
   end
 end
