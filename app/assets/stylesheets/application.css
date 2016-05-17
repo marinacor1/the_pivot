@@ -75,6 +75,19 @@
   text-shadow: 1px #899bae;
 }
 
+.single-home {
+  padding-top: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.single-home-image {
+  border: black solid 1px;
+  padding-right: 50px;
+  border-radius: 8px;
+}
+
 .home-edit-page {
   text-align: center;
   color: white;
@@ -104,6 +117,15 @@
   padding: 30px;
   padding-left: 50px;
   height: 1000px;
+}
+
+.city-splash {
+  color: white;
+  text-align: left;
+  background: url(venice.jpeg) no-repeat center;
+  background-size: cover;
+  padding-top: 20px;
+  height: 300px;
 }
 
 .navbar {

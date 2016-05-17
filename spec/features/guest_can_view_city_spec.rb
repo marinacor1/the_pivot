@@ -16,11 +16,10 @@ feature "Guest can view a specific city show page" do
       expect(page).to have_content(city.name_and_state)
     end
 
-    within(first(".home-thumb")) do
+    within(first(".city-homes")) do
       expect(page).to have_content(home.title)
       expect(page).to have_content(home.address)
       expect(page).to have_content(home.daily_rate)
-      expect(page).to have_content(home.description)
     end
   end
 end

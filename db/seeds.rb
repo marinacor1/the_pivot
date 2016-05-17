@@ -1,8 +1,9 @@
 class Seed
   def initialize
     @num_users = 100
-    @num_homes = 10
+    @num_homes = 80
     @num_days  = 60
+    @num_cities = 10
     @num_hosts = @num_homes
 
     generate_roles
@@ -82,14 +83,23 @@ class Seed
 
   def generate_cities
     puts "Creating Cities"
-    10.times do |i|
-      city = City.create!(
-        name: Faker::Address.city,
-        state: Faker::Address.state_abbr
-        )
-      homes = Home.find(i + 1)
-      city.homes << homes
+
+    homes = Home.all
+
+    @num_cities.times do |i|
+          city = City.create!(
+            name: Faker::Address.city,
+            state: Faker::Address.state_abbr
+            )
+          end
+
+    cities = City.all
+
+    homes.each do |home|
+      home.city_id = cities.sample.id
+      home.save
     end
+
     puts "Done Creating Cities"
   end
 
