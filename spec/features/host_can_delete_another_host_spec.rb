@@ -46,6 +46,5 @@ RSpec.feature 'host can delete another host' do
       expect(page).to_not have_content "2f-name"
       expect(page).to have_content "3f-name"
     end
-    save_and_open_page
   end
 end
