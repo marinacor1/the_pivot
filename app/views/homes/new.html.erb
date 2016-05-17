@@ -1,0 +1,50 @@
+<div class ="home-new-page">
+  <h1>Edit Your Home </h1>
+    <%= form_for ([@city, @home]), :html => {:class => "form-horizontal center"} do |f| %>
+        <div class="form-group">
+          <%= f.label :title, "Title:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :description, "Description:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :description, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :address, "Address:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :address, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :zip_code, "Zip Code:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :zip_code, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :image_url, "Image Link:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :image_url, class: "form-control" %>
+          </div>
+        </div>
+
+      <% if current_user.platform_admin? %>
+        <div class="form-group">
+          <%= f.label :online, "Online?", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.check_box :online, class: "form-control" %>
+          </div>
+        </div>
+      <% end %>
+
+        <%= f.submit "Submit", class: "btn btn-default" %>
+    <% end %>
+</div>
