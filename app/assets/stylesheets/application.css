@@ -119,6 +119,10 @@
   height: 1000px;
 }
 
+.form-group {
+  padding: 5px;
+}
+
 .city-splash {
   color: white;
   text-align: left;
@@ -126,6 +130,42 @@
   background-size: cover;
   padding-top: 20px;
   height: 300px;
+}
+
+.dashboard-links {
+  padding: 0px;
+  color: white;
+  font-size: 150%
+}
+
+.dashboard-title {
+  padding: 20px;
+}
+
+.user-edit-title {
+  text-align: center;
+}
+
+.user-edit-page {
+  padding-top: 30px;
+  background: url(suitcase.jpeg) no-repeat center;
+  background-size: cover;
+  color: white;
+  height: 700px;
+
+}
+
+.dashboard {
+  padding: 0px;
+  background: url(suitcase.jpeg) no-repeat center;
+  background-size: cover;
+  color: white;
+  height: 700px;
+  text-decoration: none !important;
+}
+
+.submission-button {
+  text-align: center;
 }
 
 .navbar {
