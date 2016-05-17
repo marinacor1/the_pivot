@@ -32,6 +32,19 @@ RSpec.feature "host can update home" do
     visit city_home_path(home.city, home)
 
     expect(page).to have_content "The page you were looking for doesn't exist."
+
+    visit '/users'
+
+    click_link "Edit User Home"
+
+    check("Online?")
+
+    click_button "Submit"
+
+    visit city_home_path(home.city, home)
+
+    expect(page).to have_content "#{home.title}"
+    expect(page).to have_content "#{home.description}"
   end
 end
 

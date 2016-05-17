@@ -2,12 +2,9 @@ class HomesController < ApplicationController
 
   def show
     @home = Home.find(params[:id])
-    if !@home.online?
-      render file: 'public/404', status: 404
-    else
-      @city = City.find_by(slug: params[:city] )
-      @reservation = Reservation.new
-    end
+    @city = City.find_by(slug: params[:city] )
+    @reservation = Reservation.new
+    render file: 'public/404', status: 404 unless @home.online?
   end
 
   def edit
