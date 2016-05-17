@@ -119,6 +119,10 @@
   height: 1000px;
 }
 
+.form-group {
+  padding: 5px;
+}
+
 .city-splash {
   color: white;
   text-align: left;
@@ -138,6 +142,19 @@
   padding: 20px;
 }
 
+.user-edit-title {
+  text-align: center;
+}
+
+.user-edit-page {
+  padding-top: 30px;
+  background: url(suitcase.jpeg) no-repeat center;
+  background-size: cover;
+  color: white;
+  height: 700px;
+
+}
+
 .dashboard {
   padding: 0px;
   background: url(suitcase.jpeg) no-repeat center;
@@ -145,6 +162,10 @@
   color: white;
   height: 700px;
   text-decoration: none !important;
+}
+
+.submission-button {
+  text-align: center;
 }
 
 .navbar {

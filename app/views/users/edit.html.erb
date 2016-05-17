@@ -1,11 +1,37 @@
-Edit Your Account <%= current_user.first_name.capitalize %>
-<div class="edit-form">
-<%= form_for current_user do |f| %>
-  <%= f.text_field :first_name, placeholder: "First Name" %>
-  <%= f.text_field :last_name, placeholder: "Last Name" %>
-  <%= f.text_field :email, placeholder: "Email" %>
-  <%= f.password_field :password, placeholder: "Password" %>
-  <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
-  <%= f.submit "Update Account", class: "button expanded"%>
-<% end %>
+<div class ="user-edit-page">
+  <div class="user-edit-title">
+    <h1>Edit Your Account <%= current_user.first_name.capitalize %></h1>
+  </div>
+  <%= form_for current_user, :html => {:class => "form-horizontal center"} do |f| %>
+    <div class="form-group">
+      <%= f.label :first_name, "First Name:", class: "col-md-4 control-label" %>
+      <div class="col-md-4">
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :last_name, "Last Name:", class: "col-md-4 control-label" %>
+      <div class="col-md-4">
+        <%= f.text_field :last_name, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email, "Email:", class: "col-md-4 control-label" %>
+      <div class="col-md-4">
+        <%= f.text_field :email, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, "Password:", class: "col-md-4 control-label" %>
+      <div class="col-md-4">
+        <%= f.text_field :password, class: "form-control" %>
+      </div>
+    </div>
+    <div class = "submission-button">
+      <%= f.submit "Update Account", class: "btn btn-default" %>
+    </div>
+  <% end %>
 </div>
