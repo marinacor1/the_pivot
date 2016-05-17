@@ -3,6 +3,12 @@
 <% if current_user.host? %>
   <%= link_to "Manage Your Home", edit_home_path(current_user.home.city, current_user.home) %>
   <%= link_to "Add Host", new_user_path %>
+  <div class="all-hosts">
+    <h3>All Hosts</h3>
+    <%@home.users.each do |user| %>
+    <ul><%=user.first_name%> <%= link_to "Delete #{user.first_name}", user_path(user), method: :delete %> </ul>
+    <% end %>
+  </div>
 <% end %>
 <% if current_user.platform_admin? %>
 <%= link_to "Edit User Account or Homes", users_path %>

@@ -41,6 +41,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to dashboard_path
+  end
+
   def index
     @users = User.all
   end
