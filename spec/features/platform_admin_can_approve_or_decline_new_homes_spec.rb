@@ -4,7 +4,7 @@ RSpec.feature "platform admin can approve or decline new homes" do
   include FeaturesHelper
   scenario "platform admin can approve a new home" do
     user = User.create(first_name: "Tim", last_name: "Allan", email: "email@gmail.com", password: "password")
-    city = City.create(name: "Los Angeles", state: "LA")
+    city = City.create(name: "Los Angeles", state: "CA")
     platform_admin = create(:user, email: "pa@admin.co", password: "password")
     platform_admin.roles << Role.create(name: "platform_admin")
 
@@ -22,8 +22,8 @@ RSpec.feature "platform admin can approve or decline new homes" do
     fill_in "Address", with: "123 Lane Street"
     fill_in "Zip Code", with: "80203"
     fill_in "Daily Rate", with: "$16"
-    select('Los Angeles', :from => 'City')
-    click_button "Create Your Home"
+    select('Los Angeles, CA')
+    click_button "Submit"
 
     expect(current_path).to eq dashboard_path
 
