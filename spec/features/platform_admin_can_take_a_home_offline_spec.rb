@@ -22,13 +22,18 @@ RSpec.feature "host can update home" do
     expect(current_path).to eq '/dashboard'
 
     click_link "Edit User Account or Homes"
-    save_and_open_page
 
+    click_link "Edit User Home"
 
     uncheck("Online?")
 
-    visit "city_home_path(#{home.city},#{home})"
+    click_button "Submit"
 
-    expect(page).to have_content "We're sorry. This page is currently offline."
+    visit city_home_path(home.city, home)
+
+    expect(page).to have_content "The page you were looking for doesn't exist."
   end
 end
+
+
+#Online? [checked]
