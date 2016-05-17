@@ -11,9 +11,4 @@ class Home < ActiveRecord::Base
   has_many :reservations
   has_many :days, through: :reservations
 
-  def truncate_description
-    if self.description.length > 65
-      self.description[(0..65)]
-    end
-  end
 end
