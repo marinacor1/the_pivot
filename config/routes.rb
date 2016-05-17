@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get     "/users/new",            to: "users#new",             as: :new_user
   post    "/users",                to: "users#create",          as: :users
   patch   "/users",                to: "users#create"
-  delete "/users/:id",             to: "users#destroy" 
+  delete "/users/:id",             to: "users#destroy"
 
   resources :users, only: [:edit, :update]
 
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   #     get 'pending'
   #   end
   # end
-
+  resources :homes, only: [:create, :new]
   get    "/:city/homes/:id",       to: "homes#show",        as: :city_home
   get    "/:city/homes/:id/edit",  to: "homes#edit",        as: :edit_home
   put    "/:city/homes/:id",       to: "homes#update"

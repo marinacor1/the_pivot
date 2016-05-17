@@ -1,5 +1,9 @@
 class HomesController < ApplicationController
 
+  def new
+    @home = Home.new
+  end
+
   def show
     @home = Home.find(params[:id])
     @city = City.find_by(slug: params[:city] )
