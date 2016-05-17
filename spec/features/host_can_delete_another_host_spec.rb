@@ -34,7 +34,7 @@ RSpec.feature 'host can delete another host' do
     expect(current_path).to eq '/dashboard'
 
     within(".all-hosts") do
-      expect(page).to have_content "1f-name"
+      expect(page).to_not have_content "1f-name"
       expect(page).to have_content "2f-name"
       expect(page).to have_content "3f-name"
     end
@@ -42,8 +42,10 @@ RSpec.feature 'host can delete another host' do
     click_on "Delete 2f-name"
 
     within(".all-hosts") do
+      expect(page).to_not have_content "1f-name"
       expect(page).to_not have_content "2f-name"
+      expect(page).to have_content "3f-name"
     end
-
+    save_and_open_page
   end
 end

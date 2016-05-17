@@ -37,7 +37,13 @@ class UsersController < ApplicationController
 
   def show
     if current_user.host?
-      @home = current_user.home
+      hosts = current_user.home.users
+      @other_hosts = []
+      hosts.map do |host|
+        if host != current_user
+          @other_hosts << host
+        end
+      end
     end
   end
 

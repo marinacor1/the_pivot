@@ -5,8 +5,8 @@
   <%= link_to "Add Host", new_user_path %>
   <div class="all-hosts">
     <h3>All Hosts</h3>
-    <%@home.users.each do |user| %>
-    <ul><%=user.first_name%> <%= link_to "Delete #{user.first_name}", user_path(user), method: :delete %> </ul>
+    <%@other_hosts.each do |host| %>
+    <ul><%=host.first_name%> <%= link_to "Delete #{host.first_name}", user_path(host), method: :delete %> </ul>
     <% end %>
   </div>
 <% end %>
