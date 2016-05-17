@@ -46,4 +46,30 @@ RSpec.feature "host can update home" do
     expect(page).to have_content "#{home.title}"
     expect(page).to have_content "#{home.description}"
   end
+
+  scenario "host cannot take a home offline" do
+    city = create(:city_with_homes, name: "Denver", state: "CO")
+    host = create(:user, email: "macies@li.biz", password: "password")
+    home = city.homes.first
+    host_role = Role.create(name: "host")
+    host.roles << host_role
+    home.users << host
+
+    visit root_path
+
+    click_link "Login"
+
+    expect(current_path).to eq '/login'
+    fill_in "email", with: "#{host.email}"
+    fill_in "password", with: "password"
+    click_button "Login"
+
+    expect(current_path).to eq '/dashboard'
+
+    click_link "Manage Your Home"
+
+    expect(current_path).to eq("/denver-co/homes/#{home.id}/edit")
+
+    expect(page).to_not have_content "Online?"
+  end
 end
