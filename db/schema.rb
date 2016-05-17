@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20160517234236) do
     t.string  "description"
     t.decimal "daily_rate"
     t.integer "city_id"
-    t.boolean "online",      default: true, null: false
-    t.string  "status"
+    t.boolean "online",      default: true,  null: false
+    t.boolean "pending",     default: false
   end
 
   add_index "homes", ["city_id"], name: "index_homes_on_city_id", using: :btree

@@ -34,7 +34,14 @@ class User < ActiveRecord::Base
   def create_new_host(options = {})
     home = options[:home] if options[:home]
     roles << Role.create(name: "host")
-    home.users.last  
+    home.users.last
+  end
+
+  def pending_homes?
+    @homes = Home.all
+    @pending_homes = @homes.map do |home|
+      pending_homes << home.pending?
+    end
   end
 
 end

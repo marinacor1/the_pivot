@@ -20,7 +20,9 @@
       <% end %>
       <% if current_user.platform_admin? %>
         <ul><%= link_to "Edit User Account or Homes", users_path %></ul>
-        <ul><%= link_to "Pending Homes",  %></ul>
+        <%= if current_user.pending_homes? %<%=  %>>
+          <ul><%= link_to "Pending Homes", pending_homes_path %></ul>
+          <% end %>
       <% end %>
     </div>
 
