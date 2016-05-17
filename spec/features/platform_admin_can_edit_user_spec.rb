@@ -26,11 +26,9 @@ RSpec.feature "platform admin can edit any user" do
 
     visit '/users'
 
-    within("tr:nth-child(2)") do
-      click_on "Edit User Account"
-    end
+      click_on "Edit User #{user1.first_name}'s Account"
 
-    expect(current_path).to eq(user_path(user2))
+    expect(current_path).to eq(edit_user_path(user1))
 
   end
 end
