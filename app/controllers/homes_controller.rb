@@ -37,8 +37,8 @@ class HomesController < ApplicationController
   end
 
   def update
-    @city = City.find_by(slug: params[:city])
     @home = Home.find(params[:id])
+    @city = @home.city
     if @home.update(params_check)
       flash[:error] = "Success! Your home updated."
       redirect_to city_home_path(@city, @home)

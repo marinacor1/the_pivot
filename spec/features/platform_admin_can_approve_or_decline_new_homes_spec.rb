@@ -46,17 +46,13 @@ RSpec.feature "platform admin can approve or decline new homes" do
     expect(current_path).to eq dashboard_path
 
     click_link "Pending Homes"
-save_and_open_page
-    fill_in "Status:", with: "Accept"
 
-    click_button "Submit"
-#TODO when platform admin checks pending? it will make the site online
-    expect(current_path).to eq pending_homes_path
+    click_button "Accept "
 
-    visit city_home_path(Home.all.last)
+    expect(current_path).to eq city_home_path(Home.all.last.city.slug, Home.all.last.id)
 
+    expect(page).to have_content "Success! Your home updated."
     expect(page).to have_content "Tiny LA Home"
-    expect(page).to have_content "My House is beautiful."
 
   end
 
