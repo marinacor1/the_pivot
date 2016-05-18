@@ -8,6 +8,7 @@ class HomesController < ApplicationController
     @home = Home.new(params_check)
     if @home.save
       @home.pending = true
+      @home.city = City.find(params[:home][:city_id])
       @home.save
      flash[:action] = "Your request has been submitted for approval."
      redirect_to dashboard_path

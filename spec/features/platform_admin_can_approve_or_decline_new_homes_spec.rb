@@ -21,7 +21,7 @@ RSpec.feature "platform admin can approve or decline new homes" do
     fill_in "Image Link", with: "https://s-media-cache-ak0.pinimg.com/736x/1e/c5/eb/1ec5eb28f7580c245d571fcb8be7560e.jpg"
     fill_in "Address", with: "123 Lane Street"
     fill_in "Zip Code", with: "80203"
-    fill_in "Daily Rate", with: "$16"
+    fill_in "Daily Rate", with: "16"
     select('Los Angeles, CA')
     click_button "Submit"
 
@@ -32,7 +32,7 @@ RSpec.feature "platform admin can approve or decline new homes" do
     expect("https://s-media-cache-ak0.pinimg.com/736x/1e/c5/eb/1ec5eb28f7580c245d571fcb8be7560e.jpg").to eq Home.all.last.image_url
     expect("123 Lane Street").to eq Home.all.last.address
     expect("80203").to eq Home.all.last.zip_code
-    expect("$16").to eq Home.all.last.daily_rate
+    expect(16.to_d).to eq Home.all.last.daily_rate
     expect("Los Angeles").to eq Home.all.last.city.name
 
     expect(page).to have_content "Your request has been submitted for approval."
@@ -46,11 +46,11 @@ RSpec.feature "platform admin can approve or decline new homes" do
     expect(current_path).to eq dashboard_path
 
     click_link "Pending Homes"
-save_and_open_page
+
     check("Pending?")
     click_button "Submit"
 
-    expect(current_path).to eq dashboard_path
+    expect(current_path).to eq pending_homes_path
 
     visit city_home_path(Home.all.last)
 
