@@ -13,7 +13,7 @@
           <th>City</th>
           <th>Daily Rate</th>
           <th>Image Url</th>
-          <th>Status?</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>
@@ -24,17 +24,14 @@
             <td><%= home.description %></td>
             <td><%= home.address %></td>
             <td><%= home.zip_code %></td>
-            <td><%= home.city %></td>
-            <td><%= home.daily_rate %></td>
+            <td><%= home.city.name_and_state %></td>
+            <td>$<%= home.daily_rate %>0</td>
             <td><%= image_tag(home.image_url, width: "100", height: "50") %></td>
               <td><% form_for [home.city, home] do |f| %>
-                <%= f.label :pending, "Accept?" %>
-                <%= f.check_box :pending %>
-                <%= f.label :pending, "Decline?" %>
-                <%= f.check_box :pending %>
+                <%= f.label :pending, "Status:" %>
+                <%= f.text_field :pending%>
                 <%= f.submit %>
                 <% end %></td>
-            <td><%= check_box_tag "Pending?" %></td>
             <td><%= submit_tag "Submit", :class => "btn btn-default" %></td>
         </tr>
         <% end %>
