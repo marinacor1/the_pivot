@@ -39,8 +39,11 @@ RSpec.feature "platform admin can approve or decline new homes" do
 
     click_link "Pending Homes"
 
-    check("Approve?")
+    check("Pending?")
+    click_button "Submit"
 
+    expect(current_path).to eq dashboard_path
+    
     visit city_home_path(Home.all.last)
 
     expect(page).to have_content "Tiny LA Home"

@@ -40,8 +40,10 @@ Rails.application.routes.draw do
   #     get 'pending'
   #   end
   # end
+  get "/pendinghomes",             to: "homes#index",        as: :pending_homes
+  post "/pendinghomes",            to: "user#show"
   get   "/homes/new",              to: "homes#new",         as: :new_home
-  post   "/homes",                 to: "homes#create"       #as: :city_home
+  post   "/homes",                 to: "homes#create"
   get    "/:city/homes/:id",       to: "homes#show",        as: :city_home
   get    "/:city/homes/:id/edit",  to: "homes#edit",        as: :edit_home
   put    "/:city/homes/:id",       to: "homes#update"

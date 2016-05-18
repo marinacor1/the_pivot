@@ -37,6 +37,11 @@ class HomesController < ApplicationController
     end
   end
 
+  def index
+    @homes = Home.all
+    @pending_homes = @homes.find_all {|h| h.pending}
+  end
+
   private
 
   def params_check
