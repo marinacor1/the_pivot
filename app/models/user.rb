@@ -37,11 +37,4 @@ class User < ActiveRecord::Base
     home.users.last
   end
 
-  def pending_homes?
-    @homes = Home.all
-    @pending_homes = @homes.map do |home|
-      pending_homes << home.pending?
-    end
-  end
-
 end
