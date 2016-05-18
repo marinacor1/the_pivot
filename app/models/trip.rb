@@ -6,7 +6,8 @@ class Trip < ActiveRecord::Base
     date.strftime("%b %d, %Y")
   end
 
-  def self.reviewed?
+  def reviewed?
+    binding.pry
     if self.review_id.nil?
       false
     else
