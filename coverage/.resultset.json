@@ -5,30 +5,63 @@
         1,
         null,
         1,
+<<<<<<< HEAD
+        91,
+        54,
+        null,
+        37,
+=======
         5,
         1,
         null,
         4,
+>>>>>>> master
         null,
         null,
         null,
         1,
+<<<<<<< HEAD
+        91,
+        54,
+        null,
+        37,
+=======
         5,
         1,
         null,
         4,
+>>>>>>> master
         null,
         null,
         null,
         1,
+<<<<<<< HEAD
+        91,
+        54,
+=======
         5,
         1,
+>>>>>>> master
         null,
         null,
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/role.rb": [
+        1,
+        null
+      ],
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/user_role.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/city.rb": [
+=======
       "/Users/admirdraganovic/turing/3module/the_pivot/app/models/user.rb": [
+>>>>>>> master
         1,
         1,
         1,
@@ -37,11 +70,21 @@
         1,
         null,
         1,
+<<<<<<< HEAD
+        63,
+        null,
+        null,
+=======
+>>>>>>> master
         1,
-        1,
+        15,
         null,
         null,
         1,
+<<<<<<< HEAD
+        45,
+=======
+>>>>>>> master
         null,
         null,
         1,
@@ -79,7 +122,19 @@
         null,
         null,
         1,
+<<<<<<< HEAD
+        136,
+        null,
+        null,
         1,
+        85,
+        null,
+        null,
+        1,
+        144,
+=======
+        1,
+>>>>>>> master
         null,
         null,
         1,
@@ -87,6 +142,9 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/welcome_controller.rb": [
+=======
       "/Users/admirdraganovic/turing/3module/the_pivot/app/models/home.rb": [
         1,
         1,
@@ -103,9 +161,10 @@
         null
       ],
       "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/cities_controller.rb": [
+>>>>>>> master
         1,
         1,
-        1,
+        16,
         null,
         null
       ],
@@ -122,20 +181,33 @@
         1,
         null,
         1,
+<<<<<<< HEAD
+        512,
+        null,
+        null,
+        1,
+        122,
+=======
         24,
         null,
         null,
         1,
         7,
+>>>>>>> master
         null,
         null,
         1,
-        8,
+        145,
         null,
         null,
         1,
+<<<<<<< HEAD
+        122,
+        1,
+=======
         7,
         0,
+>>>>>>> master
         null,
         null,
         null,
@@ -156,28 +228,45 @@
         1,
         null,
         1,
+<<<<<<< HEAD
+        122,
+=======
         7,
+>>>>>>> master
         null,
         null,
         1,
-        5,
+        91,
+        null,
+        null,
+        1,
+<<<<<<< HEAD
+        6,
+        6,
+=======
+        1,
+        1,
+>>>>>>> master
         null,
         null,
         1,
         1,
-        1,
         null,
         null,
         1,
-        0,
+<<<<<<< HEAD
+        16,
         null,
         null,
         1,
+        6,
+=======
         4,
         null,
         null,
         1,
         1,
+>>>>>>> master
         null,
         null,
         null
@@ -192,24 +281,63 @@
         null,
         null,
         1,
+<<<<<<< HEAD
+        122,
+        122,
+        122,
+=======
         7,
         7,
         7,
+>>>>>>> master
         null,
         null,
         1,
         null,
+<<<<<<< HEAD
+        21,
+        16,
+        9,
+        null,
+        76,
+        122,
+=======
         0,
         0,
         1,
         null,
         6,
         7,
+>>>>>>> master
         null,
         null,
         1,
         null,
         1,
+        21,
+        21,
+        21,
+        21,
+        null,
+        21,
+        21,
+        10,
+        10,
+        0,
+        null,
+        null,
+        1,
+<<<<<<< HEAD
+        16,
+        16,
+        15,
+        15,
+        null,
+        15,
+        15,
+        11,
+        11,
+=======
         0,
         0,
         0,
@@ -217,40 +345,50 @@
         null,
         0,
         0,
+        0,
+        0,
+>>>>>>> master
+        0,
+        0,
+        null,
+        null,
+        1,
+<<<<<<< HEAD
+        9,
+        8,
+        8,
+        8,
+=======
+        1,
+        0,
+        0,
+        0,
+>>>>>>> master
+        null,
+        8,
+        8,
+        7,
         0,
         0,
         0,
         null,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+<<<<<<< HEAD
+        76,
+        68,
+        66,
+        66,
         null,
         null,
-        1,
-        1,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        1,
+        60,
+        44,
+        42,
+        34,
+        27,
+        27,
+        14,
+=======
         6,
         5,
         5,
@@ -263,20 +401,28 @@
         3,
         2,
         2,
+>>>>>>> master
         1,
-        0,
         null,
         null,
         1,
+<<<<<<< HEAD
+        841,
+=======
         42,
+>>>>>>> master
         null,
         null,
         1,
-        5,
+        100,
         null,
         null,
         1,
+<<<<<<< HEAD
+        308,
+=======
         21,
+>>>>>>> master
         null,
         null
       ],
@@ -294,13 +440,29 @@
         1,
         null,
         1,
+        13,
+        13,
+        12,
+        12,
+        null,
+<<<<<<< HEAD
+        12,
+=======
+>>>>>>> master
+        null,
+        12,
+        1,
+<<<<<<< HEAD
+        11,
+        11,
+        null,
+        0,
+        null,
+        null,
+        null,
         1,
         1,
-        1,
-        1,
-        null,
-        null,
-        1,
+=======
         0,
         0,
         null,
@@ -313,13 +475,19 @@
         0,
         null,
         0,
+>>>>>>> master
         null,
         null,
         null,
         1,
+<<<<<<< HEAD
+        1,
+        1,
+=======
         null,
         1,
         0,
+>>>>>>> master
         null,
         null
       ],
@@ -328,12 +496,26 @@
         1,
         1,
         1,
+<<<<<<< HEAD
+        2,
+        null,
+=======
+>>>>>>> master
         null,
         1,
+        2,
+        null,
+        null,
+        1,
+<<<<<<< HEAD
+        2,
+        2,
+        2,
+        null,
         0,
         null,
-        null,
-        1,
+        2,
+=======
         0,
         null,
         null
@@ -341,41 +523,97 @@
       "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/api/v1/carts_controller.rb": [
         1,
         1,
+>>>>>>> master
         null,
         1,
         1,
         null,
         1,
-        0,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
+<<<<<<< HEAD
         2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+=======
+        0,
+>>>>>>> master
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+<<<<<<< HEAD
+        17,
+        8,
+        8,
+        8,
+        11,
+        3,
+=======
+        2,
+>>>>>>> master
         null,
         null,
         1,
         null,
         null,
         null,
+<<<<<<< HEAD
+        1,
+        1,
+        1,
+        1,
         null,
         null,
+        1,
+        4,
+=======
+        null,
+        null,
+>>>>>>> master
         null,
         null,
         1,
         null,
+<<<<<<< HEAD
+        1,
+        4,
+=======
+>>>>>>> master
         null,
         null
       ],
       "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/carts_controller.rb": [
         1,
+<<<<<<< HEAD
+        2,
+        0,
+        null,
+        2,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+=======
         1,
         null,
         1,
@@ -387,6 +625,7 @@
         0,
         0,
         0,
+>>>>>>> master
         null,
         null,
         null
@@ -402,6 +641,39 @@
         1,
         1,
         null,
+<<<<<<< HEAD
+        null
+      ],
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/cities_controller.rb": [
+        1,
+        1,
+        8,
+        null,
+        null
+      ],
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/homes_controller.rb": [
+        1,
+        null,
+        1,
+        13,
+        13,
+        13,
+        13,
+        null,
+        null,
+        1,
+        5,
+        5,
+        null,
+        null,
+        1,
+        4,
+        4,
+        4,
+        4,
+        4,
+        null,
+=======
         1,
         null,
         1,
@@ -472,9 +744,27 @@
         0,
         0,
         0,
+>>>>>>> master
         0,
-        0
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        4,
+        null,
+        null
       ],
+<<<<<<< HEAD
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/reservation.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+=======
       "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/trips_controller.rb": [
         0,
         0,
@@ -489,14 +779,117 @@
         0,
         0,
         0,
+>>>>>>> master
         0,
+        null,
+        null,
+        1,
         0,
-        0,
-        0,
-        0,
-        0,
-        0
+<<<<<<< HEAD
+        null,
+        null
       ],
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/api/v1/carts_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        6,
+        null,
+        6,
+=======
+        0,
+        0,
+        0,
+>>>>>>> master
+        0,
+        null,
+        6,
+        6,
+        6,
+        null,
+        null,
+        6,
+        6,
+        null,
+        null,
+        1,
+        12,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        6,
+        null,
+        null,
+        null
+      ],
+<<<<<<< HEAD
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/carts_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        8,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/reservation_processor.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/day.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+=======
       "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/users_controller.rb": [
         0,
         0,
@@ -550,7 +943,18 @@
         0,
         0,
         0,
+>>>>>>> master
         0,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/api/v1/reservations_controller.rb": [
         0,
         0,
         0,
@@ -569,12 +973,15 @@
         0,
         0,
         0,
+<<<<<<< HEAD
+=======
         0
       ],
       "/Users/admirdraganovic/turing/3module/the_pivot/app/models/day.rb": [
         0,
         0,
         0,
+>>>>>>> master
         0,
         0,
         0,
@@ -588,17 +995,7 @@
         0,
         0
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/reservation_processor.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/reservations_controller.rb": [
         0,
         0,
         0,
@@ -630,6 +1027,10 @@
         0
       ]
     },
+<<<<<<< HEAD
+    "timestamp": 1463579212
+=======
     "timestamp": 1463581049
+>>>>>>> master
   }
 }
