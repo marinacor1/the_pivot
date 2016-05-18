@@ -5,4 +5,9 @@ class Trip < ActiveRecord::Base
   def word_date(date)
     date.strftime("%b %d, %Y")
   end
+
+  def self.reviewed?
+#if nil will return false
+#if reviewed will return true 
+  end
 end
