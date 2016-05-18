@@ -1,5 +1,6 @@
 class Day < ActiveRecord::Base
   belongs_to :reservation
+  has_one :home, through: :reservation
 
   validates :date,  presence: true
 

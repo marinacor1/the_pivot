@@ -2,8 +2,17 @@ class Api::V1::ReservationsController < ApplicationController
   respond_to :json
 
   def create
+    # double check? One when add to cart, One when Checkout
+    # before create check Day.where(date: check_in..check_out).count
+    # => if count > 0 - error out and return flash message
+    # => redirect to Home page
+
     formatted_data = format_ajax_data(reservation_params)
     res = Reservation.create(formatted_data)
+
+    # create required dates - don't depend on seeded / pre-existing
+    # create array of dates - iterate through and create days
+
     Day.book(res)
     respond_with res, location: -> { api_v1_reservations_path(res) }
   end

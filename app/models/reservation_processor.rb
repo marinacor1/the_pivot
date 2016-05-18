@@ -11,9 +11,14 @@ class ReservationProcessor
     trip.reservations << reservations
   end
 
+  ## Create Individual Days
+  # check_in.next until == check_out
+
   def process_cart
     reservations = create_reservations
     reservations.each do |reservation|
+      require "pry"
+      binding.pry
       Day.book(reservation)
     end
   end
