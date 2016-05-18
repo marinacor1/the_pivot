@@ -7,7 +7,7 @@ class HomesController < ApplicationController
   def create
     @home = Home.new(params_check)
     if @home.save
-      @home.pending? = true
+      @home.pending = true
       @home.save
      flash[:action] = "Your request has been submitted for approval."
      redirect_to dashboard_path

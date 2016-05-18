@@ -37,7 +37,6 @@ class UsersController < ApplicationController
   def show
     @homes = Home.all
     @pending_homes = @homes.map {|h| h.pending?}
-    binding.pry
     if current_user.host?
       hosts = current_user.home.users
       other_hosts(hosts)
