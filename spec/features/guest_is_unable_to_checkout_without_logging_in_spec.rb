@@ -34,10 +34,10 @@ feature 'Guest is unable to checkout without logging in' do
       expect(page).to have_link("Delete")
     end
 
+
     within(".page-header") do
-      expect(page).to_not have_button("Checkout")
-      expect(page).to have_link("Login or Create a New Account")
-      click_link("Login or Create a New Account")
+      expect(page).to have_link("Checkout")
+      click_link("Checkout")
     end
 
     expect(current_path).to eq(login_path)
@@ -51,7 +51,6 @@ feature 'Guest is unable to checkout without logging in' do
     expect(current_path).to eq(cart_path)
 
     within(".page-header") do
-      expect(page).to_not have_link("Login or Create a New Account")
       expect(page).to have_button("Checkout")
     end
   end
