@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'features_helper'
 RSpec.feature "platform admin can approve or decline new homes" do
   include FeaturesHelper
-  xscenario "platform admin can approve a new home" do
+  scenario "platform admin can approve a new home" do
     user = User.create(first_name: "Tim",  last_name: "Allan", email: "email@gmail.com", password: "password")
     city = City.create(name: "Los Angeles", state: "CA")
     platform_admin = create(:user, email: "pa@admin.co", password: "password")
