@@ -4,6 +4,14 @@ class HomesController < ApplicationController
     @home = Home.new
   end
 
+  def accept_pending_home
+    @home = Home.find(params[:id])
+    @home.online = true
+    @home.pending = false
+    @home.users.each {|user| user.roles << Role.find_by(name: "Host")}
+    @home.save
+  end
+
   def create
     @home = Home.new(params_check)
     if @home.save

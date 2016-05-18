@@ -27,12 +27,8 @@
             <td><%= home.city.name_and_state %></td>
             <td>$<%= home.daily_rate %>0</td>
             <td><%= image_tag(home.image_url, width: "100", height: "50") %></td>
-              <td><% form_for [home.city, home] do |f| %>
-                <%= f.label :pending, "Status:" %>
-                <%= f.text_field :pending%>
-                <%= f.submit %>
-                <% end %></td>
-            <td><%= submit_tag "Submit", :class => "btn btn-default" %></td>
+            <td><%= button_to "Decline", city_home_path(home.city.id, home.id), online: false, method: :patch %>
+            <%= button_to "Accept", city_home_path(home.city.id, home.id), online: true, method: :patch %></td>
         </tr>
         <% end %>
     </tbody>
