@@ -1,6 +1,8 @@
 require 'rails_helper'
+require 'features_helper'
 
 RSpec.feature "platform admin can edit any user" do
+  include FeaturesHelper
   scenario "platform sees updated user after editing" do
     city = create(:city_with_homes, name: "Denver", state: "CO")
     host = create(:user)
@@ -15,14 +17,7 @@ RSpec.feature "platform admin can edit any user" do
     user2 = User.create(first_name: "Sally", last_name: "Watson", email: "email3@hotmail.com", password: "password")
     user2.roles << Role.create(name: "registered_user")
 
-    visit root_path
-
-    click_link "Login"
-
-    expect(current_path).to eq '/login'
-    fill_in "email", with: "#{platform_admin.email}"
-    fill_in "password", with: "password"
-    click_button "Login"
+    platform_admin_login(platform_admin)
 
     visit '/users'
 

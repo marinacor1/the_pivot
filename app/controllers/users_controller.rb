@@ -20,9 +20,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save && current_user != nil && current_user.host?
-      host_role = Role.create(name: "host")
-      @user.roles << host_role
-      @user.home = current_user.home
+    new_host =  @user.create_new_host({home: current_user.home})
+      flash[:action] = "Added #{new_host.first_name} to your home!"
       redirect_to dashboard_path
     elsif @user.save
       session[:user_id] = @user.id
@@ -36,14 +35,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @homes = Home.all
+    @pending_homes = @homes.map {|h| h.pending?}
     if current_user.host?
       hosts = current_user.home.users
-      @other_hosts = []
-      hosts.map do |host|
-        if host != current_user
-          @other_hosts << host
-        end
-      end
+      other_hosts(hosts)
     end
   end
 
@@ -61,5 +57,14 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password)
+    end
+
+    def other_hosts(hosts)
+      @other_hosts = []
+      hosts.map do |host|
+        if host != current_user
+          @other_hosts << host
+        end
+      end
     end
 end
