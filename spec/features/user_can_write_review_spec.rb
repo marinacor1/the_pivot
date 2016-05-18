@@ -1,40 +1,15 @@
 require 'rails_helper'
-require 'features_helper'
+
 RSpec.feature "user can review spec" do
-  include FeaturesHelper
   scenario "user can see review on home show page" do
-    user = User.create(first_name: "Tim", last_name: "Allan", email: "email@gmail.com", password: "password")
+    user = create(:user)
     city = create(:city_with_homes, name: "Denver", state: "CO")
     home = city.homes.first
+    trip = Trip.new(user: user, created_at: "01-14-2016", updated_at: "01-16-2016" )
+    reservation = Reservation.create(home_id: home.id, trip: trip, user_id: user.id, check_in: "01-14-2016", check_out: "01-16-2016")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    user_login(user)
-
-    visit '/denver-co'
-
-    click_on home.title
-
-    expect(current_path).to eq("/denver-co/homes/#{home.id}")
-
-    within(".date-picker-box") do
-      expect(page).to have_button("Request Dates")
-      sleep(1)
-      click_button "Request Dates"
-    end
-
-    visit '/cart'
-
-    within('#cart-count') do
-      expect(page).to have_text("1")
-    end
-
-    within('.page-header') do
-      expect(page).to have_text("Your Cart")
-      expect(page).to have_text("Trips: 1")
-      expect(page).to have_button("Checkout")
-      click_button "Checkout"
-    end
-
-    expect(current_path).to eq("/trips")
+    visit "/trips"
 
     within('.page-header') do
       expect(page).to have_text("My Trips")
@@ -43,7 +18,7 @@ RSpec.feature "user can review spec" do
     within('.trips') do
       expect(page).to have_text(home.title)
     end
-
+save_and_open_page
     click_on "Review this Trip"
 
     within('.review-popup') do

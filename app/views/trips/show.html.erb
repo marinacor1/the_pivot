@@ -9,7 +9,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">
-              Trip Booked on <%= trip.created_at %>
+              Trip Booked on <%= trip.word_date(trip.created_at) %>
               for <%= trip.reservations.count %> basement(s)
             </h3>
           </div>
