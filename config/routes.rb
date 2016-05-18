@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   delete "/logout",                to: "sessions#destroy"
 
   get     "/users/new",            to: "users#new",             as: :new_user
-  # post    "/users",                to: "users#create",          as: :users
+  post    "/users",                to: "users#create",          as: :users
   patch   "/users",                to: "users#create"
   delete "/users/:id",             to: "users#destroy"
 
