@@ -16,6 +16,8 @@ module FeaturesHelper
   end
 
   def host_login(host)
+    visit root_path
+    
     click_link "Login"
 
     expect(current_path).to eq '/login'

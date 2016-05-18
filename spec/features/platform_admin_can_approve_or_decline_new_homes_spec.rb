@@ -106,6 +106,5 @@ RSpec.feature "platform admin can approve or decline new homes" do
     expect(current_path).to eq city_home_path(Home.all.last.city.slug, Home.all.last.id)
 
     expect(page).to have_content "The page you were looking for doesn't exist"
-
   end
 end
