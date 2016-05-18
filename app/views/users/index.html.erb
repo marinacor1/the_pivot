@@ -5,17 +5,22 @@
     <table class="table">
       <thead class="thead-inverse">
         <tr>
+          <th>Pending?</th>
           <th>#</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
           <th>Edit Account</th>
           <th>Edit Home (if Host)</th>
+          <th>Decline</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <% @users.each_with_index do |user, index| %>
+            <% if user.registered_user? && user.home%>
+              <td> NEW HOME </td>
+            <% end %>
             <td><%= index + 1 %></td>
             <td><%= user.first_name %></td>
             <td><%= user.last_name %></td>
@@ -23,6 +28,10 @@
             <td><%= link_to "Edit User #{user.first_name}'s Account", edit_user_path(user) %></td>
               <% if user.home %>
             <td><%= link_to "Edit User Home", edit_home_path(user.home.city, user.home) %></td>
+              <% end %>
+              <% if user.registered_user? && user.home %>
+              <%= binding.pry %>
+                <td><%= button_to "Decline", city_home_path(([user.home.city, user.home]), online: false), method: :patch, class: "button in-row" %> </td>
               <% end %>
         </tr>
         <% end %>

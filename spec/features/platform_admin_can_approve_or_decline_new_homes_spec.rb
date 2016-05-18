@@ -45,7 +45,7 @@ RSpec.feature "platform admin can approve or decline new homes" do
 
     expect(current_path).to eq dashboard_path
 
-    click_link "Pending Homes"
+    visit '/users'
 save_and_open_page
     fill_in "Status:", with: "Accept"
 
