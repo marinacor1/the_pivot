@@ -10,11 +10,4 @@ class Home < ActiveRecord::Base
   has_many :reservations
   has_many :days, through: :reservations
 
-  def pending_homes?
-    @homes = Home.all
-    @pending_homes = @homes.map do |home|
-      home.pending?
-    end
-  end
-
 end

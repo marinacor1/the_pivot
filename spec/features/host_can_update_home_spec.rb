@@ -1,6 +1,8 @@
 require 'rails_helper'
+require 'features_helper'
 
 RSpec.feature "host can update home" do
+  include FeaturesHelper
   it "shows an update form for home" do
     city = create(:city_with_homes, name: "Denver", state: "CO")
     host = create(:user, email: "macies@li.biz", password: "password")
@@ -9,14 +11,7 @@ RSpec.feature "host can update home" do
     host.roles << host_role
     home.users << host
 
-    visit root_path
-
-    click_link "Login"
-
-    expect(current_path).to eq '/login'
-    fill_in "email", with: "#{host.email}"
-    fill_in "password", with: "password"
-    click_button "Login"
+    host_login(host)
 
     expect(current_path).to eq '/dashboard'
 

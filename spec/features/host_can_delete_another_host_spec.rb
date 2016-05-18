@@ -1,6 +1,8 @@
 require 'rails_helper'
+require 'features_helper'
 
 RSpec.feature 'host can delete another host' do
+  include FeaturesHelper
   scenario 'they delete the other host from hosts page' do
     city = create(:city_with_homes, name: "Seattle", state: "WA")
 
@@ -22,14 +24,7 @@ RSpec.feature 'host can delete another host' do
     host3.roles << host_role
     home.users << host3
 
-    visit root_path
-
-    click_link "Login"
-
-    expect(current_path).to eq '/login'
-    fill_in "email", with: "#{host1.email}"
-    fill_in "password", with: "password"
-    click_button "Login"
+    host_login(host1)
 
     expect(current_path).to eq '/dashboard'
 

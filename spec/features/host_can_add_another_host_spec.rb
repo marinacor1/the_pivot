@@ -1,6 +1,8 @@
 require 'rails_helper'
+require 'features_helper'
 
 RSpec.feature 'host can add another host' do
+  include FeaturesHelper
   scenario 'they add another user with the role of host' do
     city = create(:city_with_homes, name: "Seattle", state: "WA")
     host = create(:user, email: "mail@email.com", password: "password")
@@ -9,14 +11,7 @@ RSpec.feature 'host can add another host' do
     host.roles << host_role
     home.users << host
 
-    visit root_path
-
-    click_link "Login"
-
-    expect(current_path).to eq '/login'
-    fill_in "email", with: "#{host.email}"
-    fill_in "password", with: "password"
-    click_button "Login"
+    host_login(host)
 
     expect(current_path).to eq '/dashboard'
 
