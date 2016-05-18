@@ -13,6 +13,7 @@ class PermissionsService
   end
 
   def allow?
+    binding.pry
     case
     when platform_admin? then platform_admin_permissions
     when host? then host_permissions
@@ -35,6 +36,7 @@ class PermissionsService
     return true if controller == "welcome"
     return true if controller == "users" && action.in?(%w(new create edit update show index))
     return true if controller == "cities" && action == "show"
+    return true if controller == "reviews" && action == "new"
   end
 
   def host_permissions
@@ -64,6 +66,7 @@ class PermissionsService
     return true if controller == "homes" && action == "create"
     return true if controller == "homes" && action == "new"
     return true if controller == "homes" && action == "index"
+    return true if controller == "reviews" && action == "new"
   end
 
   def unregistered_guest_permissions

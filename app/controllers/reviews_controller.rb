@@ -5,11 +5,13 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.create(params_check)
+    # if @review.save
+    #   @review.home_id =
   end
 
   private
 
   def params_check
-    # params.require(:review).permit()
+    params.require(:review).permit(:thoughts, :title)
   end
 end
