@@ -7,7 +7,6 @@ class Trip < ActiveRecord::Base
   end
 
   def reviewed?
-    binding.pry
     if self.review_id.nil?
       false
     else

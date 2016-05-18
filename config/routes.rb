@@ -49,4 +49,7 @@ Rails.application.routes.draw do
   put    "/:city/homes/:id",       to: "homes#update"
   patch  "/:city/homes/:id",       to: "homes#update"
   get    "/:city",                 to: "cities#show",       as: :city
+
+  get "/reviews/new", to: "reviews#new", as: :new_review
+  post "/reviews/new", to: "reviews#create"
 end

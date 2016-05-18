@@ -21,7 +21,7 @@
               <tbody>
               <% trip.reservations.each do |reservation| %>
                 <td><%= Home.find(reservation.home_id).title %></td>
-                <td><% if trip.reviewed? %>
+                <td><% if trip.review_id.nil? %>
                   <%= button_to "Review this Trip", new_review_path %>
                 <% end %></td>
             <% end %>
