@@ -7,7 +7,12 @@ class Trip < ActiveRecord::Base
   end
 
   def self.reviewed?
+    if self.review_id.nil?
+      false
+    else
+      true
+    end
 #if nil will return false
-#if reviewed will return true 
+#if reviewed will return true
   end
 end
