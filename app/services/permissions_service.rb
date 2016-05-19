@@ -13,6 +13,7 @@ class PermissionsService
   end
 
   def allow?
+    binding.pry
     case
     when platform_admin? then platform_admin_permissions
     when host? then host_permissions

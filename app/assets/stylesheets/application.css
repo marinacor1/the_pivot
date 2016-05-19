@@ -118,6 +118,14 @@
   height: 600px;
 }
 
+.write-review-page {
+  color: white;
+  background: url(london_home.jpeg) no-repeat center;
+  background-size: cover;
+  padding: 150px;
+  height: 600px;
+}
+
 .form-group-account {
   padding: 25px;
   font-size: 150%;
@@ -129,7 +137,6 @@
   padding-left: 50px;
   height: 1000px;
 }
-
 
 .form-group {
   padding: 5px;

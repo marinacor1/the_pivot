@@ -5,7 +5,6 @@ class TripsController < ApplicationController
       render file: '/public/404'
     else
       @trips = Trip.where(user_id: current_user.id)
-      binding.pry
     end
   end
 
