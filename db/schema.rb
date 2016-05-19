@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518215359) do
+ActiveRecord::Schema.define(version: 20160518232143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,18 @@ ActiveRecord::Schema.define(version: 20160518215359) do
   add_index "reservations", ["trip_id"], name: "index_reservations_on_trip_id", using: :btree
   add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "home_id"
+    t.integer  "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "thoughts"
+    t.text     "title"
+  end
+
+  add_index "reviews", ["home_id"], name: "index_reviews_on_home_id", using: :btree
+  add_index "reviews", ["trip_id"], name: "index_reviews_on_trip_id", using: :btree
+
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -68,8 +80,10 @@ ActiveRecord::Schema.define(version: 20160518215359) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "review_id"
   end
 
+  add_index "trips", ["review_id"], name: "index_trips_on_review_id", using: :btree
   add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree
 
   create_table "user_roles", force: :cascade do |t|
@@ -97,6 +111,9 @@ ActiveRecord::Schema.define(version: 20160518215359) do
   add_foreign_key "days", "reservations"
   add_foreign_key "homes", "cities"
   add_foreign_key "reservations", "users"
+  add_foreign_key "reviews", "homes"
+  add_foreign_key "reviews", "trips"
+  add_foreign_key "trips", "reviews"
   add_foreign_key "trips", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"

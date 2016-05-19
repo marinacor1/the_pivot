@@ -98,6 +98,17 @@
   height: 600px;
 }
 
+.home-new-page {
+  text-align: center;
+  color: white;
+  font-size: 130%;
+  text-shadow: 1px #899bae;
+  background: url(yacht_room.jpeg) no-repeat center;
+  background-size: cover;
+  padding: 50px;
+  height: 600px;
+}
+
 .create-account-page {
   color: white;
   background: url(create_account.jpeg) no-repeat center;
@@ -165,6 +176,14 @@
 
 .submission-button {
   text-align: center;
+}
+
+.css-selector {
+  font-family: 'Amatic SC', serif;
+}
+
+.submit-new {
+  padding-left: 430px;
 }
 
 .navbar {
