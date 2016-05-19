@@ -1,36 +1,36 @@
 <div class="trips-page">
 <div class="container">
+  <div class="row">
 
     <div class="page-header">
       <h1>My Trips</h1>
     </div>
 
-    <div class="col md-8 trips">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Home</th>
-            <th>Listing Title</th>
-            <th>Location</th>
-            <th>Description</th>
-            <th>Trip Length</th>
-            <th>Review Status</th>
-          </tr>
-        </thead>
-          <p><% @trips.each do |trip| %>
-                  Trip Booked on <%= trip.word_date(trip.created_at) %>
-                  for <%= trip.reservations.count %> basement(s)</p>
-        <tbody>
-              <tr>
+    <div class="trips">
+      <% @trips.each do |trip| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              Trip Booked on <%= trip.word_date(trip.created_at) %>
+              for <%= trip.reservations.count %> basement(s)
+            </h3>
+          </div>
+          <div class="panel-body">
+            <div class="trip-info">
               <% trip.reservations.each do |reservation| %>
-              <td><%= image_tag(Home.find(reservation.home_id).image_url, width: "100", height: "50") %></td>
-              <td><%= Home.find(reservation.home_id).title %></td>
-              <td><%= Home.find(reservation.home_id).city.name_and_state %></td>
-              <td><%= Home.find(reservation.home_id).description %></td>
-              <td> <%= reservation.trip_length %> day(s)</td>
-              <td>Review link here</td>
+              <p><strong><%= Home.find(reservation.home_id).title %></strong></p>
+                <p><%= image_tag(Home.find(reservation.home_id).image_url, width: "100", height: "50") %>
+                  <strong>Trip Length:</strong> <%= reservation.trip_length %> day(s)
+                  <strong>Check In: </strong><%= reservation.check_in.strftime("%b %d, %Y") %>
+                  <strong>Check Out: </strong> <%= reservation.check_out.strftime("%b %d, %Y") %>
+                </p>
               <% end %>
-            <% end %>
             </div>
           </div>
         </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+</div>
