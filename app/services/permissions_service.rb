@@ -13,7 +13,6 @@ class PermissionsService
   end
 
   def allow?
-    binding.pry
     case
     when platform_admin? then platform_admin_permissions
     when host? then host_permissions
@@ -28,9 +27,7 @@ class PermissionsService
   def platform_admin_permissions
     return true if controller == "carts"
     return true if controller == "trips"
-    return true if controller == "reservations"
     return true if controller == "api/v1/carts"
-
     return true if controller == "sessions"
     return true if controller == "homes" && action.in?(%w( index show edit update destroy))
     return true if controller == "welcome"
@@ -42,9 +39,7 @@ class PermissionsService
   def host_permissions
     return true if controller == "carts"
     return true if controller == "trips"
-    return true if controller == "reservations"
     return true if controller == "api/v1/carts"
-
     return true if controller == "sessions"
     return true if controller == "homes" && action.in?(%w( index show edit update))
     return true if controller == "welcome"
@@ -55,9 +50,7 @@ class PermissionsService
   def registered_user_permissions
     return true if controller == "carts"
     return true if controller == "trips"
-    return true if controller == "reservations"
     return true if controller == "api/v1/carts"
-
     return true if controller == "welcome"
     return true if controller == "sessions"
     return true if controller == "users" && action.in?(%w(new create show edit update))
@@ -72,10 +65,7 @@ class PermissionsService
   def unregistered_guest_permissions
     return true if controller == "carts"
     return true if controller == "trips"
-    return true if controller == "reservations"
     return true if controller == "api/v1/carts"
-
-
     return true if controller == "welcome"
     return true if controller == "users" && action.in?(%w(new create))
     return true if controller == "cities" && action == "show"
@@ -84,6 +74,7 @@ class PermissionsService
     return true if controller == "sessions" && action == "new"
     return true if controller == "sessions" && action == "create"
     return true if controller == "sessions" && action == "destroy"
+    return true if controller == "reviews" && action == "new"
   end
 
   def controller

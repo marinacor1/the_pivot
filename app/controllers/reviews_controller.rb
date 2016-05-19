@@ -5,8 +5,8 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.create(params_check)
-    # if @review.save
-    #   @review.home_id =
+    flash[:error] = "Your review has been submitted!"
+    redirect_to dashboard_path
   end
 
   private

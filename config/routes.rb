@@ -28,6 +28,9 @@ Rails.application.routes.draw do
 
   get    "/users",                 to: "users#index",        as: :homes
 
+  get "/reviews/new", to: "reviews#new", as: :new_review
+  post "/reviews/new", to: "reviews#create"
+
   get "/pendinghomes",             to: "homes#index",        as: :pending_homes
   post "/pendinghomes",            to: "user#show"
   get   "/homes/new",              to: "homes#new",         as: :new_home
@@ -38,6 +41,4 @@ Rails.application.routes.draw do
   patch  "/:city/homes/:id",       to: "homes#update"
   get    "/:city",                 to: "cities#show",       as: :city
 
-  get "/reviews/new", to: "reviews#new", as: :new_review
-  post "/reviews/new", to: "reviews#create"
 end
