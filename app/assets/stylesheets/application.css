@@ -75,6 +75,18 @@
   text-shadow: 1px #899bae;
 }
 
+.single-home {
+  padding-top: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.single-home-image {
+  padding-right: 50px;
+  border-radius: 8px;
+}
+
 .home-edit-page {
   text-align: center;
   color: white;
@@ -104,6 +116,55 @@
   padding: 30px;
   padding-left: 50px;
   height: 1000px;
+}
+
+.form-group {
+  padding: 5px;
+}
+
+.city-splash {
+  color: white;
+  text-align: left;
+  background: url(venice.jpeg) no-repeat center;
+  background-size: cover;
+  padding-top: 20px;
+  height: 300px;
+}
+
+.dashboard-links {
+  padding: 0px;
+  color: white;
+  font-size: 150%
+}
+
+.dashboard-title {
+  padding: 20px;
+}
+
+.user-edit-title {
+  text-align: center;
+}
+
+.user-edit-page {
+  padding-top: 30px;
+  background: url(suitcase.jpeg) no-repeat center;
+  background-size: cover;
+  color: white;
+  height: 700px;
+
+}
+
+.dashboard {
+  padding: 0px;
+  background: url(suitcase.jpeg) no-repeat center;
+  background-size: cover;
+  color: white;
+  height: 700px;
+  text-decoration: none !important;
+}
+
+.submission-button {
+  text-align: center;
 }
 
 .navbar {

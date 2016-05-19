@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :home
   has_many :trips
-  has_many :user_roles
+  has_many :user_roles, :dependent => :destroy
   has_many :roles, through: :user_roles
   has_secure_password
 
@@ -26,6 +26,15 @@ class User < ActiveRecord::Base
 
   def platform_admin?
     roles.exists?(name: "platform_admin")
+  end
+
+  def online?
+  end
+
+  def create_new_host(options = {})
+    home = options[:home] if options[:home]
+    roles << Role.create(name: "host")
+    home.users.last
   end
 
 end

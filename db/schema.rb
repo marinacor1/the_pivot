@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516032035) do
+ActiveRecord::Schema.define(version: 20160518215359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,15 +24,6 @@ ActiveRecord::Schema.define(version: 20160516032035) do
     t.string   "state"
   end
 
-  create_table "contracts", force: :cascade do |t|
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.integer  "user_id"
-    t.string   "status",     default: "Contracted"
-  end
-
-  add_index "contracts", ["user_id"], name: "index_contracts_on_user_id", using: :btree
-
   create_table "days", force: :cascade do |t|
     t.date    "date"
     t.integer "reservation_id"
@@ -43,11 +34,13 @@ ActiveRecord::Schema.define(version: 20160516032035) do
   create_table "homes", force: :cascade do |t|
     t.string  "image_url"
     t.string  "address"
-    t.integer "zip_code"
+    t.string  "zip_code"
     t.string  "title"
     t.string  "description"
     t.decimal "daily_rate"
     t.integer "city_id"
+    t.boolean "online",      default: true,  null: false
+    t.boolean "pending",     default: false
   end
 
   add_index "homes", ["city_id"], name: "index_homes_on_city_id", using: :btree
@@ -101,7 +94,6 @@ ActiveRecord::Schema.define(version: 20160516032035) do
 
   add_index "users", ["home_id"], name: "index_users_on_home_id", using: :btree
 
-  add_foreign_key "contracts", "users"
   add_foreign_key "days", "reservations"
   add_foreign_key "homes", "cities"
   add_foreign_key "reservations", "users"
