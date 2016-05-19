@@ -28,13 +28,4 @@ class User < ActiveRecord::Base
     roles.exists?(name: "platform_admin")
   end
 
-  def online?
-  end
-
-  # def create_new_host(options = {})
-  #   home = options[:home] if options[:home]
-  #   roles << Role.create(name: "host")
-  #   home.users.last
-  # end
-
 end
