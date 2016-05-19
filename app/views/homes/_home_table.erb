@@ -1,0 +1,29 @@
+<thead class="thead-inverse">
+  <tr>
+    <th>#</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Address</th>
+    <th>Zip Code</th>
+    <th>City</th>
+    <th>Daily Rate</th>
+    <th>Image Url</th>
+    <th>Status</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <% @pending_homes.each_with_index do |home, index| %>
+      <td><%= index + 1 %></td>
+      <td><%= home.title %></td>
+      <td><%= home.description %></td>
+      <td><%= home.address %></td>
+      <td><%= home.zip_code %></td>
+      <td><%= home.city.name_and_state %></td>
+      <td>$<%= home.daily_rate %>0</td>
+      <td><%= image_tag(home.image_url, width: "100", height: "50") %></td>
+      <td><%= button_to "Decline", city_home_path(home.city.id, home.id, { home: {online: false, pending: false}}), method: :patch %>
+    <%= button_to "Accept ", city_home_path(home.city.id, home.id, { home: {online: true, pending: false}}), method: :patch %></td>
+  </tr>
+  <% end %>
+</tbody>
