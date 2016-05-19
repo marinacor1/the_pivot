@@ -3,15 +3,16 @@ class Api::V1::CartsController < ApplicationController
 
   def create
     reservation = formatted_reservation_data(reservation_params)
-
-    if @cart.has_reservation?(reservation_params[:homeId]) # check_in / check_out dates
-      flash[:notice] = "A similar reservation is already in your Cart!"
+    if @cart.has_reservation?(reservation_params[:homeId])
+      flash.now[:notice] = "A similar reservation is already in your Cart!"
+    elsif double_booked_days.count > 0
+      days = double_booked_days.join(" ")
+      flash.now[:notice] = "Reservation conflicts on #{days}"
     else
-      flash[:notice] = "Pending Reservation added to Cart"
+      flash.now[:notice] = "Pending Reservation added to Cart"
       @cart.add_reservation(reservation)
       session[:cart] = @cart.contents
     end
-
     respond_with @cart,
       location: -> { api_v1_carts_path(@cart) }
   end
@@ -30,5 +31,12 @@ class Api::V1::CartsController < ApplicationController
                        }
     }
   end
+
+  private
+
+    def double_booked_days
+      home = Home.find(reservation_params[:homeId])
+      home.days.pluck(:date) & (reservation_params[:checkIn].to_date..reservation_params[:checkOut].to_date).to_a
+    end
 
 end
