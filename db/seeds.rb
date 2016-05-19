@@ -159,6 +159,8 @@ class Seed
     host_role = Role.find_by(name: "host")
     UserRole.create(user: andrew, role: host_role)
     andrew.home = andrew_home
+    andrew.home.city = City.find(1)
+    andrew.home.save
     andrew.save
 
     puts "Done Creating Specific Users"
