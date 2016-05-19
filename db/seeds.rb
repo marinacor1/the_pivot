@@ -2,7 +2,6 @@ class Seed
   def initialize
     @num_users  = 100
     @num_homes  = 80
-    @num_days   = 60
     @num_cities = 10
     @num_hosts  = @num_homes
 
@@ -12,6 +11,7 @@ class Seed
     generate_users
     generate_platform_admin
     generate_specific_users
+    generate_trips
   end
 
   def generate_roles
@@ -25,12 +25,12 @@ class Seed
   def generate_hosts_and_homes
     puts "Creating Hosts and Homes"
     @num_homes.times do |i|
-    User.create!(
+      User.create!(
         first_name: "Host#{i}",
         last_name:  Faker::Name.last_name,
         email:      Faker::Internet.email,
         password:   "password"
-        )
+      )
     end
     home_urls = ["http://i.huffpost.com/gen/1322250/thumbs/o-ECO-LODGE-AIRBNB-570.jpg?6",
                  "https://a0.muscache.com/im/pictures/40005ce7-2aa3-4591-baea-9f033093308f.jpg?aki_policy=x_medium",
@@ -55,7 +55,7 @@ class Seed
         title:       "Basement #{i}",
         description: Faker::Hipster.sentence,
         daily_rate:  40.99
-        )
+      )
     end
     role2 = Role.find_by(name: "host")
     users = User.all
@@ -74,11 +74,11 @@ class Seed
 
     homes = Home.all
 
-    @num_cities.times do |i|
+    @num_cities.times do
       city = City.create!(
         name:  Faker::Address.city,
         state: Faker::Address.state_abbr
-        )
+      )
     end
 
     cities = City.all
@@ -93,13 +93,13 @@ class Seed
 
   def generate_users
     puts "Creating Users"
-    @num_users.times do |i|
-    User.create!(
+    @num_users.times do
+      User.create!(
         first_name: Faker::Name.first_name,
         last_name:  Faker::Name.last_name,
         email:      Faker::Internet.email,
         password:  "password"
-        )
+      )
     end
     puts "Done Creating Users"
   end
@@ -111,56 +111,92 @@ class Seed
       last_name: Faker::Name.last_name,
       email: "platform_admin@gmail.com",
       password: "password"
-      )
+    )
     pa.roles << Role.find_by(name: "platform_admin")
     puts "Done Platform admin"
   end
 
   def generate_specific_users
-   puts "Creating Specific Users"
-   User.create!(
-     first_name: "user",
-     last_name:  "user",
-     email:      "user@gmail.com",
-     password:   "password"
-     )
-   User.create!(
-     first_name: "josh",
-     last_name:  "cheek",
-     email:      "josh@turing.io",
-     password:   "password"
-   )
-   jorge = User.create!(
-     first_name: "jorge",
-     last_name:  "Tellez",
-     email:      "jorge@turing.io",
-     password:   "password"
-   )
-   jorge.roles << Role.find_by(name: "platform_admin")
-
-   andrew = User.create!(
-     first_name: "andrew",
-     last_name:  "carmer",
-     email:      "andrew@turing.io",
-     password:   "password"
-   )
-
-   andrew_home = Home.create!(
-     address:     Faker::Address.street_address,
-     image_url:   "#{"http://i.huffpost.com/gen/1322228/thumbs/o-MICROHOUSE-AIRBNB-570.jpg?6"}",
-     zip_code:    Faker::Address.zip_code,
-     title:       "Andrew's Basement",
-     description: Faker::Hipster.sentence,
-     daily_rate:  100.00
+    puts "Creating Specific Users"
+    User.create!(
+      first_name: "user",
+      last_name:  "user",
+      email:      "user@gmail.com",
+      password:   "password"
     )
 
-   host_role = Role.find_by(name: "host")
-   UserRole.create(user: andrew, role: host_role)
-   andrew.home = andrew_home
-   andrew.save
+    User.create!(
+      first_name: "josh",
+      last_name:  "cheek",
+      email:      "josh@turing.io",
+      password:   "password"
+    )
 
-   puts "Done Creating Specific Users"
- end
+    jorge = User.create!(
+      first_name: "jorge",
+      last_name:  "Tellez",
+      email:      "jorge@turing.io",
+      password:   "password"
+    )
+    jorge.roles << Role.find_by(name: "platform_admin")
+
+    andrew = User.create!(
+      first_name: "andrew",
+      last_name:  "carmer",
+      email:      "andrew@turing.io",
+      password:   "password"
+    )
+
+    andrew_home = Home.create!(
+      address:     Faker::Address.street_address,
+      image_url:   "#{"http://i.huffpost.com/gen/1322228/thumbs/o-MICROHOUSE-AIRBNB-570.jpg?6"}",
+      zip_code:    Faker::Address.zip_code,
+      title:       "Carmer's Basement",
+      description: Faker::Hipster.sentence,
+      daily_rate:  100.00
+    )
+
+    host_role = Role.find_by(name: "host")
+    UserRole.create(user: andrew, role: host_role)
+    andrew.home = andrew_home
+    andrew.save
+
+    puts "Done Creating Specific Users"
+  end
+
+  def generate_trips
+    puts "Creating Trips"
+    @num_users.times do |i|
+      user = User.find("#{i + 1}")
+      10.times do |j|
+        home = Home.find("#{j + 1}")
+        reservation = Reservation.create(
+          home_id:   home.id,
+          user_id:   user.id,
+          check_in:  Date.today,
+          check_out: (Date.today + 2)
+        )
+        Day.book(reservation)
+        trip = Trip.create(user_id: user.id)
+        trip.reservations << reservation
+      end
+    end
+
+    user = User.find_by(email: "josh@turing.io")
+    10.times do |j|
+      home = Home.find("#{j + 1}")
+      reservation = Reservation.create(
+        home_id:   home.id,
+        user_id:   user.id,
+        check_in:  Date.today,
+        check_out: (Date.today + 2)
+      )
+      Day.book(reservation)
+      trip = Trip.create(user_id: user.id)
+      trip.reservations << reservation
+    end
+  end
+
 
 end
 
