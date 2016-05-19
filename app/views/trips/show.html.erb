@@ -16,7 +16,7 @@
           <div class="panel-body">
             <div class="trip-info">
               <% trip.reservations.each do |reservation| %>
-                <p><%= Home.find(reservation.home_id).title %></p>
+                <p><%= Home.find(reservation.home_id).title %>: <%= reservation.trip_length %> day(s)</p>
               <% end %>
             </div>
           </div>

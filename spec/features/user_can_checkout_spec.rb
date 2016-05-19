@@ -43,7 +43,7 @@ RSpec.feature "User can checkout" do
       expect(page).to have_text("My Trips")
     end
 
-    within('.trips') do
+    within('.trip-info') do
       expect(page).to have_text(home.title)
     end
   end
