@@ -8,7 +8,7 @@ RSpec.feature "user can review spec" do
 
     city = create(:city_with_homes, name: "Denver", state: "CO")
     home = city.homes.first
-    trip = Trip.new(user: user, created_at: "01-14-2016", updated_at: "01-16-2016" )
+    trip = Trip.new(user: user)
     reservation = Reservation.create(home_id: home.id, trip: trip, user_id: user.id, check_in: "01-14-2016", check_out: "01-16-2016")
 
     user_login(user)
