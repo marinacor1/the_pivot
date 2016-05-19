@@ -7,7 +7,7 @@
       <%= f.submit "Login"%>
     <% end %>
   </div>
-  <div class= "create-account-link" role="group" aria-label="Submission">
-    <button type="button" class="btn btn-default"><%= link_to "Create Account", new_user_path %></button>
+  <div class="create-account-link" role="group" aria-label="Submission">
+    <%= link_to "Create Account", new_user_path, type: "button", class: "btn btn-default" %>
   </div>
 </div>

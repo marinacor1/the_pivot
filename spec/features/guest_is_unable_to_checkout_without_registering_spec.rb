@@ -34,24 +34,23 @@ feature 'Guest is unable to checkout without registering' do
     end
 
     within(".page-header") do
-      expect(page).to_not have_button("Checkout")
-      expect(page).to have_link("Login or Create a New Account")
-      click_link("Login or Create a New Account")
+      click_link "Checkout"
     end
 
-    # click_button "Create Account"
-    # expect(current_path).to eq(new_user_path)
-    visit '/users/new'
+    expect(current_path).to eq(login_path)
+
+    within(".create-account-link") do
+      click_link "Create Account"
+    end
 
     within(".create-account-page") do
       fill_in "First Name", with: "New"
       fill_in "Last Name", with: "User"
       fill_in "Email", with: "email@email.com"
       fill_in "Password", with: "password"
-      click_button "Submit"
+      click_on "Submit"
     end
 
-    # expect(current_path).to eq(cart_path)
     visit '/cart'
 
     within(".page-header") do
