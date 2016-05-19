@@ -5,8 +5,12 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.create(params_check)
-    flash[:error] = "Your review has been submitted!"
-    redirect_to dashboard_path
+    if @review.update_attributes(params_check)
+      flash[:error] = "Your review has been submitted!"
+    else
+      flash[:error] = "We're sorry but your review could not be submitted."
+    end
+      redirect_to dashboard_path
   end
 
   private
