@@ -11,14 +11,26 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">
-              Trip Booked on <%= trip.created_at %>
+              Trip Booked on <%= trip.word_date(trip.created_at) %>
               for <%= trip.reservations.count %> basement(s)
             </h3>
           </div>
-          <div class="panel-body">
+          <div class="col md-4 card">
             <div class="trip-info">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Booking</th>
+                    <th>Home Title</th>
+                    <th>Trip Length</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
               <% trip.reservations.each do |reservation| %>
-                <p><%= Home.find(reservation.home_id).title %>: <%= reservation.trip_length %> day(s)</p>
+              <td><%= image_tag(Home.find(reservation.home_id).image_url, width: "100", height: "50") %></td>
+              <td><%= Home.find(reservation.home_id).title %></td>
+              <td> <%= reservation.trip_length %> day(s)</td>
               <% end %>
             </div>
           </div>
