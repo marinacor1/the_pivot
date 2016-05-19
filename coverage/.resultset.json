@@ -28,18 +28,27 @@
         null,
         null
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/home.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/city.rb": [
         1,
         1,
         null,
         1,
         1,
         1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        3,
+        null,
+        null,
+        1,
+        0,
+        null,
         null
       ],
       "/Users/admirdraganovic/turing/3module/the_pivot/app/controllers/api/v1/carts_controller.rb": [
@@ -423,12 +432,7 @@
         0,
         0
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/city.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/day.rb": [
         0,
         0,
         0,
@@ -446,11 +450,7 @@
         0,
         0
       ],
-      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/day.rb": [
-        0,
-        0,
-        0,
-        0,
+      "/Users/admirdraganovic/turing/3module/the_pivot/app/models/home.rb": [
         0,
         0,
         0,
@@ -692,6 +692,6 @@
         0
       ]
     },
-    "timestamp": 1463630701
+    "timestamp": 1463631558
   }
 }
