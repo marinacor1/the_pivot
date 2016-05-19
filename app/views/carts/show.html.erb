@@ -7,7 +7,9 @@
         <div class='btn-group'>
 
           <% if current_user && !@cart.contents.empty?%>
+        <div class="cart-checkout-button">
             <%= button_to 'Checkout', trips_path, class: "btn btn-success" %>
+        </div>
           <% elsif @cart.contents.empty? %>
 
           <% else %>
