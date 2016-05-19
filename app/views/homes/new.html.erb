@@ -1,5 +1,7 @@
 <div class ="home-new-page">
-  <h1>Make a New Home </h1>
+  <div class="home-new-form">
+  <h1>Submit Your Home Proposal: </h1>
+</div>
     <%= form_for @home, url: "/homes", :html => {:class => "form-horizontal center"} do |f| %>
         <div class="form-group">
           <%= f.label :title, "Title:", class: "col-md-4 control-label" %>
@@ -46,10 +48,14 @@
         <div class="form-group">
           <%= f.label :city, "City", class: "col-md-4 control-label" %>
           <div class="col-md-8">
+           <div class="city-drop-down">
             <%= collection_select(:home, :city_id, City.all, :id, :name_and_state, prompt: true )%>
+            </div>
           </div>
         </div>
 
-        <%= f.submit "Submit", class: "btn btn-default" %>
+      <div class="submit-new">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      </div>
     <% end %>
 </div>

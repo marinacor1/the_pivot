@@ -26,9 +26,10 @@ RSpec.feature 'host can add another host' do
 
     click_on "Submit"
 
+
     expect(User.last.first_name).to eq "Admir"
     expect(User.last.roles.first.name).to eq "host"
-
+    expect(User.last.home_id).to eq 1
 
   end
 end
