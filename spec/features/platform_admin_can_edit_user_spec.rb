@@ -23,6 +23,9 @@ RSpec.feature "platform admin can edit any user" do
 
     click_on "Edit User #{user1.first_name}'s Account"
 
+    expect(page).to have_content "Sam"
+    expect(page).to have_content "Watson"
+
     expect(current_path).to eq(edit_user_path(user1))
     fill_in "First Name", with: "Pablo"
     fill_in "Last Name", with: "Sanchez"
