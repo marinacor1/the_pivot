@@ -1,7 +1,7 @@
 class Seed
   def initialize
     @num_users  = 100
-    @num_homes  = 80
+    @num_homes  = 100
     @num_cities = 10
     @num_hosts  = @num_homes
 
