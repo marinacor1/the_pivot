@@ -27,8 +27,8 @@
             <td><%= home.city.name_and_state %></td>
             <td>$<%= home.daily_rate %>0</td>
             <td><%= image_tag(home.image_url, width: "100", height: "50") %></td>
-            <td><%= button_to "Decline", city_home_path(home.city.id, home.id, { home: {online: false}}), method: :patch %>
-          <%= button_to "Accept ", city_home_path(home.city.id, home.id, { home: {online: true}}), method: :patch %></td>
+            <td><%= button_to "Decline", city_home_path(home.city.id, home.id, { home: {online: false, pending: false}}), method: :patch %>
+          <%= button_to "Accept ", city_home_path(home.city.id, home.id, { home: {online: true, pending: false}}), method: :patch %></td>
         </tr>
         <% end %>
     </tbody>
