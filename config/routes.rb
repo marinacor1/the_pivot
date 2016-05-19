@@ -28,12 +28,6 @@ Rails.application.routes.draw do
 
   get    "/users",                 to: "users#index",        as: :homes
 
-  # namespace :api do
-  #   namespace :v1 do
-  #     post '/carts',        to: 'carts#create'
-  #   end
-  # end
-
   get "/pendinghomes",             to: "homes#index",        as: :pending_homes
   post "/pendinghomes",            to: "user#show"
   get   "/homes/new",              to: "homes#new",         as: :new_home
