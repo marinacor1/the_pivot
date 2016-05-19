@@ -162,7 +162,6 @@
   background-size: cover;
   color: white;
   height: 700px;
-
 }
 
 .dashboard {
@@ -182,8 +181,12 @@
   font-family: 'Amatic SC', serif;
 }
 
+.city-drop-down {
+  padding-right: 569px;
+}
+
 .submit-new {
-  padding-left: 430px;
+  padding-right: 260px;
 }
 
 .navbar {
