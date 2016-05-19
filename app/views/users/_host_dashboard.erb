@@ -1,0 +1,8 @@
+<ul><%= link_to "Manage Your Home", edit_home_path(current_user.home.city, current_user.home) %></ul>
+<ul><%= link_to "Add Host", new_user_path %></ul>
+<div class="all-hosts">
+  <h3>Other Hosts</h3>
+  <%@other_hosts.each do |host| %>
+  <ul><%=host.first_name%> <%= link_to "Delete #{host.first_name}", user_path(host), method: :delete %> </ul>
+  <% end %>
+</div>

@@ -20,8 +20,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save && current_user != nil && current_user.host?
-    new_host =  @user.create_new_host({home: current_user.home})
-      flash[:action] = "Added #{new_host.first_name} to your home!"
+      host_role = Role.create(name: "host")
+      @user.roles << host_role
+      @user.home = current_user.home
+      @user.save
+      flash[:action] = "Added #{@user.first_name} to your home!"
       redirect_to dashboard_path
     elsif @user.save
       session[:user_id] = @user.id
