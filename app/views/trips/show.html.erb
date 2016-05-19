@@ -1,5 +1,7 @@
+<div class="trips-page">
 <div class="container">
   <div class="row">
+
     <div class="page-header">
       <h1>My Trips</h1>
     </div>
@@ -9,14 +11,19 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">
-              Trip Booked on <%= trip.created_at %>
+              Trip Booked on <%= trip.word_date(trip.created_at) %>
               for <%= trip.reservations.count %> basement(s)
             </h3>
           </div>
           <div class="panel-body">
             <div class="trip-info">
               <% trip.reservations.each do |reservation| %>
-                <p><%= Home.find(reservation.home_id).title %>: <%= reservation.trip_length %> day(s)</p>
+              <p><strong><%= Home.find(reservation.home_id).title %></strong></p>
+                <p><%= image_tag(Home.find(reservation.home_id).image_url, width: "100", height: "50") %>
+                  <strong>Trip Length:</strong> <%= reservation.trip_length %> day(s)
+                  <strong>Check In: </strong><%= reservation.check_in.strftime("%b %d, %Y") %>
+                  <strong>Check Out: </strong> <%= reservation.check_out.strftime("%b %d, %Y") %>
+                </p>
               <% end %>
             </div>
           </div>
@@ -25,4 +32,5 @@
     </div>
 
   </div>
+</div>
 </div>

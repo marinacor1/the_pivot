@@ -54,6 +54,12 @@ RSpec.feature "platform admin can approve or decline new homes" do
     expect(page).to have_content "Success! Your home updated."
     expect(page).to have_content "Tiny LA Home"
 
+    visit '/dashboard'
+
+    click_link "Pending Homes"
+
+    expect(page).to_not have_content "Tiny LA Home"
+
   end
 
   scenario "platform admin can decline a new home" do
@@ -106,5 +112,12 @@ RSpec.feature "platform admin can approve or decline new homes" do
     expect(current_path).to eq city_home_path(Home.all.last.city.slug, Home.all.last.id)
 
     expect(page).to have_content "The page you were looking for doesn't exist"
+
+    visit '/dashboard'
+
+    click_link "Pending Homes"
+
+    expect(page).to_not have_content "Tiny LA Home"
+
   end
 end
