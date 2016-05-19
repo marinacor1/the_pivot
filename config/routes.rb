@@ -22,24 +22,12 @@ Rails.application.routes.draw do
 
   get    "/cart",                  to: 'carts#show',            as: :cart
   post   '/cart',                  to: 'carts#destroy'
-  # delete '/cart',                  to: 'carts#destroy'
 
   get    '/trips',                 to: 'trips#show'
   post   '/trips',                 to: 'trips#create'
 
   get    "/users",                 to: "users#index",        as: :homes
 
-  # namespace :api do
-  #   namespace :v1 do
-  #     post '/carts',        to: 'carts#create'
-  #   end
-  # end
-
-  # resources :reservations do
-  #   collection do
-  #     get 'pending'
-  #   end
-  # end
   get "/pendinghomes",             to: "homes#index",        as: :pending_homes
   post "/pendinghomes",            to: "user#show"
   get   "/homes/new",              to: "homes#new",         as: :new_home

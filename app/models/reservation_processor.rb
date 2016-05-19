@@ -14,7 +14,7 @@ class ReservationProcessor
   def process_cart
     reservations = create_reservations
     reservations.each do |reservation|
-      Day.book(reservation)
+      create_and_assign_days(reservation)
     end
   end
 
@@ -27,6 +27,19 @@ class ReservationProcessor
         check_out: data['check_out'],
       )
     end
+  end
+
+  def create_and_assign_days(reservation)
+    if reservation.check_in == reservation.check_out
+      Day.create(date: reservation.check_in)
+    else
+      date = reservation.check_in
+      until date == reservation.check_out
+        Day.create(date: date)
+        date = date.next
+      end
+    end
+    Day.book(reservation)
   end
 
 end

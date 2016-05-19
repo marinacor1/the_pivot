@@ -12,7 +12,7 @@ class Seed
     generate_users
     generate_platform_admin
     generate_specific_users
-    generate_days
+    # generate_days
   end
 
   def generate_roles
@@ -23,13 +23,13 @@ class Seed
     puts "Done Creating Roles"
   end
 
-  def generate_days
-    puts "Creating Days"
-    @num_days.times do |i|
-      Day.create(date: Date.today + i)
-    end
-    puts "Done Creating Days"
-  end
+  # def generate_days
+  #   puts "Creating Days"
+  #   @num_days.times do |i|
+  #     Day.create(date: Date.today + i)
+  #   end
+  #   puts "Done Creating Days"
+  # end
 
   def generate_hosts_and_homes
     puts "Creating Hosts and Homes"

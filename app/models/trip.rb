@@ -12,7 +12,5 @@ class Trip < ActiveRecord::Base
     else
       true
     end
-#if nil will return false
-#if reviewed will return true
   end
 end

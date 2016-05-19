@@ -24,15 +24,6 @@ ActiveRecord::Schema.define(version: 20160518232143) do
     t.string   "state"
   end
 
-  create_table "contracts", force: :cascade do |t|
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.integer  "user_id"
-    t.string   "status",     default: "Contracted"
-  end
-
-  add_index "contracts", ["user_id"], name: "index_contracts_on_user_id", using: :btree
-
   create_table "days", force: :cascade do |t|
     t.date    "date"
     t.integer "reservation_id"
@@ -117,7 +108,6 @@ ActiveRecord::Schema.define(version: 20160518232143) do
 
   add_index "users", ["home_id"], name: "index_users_on_home_id", using: :btree
 
-  add_foreign_key "contracts", "users"
   add_foreign_key "days", "reservations"
   add_foreign_key "homes", "cities"
   add_foreign_key "reservations", "users"

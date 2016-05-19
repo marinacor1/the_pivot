@@ -5,10 +5,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    @query_user = User.find(params[:id])
   end
 
   def update
-    @user = current_user
+    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:error] = "Success! Your account updated."
     else
