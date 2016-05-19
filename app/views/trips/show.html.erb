@@ -17,10 +17,9 @@
             <th>Review Status</th>
           </tr>
         </thead>
-          <div class="trip-table col md-4 ">
-          <% @trips.each do |trip| %>
+          <p><% @trips.each do |trip| %>
                   Trip Booked on <%= trip.word_date(trip.created_at) %>
-                  for <%= trip.reservations.count %> basement(s)
+                  for <%= trip.reservations.count %> basement(s)</p>
         <tbody>
               <tr>
               <% trip.reservations.each do |reservation| %>
@@ -31,14 +30,7 @@
               <td> <%= reservation.trip_length %> day(s)</td>
               <td>Review link here</td>
               <% end %>
-            </div>
+            <% end %>
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
-  </div>
-
-
-</div>
-</div>
