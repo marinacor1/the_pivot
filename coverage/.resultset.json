@@ -70,6 +70,9 @@
         null,
         null,
         1,
+        null,
+        null,
+        1,
         1,
         1,
         1,
@@ -425,7 +428,6 @@
         1,
         1,
         1,
-        null,
         null
       ],
       "/Users/mattpindell/turing/3mod/projects/the_pivot/app/controllers/cities_controller.rb": [
@@ -629,6 +631,6 @@
         null
       ]
     },
-    "timestamp": 1463630456
+    "timestamp": 1463672430
   }
 }
