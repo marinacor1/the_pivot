@@ -130,6 +130,7 @@
   height: 1000px;
 }
 
+
 .form-group {
   padding: 5px;
 }
@@ -194,6 +195,10 @@
 }
 .trips-page {
   background-color: #c7c7c7
+}
+.trips {
+  min-width: 100%
+  background-size: cover;
 }
 
 .cart-checkout-button {
