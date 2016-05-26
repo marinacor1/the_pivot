@@ -1,5 +1,6 @@
 class Home < ActiveRecord::Base
   has_many :users
+  has_many :reviews
   validates :address, presence: :true, uniqueness: true
   validates :image_url, presence: :true
   validates :title, presence: :true
