@@ -17,13 +17,13 @@
 
       <div class="form-group-account">
         <div class="col-md-4">
-          <%= f.hidden_field :home_id, :value => "params[:city].id", class: "form-control" %>
+          <%= f.hidden_field :home_id, :value => params[:city].id, class: "form-control" %>
         </div>
       </div>
 
       <div class="form-group-account">
         <div class="col-md-4">
-          <%= f.hidden_field :user_id, :value => "params[:user_id]", class: "form-control" %>
+          <%= f.hidden_field :user_id, :value => params[:user_id], class: "form-control" %>
         </div>
       </div>
 

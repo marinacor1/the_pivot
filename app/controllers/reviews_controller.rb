@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   def new
     @review = Review.new
+    #params: {"controller"=>"reviews", "action"=>"new"}
   end
 
   def create

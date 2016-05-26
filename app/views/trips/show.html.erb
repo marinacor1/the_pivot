@@ -25,7 +25,7 @@
                   <strong>Check Out: </strong> <%= reservation.check_out.strftime("%b %d, %Y") %>
                 </p>
                   <td><% if trip.review_id.nil? %>
-                    <%= link_to "Review this Trip", new_review_path, class: "btn btn-success" %>
+                    <%= button_to "Review this Trip", new_review_path, { review: {user_id: @user.id, home_id: @home.id}}, method: :patch %>
                   <% end %></td>
               <% end %>
             </div>
