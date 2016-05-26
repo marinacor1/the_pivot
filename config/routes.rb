@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get    "/users",                 to: "users#index",        as: :homes
 
   get "/reviews/new", to: "reviews#new", as: :new_review
-  post "/reviews/new", to: "reviews#create"
+  post "/reviews/new", to: "reviews#create", as: :create_review
 
   get "/pendinghomes",             to: "homes#index",        as: :pending_homes
   post "/pendinghomes",            to: "user#show"

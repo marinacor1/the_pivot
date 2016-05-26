@@ -34,6 +34,7 @@ class PermissionsService
     return true if controller == "users" && action.in?(%w(new create edit update show index))
     return true if controller == "cities" && action == "show"
     return true if controller == "reviews" && action == "new"
+    return true if controller == "reviews" && action == "create"
   end
 
   def host_permissions
@@ -60,6 +61,7 @@ class PermissionsService
     return true if controller == "homes" && action == "new"
     return true if controller == "homes" && action == "index"
     return true if controller == "reviews" && action == "new"
+    return true if controller == "reviews" && action == "create"
   end
 
   def unregistered_guest_permissions
