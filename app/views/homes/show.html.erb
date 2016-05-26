@@ -20,7 +20,7 @@
         <button class="btn btn-success" id="reserve-days">Request Dates</button>
       </form>
       <br>
-      <% if !@home.reviews.nil? %>
+      <% if @home.reviews.count > 0 %>
         <h4>Check out reviews for the home here. <%= link_to "Reviews", reviews_path(@home, @home.reviews) %></h4>
       <% end %>
     </div>

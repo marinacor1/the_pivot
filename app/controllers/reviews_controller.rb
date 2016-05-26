@@ -5,18 +5,17 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(params_check)
-    @home = Home.find(params[:home_id])
+    @home = Home.find(params[:review][:home_id])
     if @review.save
       @home.reviews << @review
       flash[:error] = "Your review has been submitted!"
     else
       flash[:error] = "We're sorry, but your review could not be submitted."
     end
-      redirect_to dashboard_path
+      redirect_to trips_path
   end
 
   def index
-    @city = City.find(params[:city])
     @home = Home.find(params[:city])
     @reviews = @home.reviews
   end
@@ -24,6 +23,6 @@ class ReviewsController < ApplicationController
   private
 
   def params_check
-    params.require(:review).permit(:thoughts, :title, :home_id)
+    params.require(:review).permit(:thoughts, :title, :home_id, :user_id)
   end
 end

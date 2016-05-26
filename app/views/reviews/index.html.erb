@@ -1,4 +1,15 @@
-<h1>All Reviews</h1>
-<% @reviews.each do |review| %>
-<%= review %>
-<% end %>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1>All Reviews</h1>
+    </div>
+  <div class="panel-body">
+    <% if @reviews.count > 0%>
+      <% @reviews.each do |review| %>
+        <p><%= User.find(review.user_id).first_name %> <%= User.find(review.user_id).last_name %>
+        said:  "<%= review.thoughts %>"</p>
+      <% end %>
+    <% end %>
+  </div>
+  </div>
+</div>
