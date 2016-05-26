@@ -5,7 +5,9 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(params_check)
+    @home = Home.find(params[:home_id])
     if @review.save
+      @home.reviews << @review
       flash[:error] = "Your review has been submitted!"
     else
       flash[:error] = "We're sorry, but your review could not be submitted."
@@ -16,6 +18,6 @@ class ReviewsController < ApplicationController
   private
 
   def params_check
-    params.require(:review).permit(:thoughts, :title)
+    params.require(:review).permit(:thoughts, :title, :home_id)
   end
 end

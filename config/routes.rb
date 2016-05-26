@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
   get "/reviews/new", to: "reviews#new", as: :new_review
   post "/reviews/new", to: "reviews#create", as: :create_review
+  get "/:city/homes/:id/reviews/:id", to: "reviews#show", as: :review
+  get "/:city/homes/:id/reviews", to: "reviews#index", as: :reviews
 
   get "/pendinghomes",             to: "homes#index",        as: :pending_homes
   post "/pendinghomes",            to: "user#show"
