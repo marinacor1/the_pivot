@@ -15,6 +15,12 @@ class ReviewsController < ApplicationController
       redirect_to dashboard_path
   end
 
+  def index
+    @city = City.find(params[:city])
+    @home = Home.find(params[:city])
+    @reviews = @home.reviews
+  end
+
   private
 
   def params_check
