@@ -1,11 +1,15 @@
 class ReviewsController < ApplicationController
   def new
+    binding.pry
     @review = Review.new
+    #TODO you can do this: x = Review.new(home_id: "2", user_id: "3")
+    #what I need to do is find a way to pass home_id and user_id into params
     #params: {"controller"=>"reviews", "action"=>"new"}
   end
 
   def create
     @review = Review.new(params_check)
+    binding.pry
     @home = Home.find(params[:review][:home_id])
     if @review.save
       @home.reviews << @review
@@ -17,6 +21,9 @@ class ReviewsController < ApplicationController
   end
 
   def index
+    #{"controller"=>"reviews", "action"=>"index", "city"=>"1", "id"=>"#<Review::ActiveRecord_Associations_CollectionProxy:0x007fe60daa5cd0>"}
+    #TODO remove active record association for id
+    @city = City.find(params[:city])
     @home = Home.find(params[:city])
     @reviews = @home.reviews
   end

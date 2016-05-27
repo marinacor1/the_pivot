@@ -21,7 +21,8 @@
       </form>
       <br>
       <% if @home.reviews.count > 0 %>
-        <h4>Check out reviews for the home here. <%= link_to "Reviews", reviews_path(@home, @home.reviews) %></h4>
+        <h4>Check out reviews for the home here. <%= link_to "Reviews", reviews_path(@home, @reviews) %></h4>
+<!-- WHY DOESN'T THE @home pass into the reviews controller ???-->
       <% end %>
     </div>
   </div>

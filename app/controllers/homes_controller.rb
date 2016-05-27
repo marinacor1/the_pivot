@@ -20,6 +20,7 @@ class HomesController < ApplicationController
     @home = Home.find(params[:id])
     @city = City.find_by(slug: params[:city] )
     @reservation = Reservation.new
+    @reviews = @home.reviews
     if @home.online? == false
       render file: 'public/404', status: 404
     end
