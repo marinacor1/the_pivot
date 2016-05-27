@@ -31,6 +31,6 @@ class ReviewsController < ApplicationController
   private
 
   def params_check
-    params.require(:review).permit(:thoughts, :title, :home_id, :user_id)
+    params.require(:review).permit(:thoughts, :title, :home_id, :user_id, :reservation_id)
   end
 end

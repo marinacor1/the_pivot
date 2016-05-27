@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526215420) do
+ActiveRecord::Schema.define(version: 20160527045904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,14 +61,16 @@ ActiveRecord::Schema.define(version: 20160526215420) do
   create_table "reviews", force: :cascade do |t|
     t.integer  "home_id"
     t.integer  "trip_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.text     "thoughts"
     t.text     "title"
     t.text     "user_id"
+    t.integer  "reservation_id"
   end
 
   add_index "reviews", ["home_id"], name: "index_reviews_on_home_id", using: :btree
+  add_index "reviews", ["reservation_id"], name: "index_reviews_on_reservation_id", using: :btree
   add_index "reviews", ["trip_id"], name: "index_reviews_on_trip_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
@@ -113,6 +115,7 @@ ActiveRecord::Schema.define(version: 20160526215420) do
   add_foreign_key "homes", "cities"
   add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "homes"
+  add_foreign_key "reviews", "reservations"
   add_foreign_key "reviews", "trips"
   add_foreign_key "trips", "reviews"
   add_foreign_key "trips", "users"
