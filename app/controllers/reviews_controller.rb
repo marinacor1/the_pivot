@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   def new
-    binding.pry
     @review = Review.new
     #TODO you can do this: x = Review.new(home_id: "2", user_id: "3")
     #what I need to do is find a way to pass home_id and user_id into params
@@ -9,7 +8,6 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(params_check)
-    binding.pry
     @home = Home.find(params[:review][:home_id])
     if @review.save
       @home.reviews << @review
