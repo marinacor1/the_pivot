@@ -173,6 +173,9 @@
   height: 700px;
 }
 
+.panel-body {
+  padding-left: 10 px;
+}
 .dashboard {
   padding: 0px;
   background: url(suitcase.jpeg) no-repeat center;
