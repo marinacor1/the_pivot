@@ -24,6 +24,9 @@
                   <strong>Check In: </strong><%= reservation.check_in.strftime("%b %d, %Y") %>
                   <strong>Check Out: </strong> <%= reservation.check_out.strftime("%b %d, %Y") %>
                 </p>
+                  <td><% if trip.review_id.nil? %>
+                    <%= link_to "Review this Trip", new_review_path, class: "btn btn-success" %>
+                  <% end %></td>
               <% end %>
             </div>
           </div>
