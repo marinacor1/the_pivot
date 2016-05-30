@@ -2,19 +2,15 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new(home_id: params[:home_id])
     @review.save
-    #TODO you can do this: x = Review.new(home_id: "2", user_id: "3")
-    #what I need to do is find a way to pass home_id and user_id into params
-    #params: {"controller"=>"reviews", "action"=>"new"}
   end
 
   def create
     @review = Review.new(params_check)
-    # @home = Home.find(params[:review][:home_id])
-    #TODO if we take out the hidden table then it will not find a home_id this way
     if @review.save
       @review.user_id = current_user.id
       @review.save
-      # @home.reviews << @review
+      @home = Home.find(params[:review][:home_id])
+      @home.reviews << @review
       flash[:error] = "Your review has been submitted!"
     else
       flash[:error] = "We're sorry, but your review could not be submitted."
