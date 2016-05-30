@@ -7,7 +7,7 @@
     <% if @reviews.count > 0%>
       <% @reviews.each do |review| %>
         <h4><%= User.find(review.user_id).first_name.capitalize %> <%= User.find(review.user_id).last_name.capitalize %>
-        said:  "<%= review.thoughts.capitalize %>"</h4>
+        said:  "<%= review.title.capitalize %>: <%= review.thoughts.capitalize %>"</h4>
       <% end %>
     <% end %>
   </div>
