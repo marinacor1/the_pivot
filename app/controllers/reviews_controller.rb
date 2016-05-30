@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def new
-    @review = Review.new(home_id: params[:home_id])
+    @review = Review.new(home_id: params[:home_id], reservation_id: params[:reservation_id])
   end
 
   def create
@@ -9,7 +9,6 @@ class ReviewsController < ApplicationController
       @review.user_id = current_user.id
       @review.save
       @home = Home.find(params[:review][:home_id])
-      #TODO reviews are being saved twice. One is nil and one is not.
       @home.reviews << @review
       flash[:error] = "Your review has been submitted!"
     else

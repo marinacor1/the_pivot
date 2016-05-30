@@ -2,6 +2,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :home
   belongs_to :trip
   has_many :days
+  has_one :review
 
   def double_booked_days
     Home.find(home_id).days.pluck(:date) & (check_in.to_date..check_out.to_date).to_a
