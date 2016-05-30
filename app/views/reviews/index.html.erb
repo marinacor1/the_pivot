@@ -6,8 +6,8 @@
   <div class="panel-body">
     <% if @reviews.count > 0%>
       <% @reviews.each do |review| %>
-        <h3><%= User.find(review.user_id).first_name %> <%= User.find(review.user_id).last_name %>
-        said:  "<%= review.thoughts %>"</h3>
+        <h3><%= User.find(review.user_id).first_name.capitalize %> <%= User.find(review.user_id).last_name.capitalize %>
+        said:  "<%= review.thoughts.capitalize %>"</h3>
       <% end %>
     <% end %>
   </div>
