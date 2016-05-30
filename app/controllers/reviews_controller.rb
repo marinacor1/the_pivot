@@ -11,10 +11,11 @@ class ReviewsController < ApplicationController
       @home = Home.find(params[:review][:home_id])
       @home.reviews << @review
       flash[:error] = "Your review has been submitted!"
-    else
-      flash[:error] = "We're sorry, but your review could not be submitted."
-    end
       redirect_to trips_path
+    else
+      flash[:error] = "Make sure you fill both title and thoughts."
+      render :new
+    end
   end
 
   def index
