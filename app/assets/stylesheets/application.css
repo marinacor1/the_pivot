@@ -14,14 +14,7 @@
  *= require_self
  */
 
- .date-picker-box {
-   display: flex;
-   padding-right: 6.5em;
- }
 
- .date-picker-box input {
-   margin-right: 1em;
- }
 
  .login-button {
    color: black;
@@ -68,6 +61,7 @@
   float: none;
   padding: auto;
 }
+
 .welcome-drop {
   text-align: center;
   padding: 230px;
@@ -222,3 +216,13 @@
 .navbar {
   margin-bottom: 0px !important;
 }
+
+ .date-picker-box {
+   display: flex;
+   padding-right: 6.5em;
+ }
+
+
+ .date-picker-box input {
+   margin-right: 1em;
+ }
