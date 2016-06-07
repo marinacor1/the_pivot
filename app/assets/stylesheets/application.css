@@ -35,6 +35,7 @@
   font-size: 130%;
   text-shadow: 1px #899bae;
   background: url(garden_home.jpeg) no-repeat center;
+/**/if using sass you want to use a sass-rails helper here instead so it does not look it up everytime
   background-size: cover;
   padding: 250px;
   height: 600px;
