@@ -7,17 +7,16 @@ RSpec.feature "User can remove booking from cart" do
     home = city.homes.first
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-
     visit '/denver-co'
 
     within('#cart-count') do
       expect(page).to have_text("0")
     end
-
+    save_and_open_page
     click_on home.title
 
     expect(current_path).to eq("/denver-co/homes/#{home.id}")
-
+save_and_open_page
     within(".date-picker-box") do
       expect(page).to have_button("Request Dates")
       sleep(1)

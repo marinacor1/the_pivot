@@ -22,6 +22,7 @@ RSpec.feature "platform admin can approve or decline new homes" do
     fill_in "Address", with: "123 Lane Street"
     fill_in "Zip Code", with: "80203"
     fill_in "Daily Rate", with: "16"
+    save_and_open_page
     select('Los Angeles, CA')
     click_button "Submit"
 

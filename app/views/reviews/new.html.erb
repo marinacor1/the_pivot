@@ -1,0 +1,33 @@
+<div class ="write-review-page">
+  <h1>Write a Review </h1>
+    <%= form_for(Review.new, url: create_review_path) do |f| %>
+      <div class="form-group-account">
+        <%= f.label :title, "Title:", class: "col-md-2 col-xs- 2 col-sm-2 control-label" %>
+        <div class="col-md-4">
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group-account">
+        <%= f.label :thoughts, "Thoughts on Your Experience:", class: "col-md-2 col-xs- 2 col-sm-2 control-label" %>
+        <div class="col-md-4">
+          <%= f.text_area :thoughts, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group-account">
+        <div class="col-md-4">
+          <%= f.hidden_field :home_id, :value => "#{params[:home_id]}", class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group-account">
+        <div class="col-md-4">
+          <%= f.hidden_field :reservation_id, :value => "#{params[:reservation_id]}", class: "form-control" %>
+        </div>
+      </div>
+
+      <br>
+        <%= f.submit "Submit", class: "btn btn-default" %>
+    <% end %>
+  </div>

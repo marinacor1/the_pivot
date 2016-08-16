@@ -8,8 +8,6 @@ feature "Registered user can manage account" do
     original_first = user.first_name
     original_last = user.last_name
 
-    visit root_path
-
     user_login(user)
 
     expect(current_path).to eq(dashboard_path)

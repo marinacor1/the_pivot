@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://rubygems.org'  # ~> NoMethodError: undefined method `source' for main:Object
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -55,3 +55,8 @@ group :development do
   gem 'spring'
 
 end
+
+# ~> NoMethodError
+# ~> undefined method `source' for main:Object
+# ~>
+# ~> /Users/marinacorona/Turing/3Module/super-coders/Gemfile:1:in `<main>'

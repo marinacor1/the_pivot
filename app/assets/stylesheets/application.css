@@ -14,14 +14,7 @@
  *= require_self
  */
 
- .date-picker-box {
-   display: flex;
-   padding-right: 6.5em;
- }
 
- .date-picker-box input {
-   margin-right: 1em;
- }
 
  .login-button {
    color: black;
@@ -68,6 +61,7 @@
   float: none;
   padding: auto;
 }
+
 .welcome-drop {
   text-align: center;
   padding: 230px;
@@ -118,6 +112,22 @@
   height: 600px;
 }
 
+.review-body {
+  padding-left: 5px;
+}
+
+.review-body {
+  padding-left: 20px;
+}
+
+.write-review-page {
+  color: white;
+  background: url(london_home.jpeg) no-repeat center;
+  background-size: cover;
+  padding: 250px;
+  height: 600px;
+}
+
 .form-group-account {
   padding: 25px;
   font-size: 150%;
@@ -129,7 +139,6 @@
   padding-left: 50px;
   height: 1000px;
 }
-
 
 .form-group {
   padding: 5px;
@@ -147,7 +156,7 @@
 .dashboard-links {
   padding: 0px;
   color: white;
-  font-size: 150%
+  font-size: 150%;
 }
 
 .dashboard-title {
@@ -166,6 +175,9 @@
   height: 700px;
 }
 
+.panel-body {
+  padding-left: 10 px;
+}
 .dashboard {
   padding: 0px;
   background: url(suitcase.jpeg) no-repeat center;
@@ -191,10 +203,10 @@
   padding-right: 260px;
 }
 .city-page {
-  background-color: #c7c7c7
+  background-color: #c7c7c7;
 }
 .trips-page {
-  background-color: #c7c7c7
+  background-color: #c7c7c7;
 }
 
 .cart-checkout-button {
@@ -204,3 +216,13 @@
 .navbar {
   margin-bottom: 0px !important;
 }
+
+ .date-picker-box {
+   display: flex;
+   padding-right: 6.5em;
+ }
+
+
+ .date-picker-box input {
+   margin-right: 1em;
+ }
